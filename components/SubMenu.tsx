@@ -10,7 +10,7 @@ interface MenuItem {
 const SubMenu = ({ title, menuItems }: { title: string; menuItems: MenuItem[] }) => {
   return (
     <div>
-      <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100">
+      <h4 className="text-sm md:text-md  font-semibold text-gray-900 uppercase dark:text-neutral-100">
         {title}
       </h4>
 

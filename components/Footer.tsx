@@ -273,7 +273,7 @@ const Footer = () => {
                   Brand
                 </Link>
                 <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                  © 2022 Preline.
+                   {currentYear} Preline.
                 </p>
               </div>
 
@@ -330,6 +330,7 @@ const Footer = () => {
             {/* End Col */}
           </div>
         </div>
+        
       </footer>
       {/* ========== END FOOTER ========== */}
     </>
