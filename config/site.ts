@@ -1,28 +1,41 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Ghana Diaspora Union in Europe (GDUE)",
+  description: "Fostering unity, cultural pride, economic empowerment, and social cohesion among Ghanaians in the diaspora.",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
+      label: "About Us",
       href: "/about",
+    },
+    {
+      label: "Services",
+      href: "/services",
+    },
+    {
+      label: "Events",
+      href: "/events",
+    },
+    {
+      label: "Membership",
+      href: "/membership",
+    },
+    {
+      label: "Resources",
+      href: "/resources",
+    },
+
+    {
+      label: "Contact Us",
+      href: "/contact",
+    },
+    {
+      label: "Donate",
+      href: "/donate",
     },
   ],
   navMenuItems: [
@@ -33,18 +46,6 @@ export const siteConfig = {
     {
       label: "Dashboard",
       href: "/dashboard",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
     },
     {
       label: "Settings",
@@ -60,10 +61,11 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    twitter: "https://twitter.com/your-organization",
+    facebook: "https://facebook.com/your-organization",
+    instagram: "https://instagram.com/your-organization",
+    linkedin: "https://linkedin.com/company/your-organization",
+    docs: "/docs",
+    membership: "/membership",
   },
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@nextui-org/link";
+import Link from "next/link";
 import SubMenu from "./SubMenu";
 
 const Footer = () => {
@@ -13,24 +13,25 @@ const Footer = () => {
         {/* Grid */}
         <div className="pt-16 mt-5 border-t border-gray-200 dark:border-neutral-700/30 grid grid-cols-2 
         md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
-          <div className="col-span-full hidden lg:col-span-1 lg:block">
+          <div className="col-span-full hidden lg:col-span-2 lg:block space-y-4">
             <Link
               className="flex-none text-xl font-semibold dark:text-white"
-              href="#"
+              href={'/'}
               aria-label="Brand"
             >
               GDUE
             </Link>
-            <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-              &copy; {currentYear} Ghana Diaspora Union Europe.
+            <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400 capitalize">
+              &copy; {currentYear} Ghana Diaspora Union in Europe. (GDUE)
             </p>
+            <p className="text-xs">Helping Ghanaians abroad thrive! We advocate for your rights, offer support programs, celebrate our culture, and empower you with education & economic opportunities. Together, we build a strong, vibrant Ghanaian diaspora community.</p>
           </div>
           {/* End Col */}
 
           <SubMenu title="Community" menuItems={communityMenuItems} />
           <SubMenu title="Engagements" menuItems={engagementMenuItems} />
           <SubMenu title="Support Services" menuItems={supportMenuItems} />
-          <SubMenu title="Resource Information" menuItems={resourcesAndInformationMenuItems} />
+          {/* <SubMenu title="Resource Information" menuItems={resourcesAndInformationMenuItems} /> */}
 
 
         </div>
@@ -244,13 +245,13 @@ const Footer = () => {
               <div className="space-x-4 text-sm ms-4">
                 <Link
                   className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-                  href="#"
+                  href={'/terms'}
                 >
                   Terms
                 </Link>
                 <Link
                   className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-                  href="#"
+                  href={'/privacy'}
                 >
                   Privacy
                 </Link>
@@ -342,7 +343,7 @@ export default Footer;
 
 // Usage with your menu items
 const communityMenuItems = [
-    { label: 'About Us', href: '/about-us' }, // Replace with actual links
+    { label: 'About Us', href: '/about' }, // Replace with actual links
     { label: 'Membership', href: '/membership' },
     { label: 'Events Calendar', href: '/events' },
     { label: 'Volunteer Opportunities', href: '/volunteer' },

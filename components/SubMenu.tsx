@@ -14,7 +14,7 @@ const SubMenu = ({ title, menuItems }: { title: string; menuItems: MenuItem[] })
         {title}
       </h4>
 
-      <div className="mt-3 grid space-y-3 text-sm">
+      <div className="mt-3 grid space-y-3 text-xs">
         {menuItems.map((item) => (
           <p key={item.label}>
             <Link
