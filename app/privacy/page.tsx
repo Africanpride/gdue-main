@@ -3,7 +3,7 @@ import { title } from "@/components/primitives";
 export default function Privacy() {
   return (
 <>
-    <div className="max-w-7xl mx-auto md:p-6  shadow-md rounded-md space-y-6" >
+    <div className="max-w-7xl mx-auto  md:p-8  border border-gray-200 dark:border-neutral-700/30 rounded-3xl space-y-6" >
         <h1 className="text-3xl font-bold mb-4">Privacy Policy for Ghana Diaspora Union in Europe (GDUE)</h1>
 
         <section className="">

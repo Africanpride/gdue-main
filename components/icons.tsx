@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { IconSvgProps } from "@/types";
+import Image, { ImageProps } from "next/image";
 
 export const Logo: React.FC<IconSvgProps> = ({
   size = 36,
@@ -23,6 +24,7 @@ export const Logo: React.FC<IconSvgProps> = ({
     />
   </svg>
 );
+
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
   size = 24,

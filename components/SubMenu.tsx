@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link"; // Assuming you're using Next.js for routing
+import { bebas, ibm_plex_sans_condense, poppins } from "@/config/fonts";
 
 interface MenuItem {
   label: string;
@@ -14,12 +15,12 @@ const SubMenu = ({ title, menuItems }: { title: string; menuItems: MenuItem[] })
         {title}
       </h4>
 
-      <div className="mt-3 grid space-y-3 text-xs">
+      <div className="mt-3 grid space-y-3 text-sm">
         {menuItems.map((item) => (
           <p key={item.label}>
             <Link
               href={item.href}
-              className={`inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 ${
+              className={`${ibm_plex_sans_condense.className} font-thin inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 ${
                 item.isHighlighted ? "text-blue-600 dark:text-blue-500" : ""
               }`}
             >

@@ -20,10 +20,7 @@ export const siteConfig = {
       label: "Events",
       href: "/events",
     },
-    {
-      label: "Membership",
-      href: "/membership",
-    },
+
     {
       label: "Resources",
       href: "/resources",
@@ -32,11 +29,7 @@ export const siteConfig = {
     {
       label: "Contact Us",
       href: "/contact",
-    },
-    {
-      label: "Donate",
-      href: "/donate",
-    },
+    }
   ],
   navMenuItems: [
     {

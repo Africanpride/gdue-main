@@ -8,6 +8,7 @@ export default function AboutLayout({
       <div className="">
         {children}
       </div>
+
     </section>
   );
 }
