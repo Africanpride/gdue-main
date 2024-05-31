@@ -27,7 +27,7 @@ import {
 } from "@/components/icons";
 import { Facebook, FacebookIcon, Twitter } from "lucide-react";
 import Image from "next/image";
-import { bebas, ibm_plex_sans_condense } from "@/config/fonts";
+import { bebas, ibm_plex_sans_condense, montserrat, sourceCodePro400, sourceCodePro700 } from "@/config/fonts";
 
 export const Navbar = () => {
   const searchInput = (
@@ -55,9 +55,9 @@ export const Navbar = () => {
         <NextUINavbar
           maxWidth="xl"
           position="sticky"
-          className="h-full w-full bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black border md:rounded-full border-gray-200 dark:border-neutral-700/30 "
+          className={`${sourceCodePro700.className} uppercase shadow-sm h-full w-full bg-neutral-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black md:rounded-full `}
         >
-          <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+          <NavbarContent className={`font-bold basis-1/5 sm:basis-full" justify="start`}>
             <NavbarBrand as="li" className="gap-3 max-w-fit">
               <NextLink
                 className="flex justify-start items-center gap-1"
@@ -103,7 +103,7 @@ export const Navbar = () => {
               <Button
                 isExternal
                 as={Link}
-                className="text-sm font-normal text-default-600 bg-default-100"
+                className={` text-sm font-bold  bg-default-100`}
                 href={siteConfig.links.membership}
                 startContent={
                   <Image

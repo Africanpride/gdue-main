@@ -8,6 +8,7 @@ import {
   IBM_Plex_Sans_Condensed,
   Playfair_Display,
   Bebas_Neue,
+  Montserrat
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 
@@ -31,12 +32,22 @@ type Props = {
 // const superbold = localFont({ src: '../localfonts/bold.ttf' })
 
 // define your variable fonts
+const inter = Inter({
+  weight: ["100","200","300","400","500","700","900",],
+  subsets: ["latin"],
+  style: ["normal"],
+});
+const montserrat = Montserrat({
+  weight: ["100","200","300","400","500","700","900",],
+  subsets: ["latin"],
+  style: ["italic","normal"],
+});
 const bebas = Bebas_Neue({
   weight: ["400"],
   subsets: ["latin"],
   style: ["normal"],
 });
-const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 const playfair_display = Playfair_Display({
   subsets: ["latin"],
   weight: ["500"],
@@ -71,4 +82,5 @@ export {
   bebas,
   fontMono,
   fontSans,
+  montserrat
 };
