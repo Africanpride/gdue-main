@@ -8,7 +8,8 @@ import {
   IBM_Plex_Sans_Condensed,
   Playfair_Display,
   Bebas_Neue,
-  Montserrat
+  Montserrat,
+  
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 

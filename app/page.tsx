@@ -7,100 +7,97 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { bebas } from "@/config/fonts";
+import { Library } from "lucide-react";
 
 export default function Home() {
   return (
-    <section className="body-font dark:text-white">
-    <div className="container  py-24 mx-auto">
-      <div className="flex flex-wrap w-full mb-20">
-        <div className="lg:w-1/3 w-full mb-6 lg:mb-0">
-          <h1 className={`${bebas.className} sm:text-3xl md:text-5xl font-medium title-font mb-2`}>
-            Discover GDUE&apos;s Mission
-          </h1>
-          <div className="h-1 w-20 bg-yellow-500 rounded" />
-        </div>
-        <p className="lg:w-2/3 w-full leading-relaxed md:text-2xl ">
-
-          Learn about GDUE&apos;s mission to unite Ghanaians in Europe. We
-          promote cultural pride, economic empowerment, and social cohesion
-          while advocating for the rights and welfare of our diverse and
-          vibrant community.
-        </p>
-      </div>
-      <div className="flex flex-wrap">
-        <div className=" md:flex items-center  gap-x-4 gap-y-8">
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-2 rounded-lg">
-            <img
-              className="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/720x400"
-              alt="content"
+    <div>
+      <h1 className="text-900 font-medium leading-10">
+        Planned listings get more leads
+        <span className="whitespace-nowrap">
+           
+          <svg
+            className="inline-block h-auto w-20 -translate-x-1/4 align-super bp:w-36"
+            width="37"
+            height="33"
+            viewBox="0 0 37 33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.3843 2.3623C17.3309 9.99828 7.02245 20.1796 2.25 24.3157M11.7951 29.0881C17.8402 27.8154 30.694 24.3156 33.7483 20.4977"
+              stroke="currentColor"
+              strokeWidth={5.43873}
             />
-            <h3 className="tracking-widest text-xs font-medium title-font">
-              SUBTITLE
-            </h3>
-            <h2 className="text-lg font-medium title-font mb-4">
-              Chichen Itza
-            </h2>
-            <p className="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat.
-              Distillery hexagon disrupt edison bulbche.
-            </p>
-          </div>
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-2 rounded-lg">
-            <img
-              className="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/720x400"
-              alt="content"
-            />
-            <h3 className="tracking-widest text-xs font-medium title-font">
-              SUBTITLE
-            </h3>
-            <h2 className="text-lg font-medium title-font mb-4">
-              Chichen Itza
-            </h2>
-            <p className="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat.
-              Distillery hexagon disrupt edison bulbche.
-            </p>
-          </div>
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-2 rounded-lg">
-            <img
-              className="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/720x400"
-              alt="content"
-            />
-            <h3 className="tracking-widest text-xs font-medium title-font">
-              SUBTITLE
-            </h3>
-            <h2 className="text-lg font-medium title-font mb-4">
-              Chichen Itza
-            </h2>
-            <p className="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat.
-              Distillery hexagon disrupt edison bulbche.
-            </p>
-          </div>
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-2 rounded-lg">
-            <img
-              className="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/720x400"
-              alt="content"
-            />
-            <h3 className="tracking-widest text-xs font-medium title-font">
-              SUBTITLE
-            </h3>
-            <h2 className="text-lg font-medium title-font mb-4">
-              Chichen Itza
-            </h2>
-            <p className="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat.
-              Distillery hexagon disrupt edison bulbche.
-            </p>
+          </svg>
+        </span>
+      </h1>
+      <section className="w-full pt-2">
+        <div className="mx-auto max-w-7xl lg:max-w-none px-6 lg:px-8 ">
+          <div
+            className="-mx-6 md:rounded-6xl bg-neutral-950 px-6 py-16 sm:mx-0 sm:py-28 md:px-12 min-h-[70dvh]"
+            style={{
+              opacity: "1",
+              transform: "none",
+              backgroundImage: "url('/images/africa.jpg')",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="mx-auto max-w-4xl hidden">
+              <div className="max-w-2xl space-y-5 ">
+                <h2 className="font-display text-3xl font-medium text-white [text-wrap:balance] sm:text-4xl">
+                  Stay Connected with GDUE
+                </h2>
+                <p className="text-sm text-gray-500">
+                  Join our newsletter to stay informed about events, support
+                  services, and community news. Be part of our mission to unite
+                  and empower Ghanaians in the diaspora.
+                </p>
+                <div className="mt-6 flex">
+                  <Link
+                    className="inline-flex items-center rounded-full px-4 py-1.5 space-x-3 text-sm font-semibold transition bg-white text-neutral-950 hover:bg-neutral-200"
+                    href="/contact"
+                  >
+                    <span className="relative top-px">Say Hi</span>
+                    <span>
+                      <Library className="text-current h-5 w-5" />
+                    </span>
+                  </Link>
+                </div>
+                <div className="mt-10 border-t border-white/10 pt-10">
+                  <h3 className="font-display text-base font-semibold text-white">
+                    Our offices
+                  </h3>
+                  <ul
+                    role="list"
+                    className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                  >
+                    <li>
+                      <address className="text-sm not-italic text-neutral-300">
+                        <strong className="text-white">Barcelona</strong>
+                        <br />1 Carlsberg Gate
+                        <br />
+                        1260, København, Spain
+                      </address>
+                    </li>
+                    <li>
+                      <address className="text-sm not-italic text-neutral-300">
+                        <strong className="text-white">Ankara</strong>
+                        <br />
+                        24 Lego Allé
+                        <br />
+                        7190, Billund, Turkey
+                      </address>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-      </div>
+      </section>
+      <h3 className="block-title d-inline-block position-relative"><a href="/project-details-v1">Manage your online banking and get rewarded</a></h3>
     </div>
-  </section>
   );
 }

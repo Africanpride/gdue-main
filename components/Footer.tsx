@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="w-full pt-20">
         <div className="mx-auto max-w-7xl lg:max-w-none px-6 lg:px-8 mt-22 sm:mt-30 lg:mt-38">
           <div
-            className="-mx-6 md:rounded-6xl bg-neutral-900 px-6 py-16 sm:mx-0 sm:py-28 md:px-12"
+            className="-mx-6 md:rounded-6xl bg-neutral-950 px-6 py-16 sm:mx-0 sm:py-28 md:px-12"
             style={{ opacity: "1", transform: "none" }}
           >
             <div className="mx-auto max-w-4xl">
@@ -74,7 +74,7 @@ const Footer = () => {
         <div className="pt-20 block relative overflow-hidden">
           <div
             className="bg-[url('/images/kente2.jpg')] sm:hidden md:block w-full	bg-center	 bg-auto	 bg-repeat-x h-2 md:h-4
-            border border-gray-200 dark:border-neutral-700/30"
+            border border-neutral-200 dark:border-neutral-700/30"
           >
             {" "}
             &nbsp;
