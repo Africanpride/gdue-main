@@ -30,11 +30,13 @@ import Image from "next/image";
 import {
   bebas,
   ibm_plex_sans_condense,
+  inter,
   montserrat,
   poppins,
   sourceCodePro400,
   sourceCodePro700,
 } from "@/config/fonts";
+import Akwado from "@/ui/Akwado";
 
 export const Navbar = () => {
   const searchInput = (
@@ -59,48 +61,64 @@ export const Navbar = () => {
   );
 
   return (
-    <div className="md:p-8">
-      <NextUINavbar
-        maxWidth="xl"
-        position="sticky"
-        className={`uppercase text-md  border  border-neutral-300/70 dark:border-neutral-700/70 shadow-sm h-full w-full bg-neutral-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black md:rounded-full `}
-      >
-        <NavbarContent
-          className={`font-bold basis-1/5 sm:basis-full" justify="start`}
-        >
-          <NavbarBrand as="li" className="gap-3 max-w-fit">
-            <NextLink
+    <div className="">
+      <div className="container mx-auto  h-[25dvh]  flex flex-col justify-center w-full ">
+        <div className="flex justify-between items-center px-5">
+          <div className="flex justify-start items-center divide-x gap-x-5">
+            <Akwado />
+            <div className="px-5">
+              <div className="text-lg font-bold leading-5  ">
+                <span className={`${inter.className} font-normal`}>
+                  {" "}
+                  Ghana Diaspora <br />
+                  Union in Europe{" "}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="">
+            {" "}
+            <NextUINavbar
+              maxWidth="xl"
+              position="sticky"
+              className={`uppercase text-md container mx-auto  border  border-neutral-300/70 dark:border-neutral-700/70 shadow-sm h-full w-full bg-neutral-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black md:rounded-full `}
+            >
+              <NavbarContent
+                className={`font-bold basis-1/5 sm:basis-full" justify="start`}
+              >
+                <NavbarBrand as="li" className="gap-3 max-w-fit">
+                  {/* <NextLink
               className="flex justify-start items-center gap-1"
               href="/"
             >
               <Logo />
               <p className="font-bold text-inherit">GDUE</p>
-            </NextLink>
-          </NavbarBrand>
+            </NextLink> */}
+                </NavbarBrand>
 
-          <ul className="hidden lg:flex gap-4 justify-start ml-2">
-            {siteConfig.navItems.map((item) => (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium"
-                  )}
-                  color="foreground"
-                  href={item.href}
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarItem>
-            ))}
-          </ul>
-        </NavbarContent>
+                <ul className="hidden lg:flex gap-4 justify-start ml-2">
+                  {siteConfig.navItems.map((item) => (
+                    <NavbarItem key={item.href}>
+                      <NextLink
+                        className={clsx(
+                          linkStyles({ color: "foreground" }),
+                          "data-[active=true]:text-primary data-[active=true]:font-medium"
+                        )}
+                        color="foreground"
+                        href={item.href}
+                      >
+                        {item.label}
+                      </NextLink>
+                    </NavbarItem>
+                  ))}
+                </ul>
+              </NavbarContent>
 
-        <NavbarContent
-          className="hidden sm:flex basis-1/5 sm:basis-full"
-          justify="end"
-        >
-          {/* <NavbarItem className="hidden sm:flex gap-2">
+              <NavbarContent
+                className="hidden sm:flex basis-1/5 sm:basis-full"
+                justify="end"
+              >
+                {/* <NavbarItem className="hidden sm:flex gap-2">
 
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-500" />
@@ -108,27 +126,27 @@ export const Navbar = () => {
 
         </NavbarItem> */}
 
-          {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
-          <NavbarItem className="hidden md:flex items-center">
-            <Button
-              isExternal
-              as={Link}
-              className={` text-sm font-bold  bg-default-100`}
-              href={siteConfig.links.membership}
-              startContent={
-                <Image
-                  alt="Ghana"
-                  src={"/images/ghana.svg"}
-                  width={30}
-                  height={30}
-                />
-              }
-              variant="flat"
-            >
-              Membership
-            </Button>
-          </NavbarItem>
-          {/* <NavbarItem className="hidden md:flex">
+                {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
+                <NavbarItem className="hidden md:flex items-center">
+                  <Button
+                    isExternal
+                    as={Link}
+                    className={` text-sm font-bold  bg-default-100`}
+                    href={siteConfig.links.membership}
+                    startContent={
+                      <Image
+                        alt="Ghana"
+                        src={"/images/ghana.svg"}
+                        width={30}
+                        height={30}
+                      />
+                    }
+                    variant="flat"
+                  >
+                    Membership
+                  </Button>
+                </NavbarItem>
+                {/* <NavbarItem className="hidden md:flex">
             <Button
               isExternal
               as={Link}
@@ -140,47 +158,54 @@ export const Navbar = () => {
               Donate
             </Button>
           </NavbarItem> */}
-          <ThemeSwitch />
-        </NavbarContent>
+                <ThemeSwitch />
+              </NavbarContent>
 
-        <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-          <Link
-            isExternal
-            aria-label="Facebook"
-            href={siteConfig.links.facebook}
-          >
-            <Facebook className="text-default-500" />
-          </Link>
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <Twitter className="text-default-500" />
-          </Link>
-          <ThemeSwitch />
-          <NavbarMenuToggle />
-        </NavbarContent>
-
-        <NavbarMenu>
-          {searchInput}
-          <div className="mx-4 mt-2 flex flex-col gap-2">
-            {siteConfig.navMenuItems.map((item, index) => (
-              <NavbarMenuItem key={`${item}-${index}`}>
+              <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
                 <Link
-                  color={
-                    index === 2
-                      ? "primary"
-                      : index === siteConfig.navMenuItems.length - 1
-                        ? "danger"
-                        : "foreground"
-                  }
-                  href="#"
-                  size="lg"
+                  isExternal
+                  aria-label="Facebook"
+                  href={siteConfig.links.facebook}
                 >
-                  {item.label}
+                  <Facebook className="text-default-500" />
                 </Link>
-              </NavbarMenuItem>
-            ))}
+                <Link
+                  isExternal
+                  aria-label="Twitter"
+                  href={siteConfig.links.twitter}
+                >
+                  <Twitter className="text-default-500" />
+                </Link>
+                <ThemeSwitch />
+                <NavbarMenuToggle />
+              </NavbarContent>
+
+              <NavbarMenu>
+                {searchInput}
+                <div className="mx-4 mt-2 flex flex-col gap-2">
+                  {siteConfig.navMenuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item}-${index}`}>
+                      <Link
+                        color={
+                          index === 2
+                            ? "primary"
+                            : index === siteConfig.navMenuItems.length - 1
+                              ? "danger"
+                              : "foreground"
+                        }
+                        href="#"
+                        size="lg"
+                      >
+                        {item.label}
+                      </Link>
+                    </NavbarMenuItem>
+                  ))}
+                </div>
+              </NavbarMenu>
+            </NextUINavbar>
           </div>
-        </NavbarMenu>
-      </NextUINavbar>
+        </div>
+      </div>
     </div>
   );
 };

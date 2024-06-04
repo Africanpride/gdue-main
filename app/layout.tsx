@@ -54,7 +54,7 @@ export default function RootLayout({
 
           </div>
           <div className="relative flex flex-col h-screen">
-            <main className="m-4 md:p-8 ">
+            <main className="container mx-auto ">
               {children}
             </main>
 

@@ -14,10 +14,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Library } from "lucide-react";
+import Faqs from "@/components/Faqs";
 
 export default function AboutPage() {
   return (
-    <div className="space-y-16 md:space-y-24">
+    <div className="space-y-16">
       <section className="h-auto min-h-[60dvh] flex flex-col justify-end">
         <div className="w-full container mx-auto grid md:grid-cols-2 gap-4">
           <div className="space-y-3 w-full md:max-w-2xl">
@@ -49,14 +50,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-
       <section
         className="bg-neutral-300/30 dark:bg-neutral-900 h-auto min-h-dvh -mx-12 p-4 md:p-24 
       flex flex-col justify-center"
       >
         <div>
-          <div className="w-full md:flex md:space-x-5 p-5">
+          <div className="w-full md:flex md:space-x-5 p-4">
             <div
               className={` w-full md:w-6/12 text-4xl p-4 md:pt-3 md:text-right`}
             >
@@ -95,7 +94,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="w-full md:flex md:space-x-5 p-5">
+          <div className="w-full md:flex md:space-x-5 p-4">
             <div
               className={` w-full md:w-6/12 text-4xl p-4 md:pt-3 md:text-right`}
             >
@@ -120,8 +119,16 @@ export default function AboutPage() {
       </section>
 
       <section
-        className=" h-auto min-h-dvh -mx-12 p-4 md:px-24 md:py-4 
+        className=" h-auto min-h-dvh md:px-24 md:py-4 
       flex flex-col justify-center items-center"
+      >
+        <Faqs />
+
+      </section>
+
+      <section
+        className=" h-auto min-h-dvh -mx-12 p-4 md:px-24 md:py-4 
+       flex-col justify-center items-center hidden"
       >
         <div className="text-md max-w-2xl">
           The Ghana Diaspora Union in Europe (GDUE) is your bridge to a vibrant
