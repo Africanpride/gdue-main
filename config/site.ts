@@ -22,13 +22,17 @@ export const siteConfig = {
     },
 
     {
-      label: "Resources",
-      href: "/resources",
+      label: "Businesses",
+      href: "/businesses",
     },
 
     {
       label: "Contact Us",
       href: "/contact",
+    },
+    {
+      label: "Donate",
+      href: "/donate",
     }
   ],
   navMenuItems: [

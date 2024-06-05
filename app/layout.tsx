@@ -6,12 +6,15 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans, ibm_plex_sans_condense } from "@/config/fonts";
+import { ibm_plex_sans_condense } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 import { Image } from "@nextui-org/image";
 import Heading from "@/components/Jumbotron";
 import Jumbotron from "@/components/Jumbotron";
+import PrelineScript from "@/components/PrelineScript";
+import NavBar2 from "@/components/NavBar2";
+import NavBar3 from "@/components/NavBar3";
 
 export const metadata: Metadata = {
   title: {
@@ -42,26 +45,22 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body
-        className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased`}
+        className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
+        overflow-x-hidden text-[16px]`}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="h-auto min-h-[90%]  relative md:rounded-3xl flex flex-col">
-
-            <div>
-              <Navbar />
-
+            <div className="py-4">
+              <NavBar3 />
             </div>
 
-          </div>
-          <div className="relative flex flex-col h-screen">
-            <main className="container mx-auto ">
-              {children}
-            </main>
+          <div className="relative flex flex-col h-screen px-4">
+            <main className="container mx-auto ">{children}</main>
 
             <Footer />
           </div>
         </Providers>
       </body>
+      <PrelineScript />
     </html>
   );
 }

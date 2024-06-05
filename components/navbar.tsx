@@ -32,6 +32,7 @@ import {
   ibm_plex_sans_condense,
   inter,
   montserrat,
+  playfair_display,
   poppins,
   sourceCodePro400,
   sourceCodePro700,
@@ -61,17 +62,23 @@ export const Navbar = () => {
   );
 
   return (
-    <div className="">
-      <div className="container mx-auto  h-[25dvh]  flex flex-col justify-center w-full ">
+    <div
+      className="fixed w-full z-30 top-0 bg-white dark:bg-black  md:border-b border-neutral-300 
+     dark:border-neutral-800/50"
+    >
+      <div className="container mx-auto  h-auto md:h-[20dvh]  flex flex-col justify-center w-full ">
         <div className="flex justify-between items-center px-5">
-          <div className="flex justify-start items-center divide-x gap-x-5">
+          <div className="hidden md:flex justify-start items-center divide-x gap-x-5">
             <Akwado />
             <div className="px-5">
               <div className="text-lg font-bold leading-5  ">
-                <span className={`${inter.className} font-normal`}>
+                <span className={` font-normal`}>
                   {" "}
-                  Ghana Diaspora <br />
-                  Union in Europe{" "}
+                  Ghana Diaspora Union <br />
+                  in{" "}
+                  <span className={`${playfair_display.className}`}>
+                    Europe
+                  </span>{" "}
                 </span>
               </div>
             </div>
@@ -81,7 +88,7 @@ export const Navbar = () => {
             <NextUINavbar
               maxWidth="xl"
               position="sticky"
-              className={`uppercase text-md container mx-auto  border  border-neutral-300/70 dark:border-neutral-700/70 shadow-sm h-full w-full bg-neutral-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black md:rounded-full `}
+              className={`uppercase ${bebas.className} tracking-wide font-thin text-md container mx-auto  border  border-neutral-300/70 dark:border-neutral-800/70 shadow-sm h-full w-full bg-neutral-100 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10  dark:bg-black md:rounded-full `}
             >
               <NavbarContent
                 className={`font-bold basis-1/5 sm:basis-full" justify="start`}
@@ -161,24 +168,6 @@ export const Navbar = () => {
                 <ThemeSwitch />
               </NavbarContent>
 
-              <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-                <Link
-                  isExternal
-                  aria-label="Facebook"
-                  href={siteConfig.links.facebook}
-                >
-                  <Facebook className="text-default-500" />
-                </Link>
-                <Link
-                  isExternal
-                  aria-label="Twitter"
-                  href={siteConfig.links.twitter}
-                >
-                  <Twitter className="text-default-500" />
-                </Link>
-                <ThemeSwitch />
-                <NavbarMenuToggle />
-              </NavbarContent>
 
               <NavbarMenu>
                 {searchInput}

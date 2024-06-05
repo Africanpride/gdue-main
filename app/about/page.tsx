@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { title } from "@/components/primitives";
 import {
   bebas,
@@ -11,25 +12,34 @@ import {
   ArrowRightCircleIcon,
   ArrowRightFromLine,
   ArrowUpRightSquareIcon,
+  LucideActivitySquare,
+  LucideBrackets,
+  LucideChevronRight,
+  LucideMessageSquareShare,
+  LucideStepForward,
 } from "lucide-react";
 import Link from "next/link";
 import { Library } from "lucide-react";
 import Faqs from "@/components/Faqs";
+import Faqs2 from "@/components/Faqs2";
+import Newsletter from "@/components/Newsletter";
 
 export default function AboutPage() {
   return (
-    <div className="space-y-16">
+    <div className="md:space-y-16">
       <section className="h-auto min-h-[60dvh] flex flex-col justify-end">
-        <div className="w-full container mx-auto grid md:grid-cols-2 gap-4">
-          <div className="space-y-3 w-full md:max-w-2xl">
+        <div className="w-full container mx-auto grid md:grid-cols-3 gap-4">
+          <div className="space-y-3 w-full  md:col-span-2">
             <div className="py-3 flex items-center text-sm text-gray-800 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600  uppercase space-x-2">
-              <span>
+              {/* <span>
                 <ArrowRightCircleIcon className="text-yellow-500" />
-              </span>{" "}
+              </span>{" "} */}
               <span className="font-bold"> About G.D.U.E</span>
             </div>
-            <h3 className="text-4xl md:text-5xl capitalize font-extrabold">
-              Home in Europe &mdash; Ghana{" "}
+            <h3
+              className={`${bebas.className} text-4xl md:text-6xl capitalize font-extrabold`}
+            >
+              Home in Europe &mdash; Ghana <br />
               <span className={`${playfair_display.className} text-yellow-600`}>
                 Diaspora
               </span>{" "}
@@ -51,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="bg-neutral-300/30 dark:bg-neutral-900 h-auto min-h-dvh -mx-12 p-4 md:p-24 
+        className="bg-neutral-200 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
       flex flex-col justify-center"
       >
         <div>
@@ -69,7 +79,7 @@ export default function AboutPage() {
               </span>
               .
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-800 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
               Our Vision is to foster unity among Ghanaians in the diaspora by,
               promoting cultural pride, economic empowerment, and social
               cohesion, thus enhancing the well-being of our members and
@@ -108,7 +118,7 @@ export default function AboutPage() {
               </span>{" "}
               .
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-800 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
               GDUE&apos;s mission is advocating for the rights and welfare of
               Ghanaians in diaspora, facilitating economic well-being,
               networking, providing support, and undertaking initiatives for
@@ -118,19 +128,100 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section
-        className=" h-auto min-h-dvh md:px-24 md:py-4 
-      flex flex-col justify-center items-center"
-      >
-        <Faqs />
+      <Faqs />
+      
+      <section className="md:p-8 md:min-h-[90dvh]">
+        <>
+          {/* Hero */}
+          <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Grid */}
+            <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
+              <div className="lg:col-span-3">
+                <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
+                  <span className={`${bebas.className}`}>
+                    friendship, cultural exchange, and professional advancement
+                  </span>
+                </h1>
+                <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+                  The Ghana Diaspora Union in Europe (GDUE) is your bridge to a
+                  vibrant Ghanaian community abroad. We understand the joys and
+                  challenges of living in Europe, and we are here to empower
+                  you. As a member of GDUE, you&apos;ll connect with a network
+                  of fellow Ghanaians for friendship, cultural exchange, and
+                  professional advancement.
+                </p>
 
+                <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
+                  {/* <div className="w-full sm:w-auto">
+                    <label htmlFor="hero-input" className="sr-only">
+                      Search
+                    </label>
+                    <input
+                      type="text"
+                      id="hero-input"
+                      name="hero-input"
+                      className="py-3 px-4 block w-full xl:min-w-72 border-gray-200 rounded-md text-sm focus:border-yellow-500 focus:ring-yellow-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      placeholder="Enter work email"
+                    />
+                  </div> */}
+                  <Link
+                    className="w-full sm:w-auto py-3 px-4 inline-flex rounded-full justify-center items-center gap-x-2 text-sm font-semibold border border-transparent bg-yellow-600 text-white hover:bg-yellow-700 disabled:opacity-50 disabled:pointer-events-none"
+                    href="/services"
+                  >
+                    View Services
+                  </Link>
+                </div>
+
+                {/* Brands */}
+
+                {/* End Brands */}
+              </div>
+              {/* End Col */}
+
+              <div className="lg:col-span-4 mt-10 lg:mt-0">
+                <Image
+                  width={700}
+                  height={700}
+                  className="w-full rounded-xl"
+                  src="/images/festival.jpg"
+                  alt="Image Description"
+                />
+              </div>
+              {/* End Col */}
+            </div>
+            {/* End Grid */}
+          </div>
+          {/* End Hero */}
+        </>
       </section>
 
+      <section className="hidden h-auto md:px-4 md:py-24 py-8  mx-auto min-h-[50dvh]  flex-col justify-center  text-center ">
+        <div className="flex flex-col md:flex-auto md:justify-between items-center">
+          <div className={` font-semibold flex justify-start items-center`}>
+            <span className=" text-xl md:text-7xl">We proudly </span>
+            <span className="px-4">
+              <Image
+                src="/images/kente.jpg"
+                alt="alt"
+                width={120}
+                height={180}
+                className=" rounded-5xl bg-no-repeat bg-center bg-cover"
+              />
+            </span>{" "}
+            <span className="text-xl md:text-7xl">Work</span>
+          </div>
+          {/* <div className="text-right text-4xl">
+          Your bridge to a vibrant Ghanaian<br />
+           community abroad. 
+            
+          </div> */}
+        </div>
+      </section>
       <section
-        className=" h-auto min-h-dvh -mx-12 p-4 md:px-24 md:py-4 
-       flex-col justify-center items-center hidden"
+        className=" h-auto md:px-24 md:py-4   mx-auto min-h-[70dvh]
+      flex flex-col justify-center items-center space-y-5  "
       >
-        <div className="text-md max-w-2xl">
+        <div className="text-md max-w-3xl">
           The Ghana Diaspora Union in Europe (GDUE) is your bridge to a vibrant
           Ghanaian community abroad. We understand the joys and challenges of
           living in Europe, and we are here to empower you. As a member of GDUE,
@@ -159,6 +250,7 @@ export default function AboutPage() {
           Europe.
         </div>
       </section>
+      <Newsletter />
     </div>
   );
 }

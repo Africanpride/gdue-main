@@ -14,3 +14,27 @@
   border-radius: 25px;
   padding: 12px 0 18px 18px;
 }
+
+/* styles/globals.css */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/inter-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/inter-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  font-family: var(--font-inter);
+}

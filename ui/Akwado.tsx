@@ -1,12 +1,21 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Akwado = (props: Props) => {
   return (
-    <Image alt='Akwado Logo' src={'/images/logo.png'} width={90} height={90} className='' />
-  )
-}
+    <Link href={"/"}>
+      <Image
+        alt="Akwado Logo"
+        src={"/images/logo.png"}
+        width={80}
+        height={80}
+        className=""
+      />
+    </Link>
+  );
+};
 
-export default Akwado
+export default Akwado;

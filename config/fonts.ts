@@ -1,7 +1,5 @@
 import {
   Fira_Code as FontMono,
-  Inter as FontSans,
-  Inter,
   Poppins,
   Source_Sans_3,
   Inter_Tight,
@@ -13,15 +11,6 @@ import {
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const fontMono = FontMono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
 
 type Props = {
   subset: string | string[];
@@ -33,11 +22,7 @@ type Props = {
 // const superbold = localFont({ src: '../localfonts/bold.ttf' })
 
 // define your variable fonts
-const inter = Inter({
-  weight: ["100","200","300","400","500","700","900",],
-  subsets: ["latin"],
-  style: ["normal"],
-});
+
 const montserrat = Montserrat({
   weight: ["100","200","300","400","500","700","900",],
   subsets: ["latin"],
@@ -73,7 +58,6 @@ const sourceCodePro400 = Source_Sans_3({ subsets: ["latin"], weight: "400" });
 const sourceCodePro700 = Source_Sans_3({ subsets: ["latin"], weight: "700" });
 // define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
 export {
-  inter,
   inter_tight,
   poppins,
   sourceCodePro400,
@@ -81,7 +65,5 @@ export {
   ibm_plex_sans_condense,
   playfair_display,
   bebas,
-  fontMono,
-  fontSans,
   montserrat
 };
