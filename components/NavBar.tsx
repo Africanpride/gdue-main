@@ -21,7 +21,7 @@ import { ThemeSwitch } from "./theme-switch";
 
 type Props = {};
 
-const NavBar3 = (props: Props) => {
+const NavBar = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuItems = [
     "Profile",
@@ -132,4 +132,4 @@ const NavBar3 = (props: Props) => {
   );
 };
 
-export default NavBar3;
+export default NavBar;

@@ -1,11 +1,16 @@
 import Newsletter from "@/components/Newsletter";
 import React from "react";
 
+
 type Props = {};
 
 const page = (props: Props) => {
+
   return (
     <div className="md:space-y-16">
+      
+
+    
       <section className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
         <div className="flex flex-col gap-2 col-span-12 md:col-span-6">
           <div className="flex flex-col">

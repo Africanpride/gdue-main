@@ -7,14 +7,12 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { ibm_plex_sans_condense } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 import { Image } from "@nextui-org/image";
 import Heading from "@/components/Jumbotron";
 import Jumbotron from "@/components/Jumbotron";
 import PrelineScript from "@/components/PrelineScript";
-import NavBar2 from "@/components/NavBar2";
-import NavBar3 from "@/components/NavBar3";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +48,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             <div className="py-4">
-              <NavBar3 />
+              <NavBar />
             </div>
 
           <div className="relative flex flex-col h-screen px-4">

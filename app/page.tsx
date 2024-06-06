@@ -10,6 +10,8 @@ import { bebas, playfair_display } from "@/config/fonts";
 import { Library } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
 import Faqs from "@/components/Faqs";
+import Image from "next/image";
+import News from "@/components/News";
 
 export default function Home() {
   return (
@@ -65,6 +67,7 @@ export default function Home() {
         </div>
         {/* End Features */}
       </section>
+      <News />
       <section>
         <div className="w-full ">
           <div className=" max-w-7xl lg:max-w-none ">
