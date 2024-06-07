@@ -12,6 +12,9 @@ import Newsletter from "@/components/Newsletter";
 import Faqs from "@/components/Faqs";
 import Image from "next/image";
 import News from "@/components/News";
+import BusinessCategories from "@/components/BusinessCategories";
+import Divider from "@/ui/Divider";
+import Sponsors from "@/components/Sponsors";
 
 export default function Home() {
   return (
@@ -67,7 +70,9 @@ export default function Home() {
         </div>
         {/* End Features */}
       </section>
-      <News />
+      <Divider title={'Business Directory'} />
+      <BusinessCategories />
+      <Sponsors />
       <section>
         <div className="w-full ">
           <div className=" max-w-7xl lg:max-w-none ">
@@ -113,7 +118,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Faqs />
+      {/* <Faqs /> */}
       <Newsletter />
     </div>
   );
