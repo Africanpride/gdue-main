@@ -13,6 +13,16 @@ import Heading from "@/components/Jumbotron";
 import Jumbotron from "@/components/Jumbotron";
 import PrelineScript from "@/components/PrelineScript";
 import NavBar from "@/components/NavBar";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+import { dark } from '@clerk/themes';
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -40,25 +50,40 @@ export default function RootLayout({
   header: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <head />
-      <body
-        className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+        layout: {
+          socialButtonsPlacement: 'top',
+          termsPageUrl: 'https://ghanaiandiaspora.org/terms',
+          privacyPageUrl: 'https://ghanaiandiaspora.org/privacy',
+        }
+      }}
+    >
+
+      <html suppressHydrationWarning lang="en">
+        <head />
+        <body
+          className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
         overflow-x-hidden text-[16px]`}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        >
+
+
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             <div className="py-4">
               <NavBar />
             </div>
 
-          <div className="relative flex flex-col h-screen px-4">
-            <main className="container mx-auto ">{children}</main>
+            <div className="relative flex flex-col h-screen px-4">
+              <main className="container mx-auto ">{children}</main>
 
-            <Footer />
-          </div>
-        </Providers>
-      </body>
-      <PrelineScript />
-    </html>
+              <Footer />
+            </div>
+          </Providers>
+        </body>
+        <PrelineScript />
+      </html>
+    </ClerkProvider>
+
   );
 }

@@ -18,10 +18,20 @@ import NextLink from "next/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import { ThemeSwitch } from "./theme-switch";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser
+} from '@clerk/nextjs'
 
 type Props = {};
 
 const NavBar = (props: Props) => {
+  const { user } = useUser();
+
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuItems = [
     "Profile",
@@ -38,8 +48,8 @@ const NavBar = (props: Props) => {
 
   return (
     <div className="md:py-8">
-      <Navbar onMenuOpenChange={setIsMenuOpen}>
-        <NavbarContent className="md:!px-0">
+      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full" >
+        <NavbarContent justify="start" className="md:!px-0">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden"
@@ -86,23 +96,21 @@ const NavBar = (props: Props) => {
         <NavbarContent justify="end">
 
           <NavbarItem>
-            <Link
+            <div
               className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6 `}
-              href="#"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="{2}">
-                  <path strokeDasharray="20" strokeDashoffset="{20}" d="M12 5C13.66 5 15 6.34 15 8C15 9.65685 13.6569 11 12 11C10.3431 11 9 9.65685 9 8C9 6.34315 10.3431 5 12 5z">
-                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" />
-                  </path>
-                  <path strokeDasharray="36" strokeDashoffset="{36}" d="M12 14C16 14 19 16 19 17V19H5V17C5 16 8 14 12 14z" opacity="0">
-                    <set attributeName="opacity" begin="0.5s" to="1" />
-                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="36;0" />
-                  </path>
-                </g>
-              </svg>
-              Membership
-            </Link>
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <div className="flex items-center divide-x gap-x-2">
+                  <UserButton />
+                  <div className="ps-2">
+                    {user ? user?.firstName : ""} 
+                  </div>
+                </div>
+              </SignedIn>
+            </div>
           </NavbarItem>
         </NavbarContent>
         <NavbarMenu>

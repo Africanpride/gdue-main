@@ -23,6 +23,7 @@ export default function Home() {
         {/* Features */}
         <div className="mx-auto">
           <div className="min-h-[35vh] h-auto md:min-h-[75vh] bg-[url('/images/festival2.jpg')] bg-bottom bg-cover  bg-no-repeat relative md:rounded-6xl">
+          
             <div className="absolute bottom-0 start-0 end-0 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
               {/* Card */}
               <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">
