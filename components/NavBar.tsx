@@ -5,8 +5,7 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
-  Button,
+  Link as NextUILink,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
@@ -19,18 +18,20 @@ import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import { ThemeSwitch } from "./theme-switch";
 import {
-  ClerkProvider,
   SignInButton,
   SignedIn,
   SignedOut,
   UserButton,
   useUser
 } from '@clerk/nextjs'
+import { LucideUser } from "lucide-react";
+import { usePathname } from 'next/navigation';  // Import usePathname
 
 type Props = {};
 
 const NavBar = (props: Props) => {
   const { user } = useUser();
+  const pathname = usePathname();  // Get the current path
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuItems = [
@@ -48,14 +49,14 @@ const NavBar = (props: Props) => {
 
   return (
     <div className="md:py-8">
-      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full" >
+      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
         <NavbarContent justify="start" className="md:!px-0">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden"
           />
-          <div className=" flex justify-between items-center gap-x-2 ">
-            <NavbarBrand className="">
+          <div className="flex justify-between items-center gap-x-2">
+            <NavbarBrand>
               <Akwado />
             </NavbarBrand>
             <NavbarItem>
@@ -72,7 +73,7 @@ const NavBar = (props: Props) => {
         </NavbarContent>
 
         <NavbarContent
-          className={`${bebas.className} hidden sm:flex gap-x-4 border border-neutral-200 dark:border-neutral-800 px-8 rounded-full  `}
+          className={`${bebas.className} hidden sm:flex gap-x-4 border border-neutral-200 dark:border-neutral-800 px-8 rounded-full`}
           justify="center"
         >
           {siteConfig.navItems.map((item) => (
@@ -80,7 +81,10 @@ const NavBar = (props: Props) => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium hover:text-yellow-600"
+                  {
+                    "data-[active=true]:text-primary data-[active=true]:font-medium hover:text-yellow-600": true,
+                    "text-yellow-600": pathname === item.href  // Highlight active link
+                  }
                 )}
                 color="foreground"
                 href={item.href}
@@ -94,19 +98,23 @@ const NavBar = (props: Props) => {
           </div>
         </NavbarContent>
         <NavbarContent justify="end">
-
           <NavbarItem>
             <div
-              className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6 `}
+              className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6`}
             >
               <SignedOut>
-                <SignInButton />
+                <SignInButton>
+                  <div className="text-sm cursor-pointer flex items-center">
+                    <LucideUser />
+                    <span className="ps-2">Membership</span>
+                  </div>
+                </SignInButton>
               </SignedOut>
               <SignedIn>
                 <div className="flex items-center divide-x gap-x-2">
                   <UserButton />
                   <div className="ps-2">
-                    {user ? user?.firstName : ""} 
+                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">My Dashboard</NextUILink>
                   </div>
                 </div>
               </SignedIn>
@@ -116,7 +124,7 @@ const NavBar = (props: Props) => {
         <NavbarMenu>
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
+              <NextUILink
                 color={
                   index === 2
                     ? "primary"
@@ -129,7 +137,7 @@ const NavBar = (props: Props) => {
                 size="lg"
               >
                 {item.label}
-              </Link>
+              </NextUILink>
             </NavbarMenuItem>
           ))}
         </NavbarMenu>
