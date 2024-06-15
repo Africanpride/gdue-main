@@ -5,63 +5,59 @@ import {
   ibm_plex_sans_condense,
   playfair_display,
   poppins,
+  sourceCodePro400,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
-import {
-  ArrowBigRightDash,
-  ArrowRightCircleIcon,
-  ArrowRightFromLine,
-  ArrowUpRightSquareIcon,
-  LucideActivitySquare,
-  LucideBrackets,
-  LucideChevronRight,
-  LucideMessageSquareShare,
-  LucideStepForward,
-} from "lucide-react";
+
 import Link from "next/link";
 import { Library } from "lucide-react";
 import Faqs from "@/components/Faqs";
 import Faqs2 from "@/components/Faqs2";
 import Newsletter from "@/components/Newsletter";
+import Divider from "@/ui/Divider";
+import Jumbotron from "@/components/Jumbotron";
 
 export default function AboutPage() {
   return (
     <div className="md:space-y-16">
-      <section className="h-auto min-h-[60dvh] flex flex-col justify-end">
+      <Jumbotron
+        heading="The Ghana Diaspora Union in Europe (GDUE)"
+        description={(<>   There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)}
+        linkText="Watch our story"
+        linkHref="#"
+        backgroundImage="/images/london2.jpg"
+        hideVideo={false}
+      />
+
+      <Divider title={'About G.D.U.E'} />
+
+      <section className="flex flex-col h-auto">
         <div className="w-full container mx-auto grid md:grid-cols-3 gap-4">
           <div className="space-y-3 w-full  md:col-span-2">
-            <div className="py-3 flex items-center text-sm text-gray-800 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600  uppercase space-x-2">
-              {/* <span>
-                <ArrowRightCircleIcon className="text-yellow-500" />
-              </span>{" "} */}
-              <span className="font-bold"> About G.D.U.E</span>
-            </div>
+
             <h3
-              className={`${bebas.className} text-4xl md:text-6xl capitalize font-extrabold`}
+              className={`${sourceCodePro400.className} text-4xl md:text-6xl capitalize font-extrabold`}
             >
-              Home in Europe &mdash; Ghana <br />
+              Home in Europe &mdash; The Ghana <br />
               <span className={`${playfair_display.className} text-yellow-600`}>
                 Diaspora
               </span>{" "}
-              Union
+              Union in <span className={`${playfair_display.className} text-yellow-600`}>
+                Europe
+              </span>{" "}
             </h3>
             <p>
-              The Ghana Diaspora Union in Europe (GDUE) is your bridge to a
-              vibrant Ghanaian community abroad. We understand the joys and
-              challenges of living in Europe, and we are here to empower you. As
-              a member of GDUE, you&apos;ll connect with a network of fellow
-              Ghanaians for friendship, cultural exchange, and professional
-              advancement.
+            Join the Ghana Diaspora Union in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
             </p>
           </div>
-          <div className="hidden text-center h-full bg-slate-500  justify-center items-center">
+          <div className="hidden text-center h-full bg-slate-500/25  justify-center items-center">
             Image
           </div>
         </div>
       </section>
 
       <section
-        className="bg-neutral-200 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
+        className="bg-neutral-200/25 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
       flex flex-col justify-center"
       >
         <div>
@@ -129,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       <Faqs />
-      
+
       <section className="md:p-8 md:min-h-[90dvh]">
         <>
           {/* Hero */}

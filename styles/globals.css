@@ -39,6 +39,7 @@
 
 :root {
   --font-ibm_plex_sans_condensed: 'IBMPlexSansCondensed-Regular', sans-serif;
+  font-size: 15px;
 }
 
 html {

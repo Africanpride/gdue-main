@@ -36,11 +36,11 @@ const Footer = () => {
             <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400 capitalize">
               &copy; {currentYear} Ghana Diaspora Union in Europe. (GDUE)
             </p>
-            <p className="text-sm">
+            <p className="text-xs max-w-md font-thin">
               Helping Ghanaians abroad thrive! We advocate for your rights,
               offer support programs, celebrate our culture, and empower you
               with education & economic opportunities. Together, we build a
-              strong, vibrant Ghanaian diaspora community.
+              strong, vibrant <span className="italic font-bold">Ghanaian diaspora community</span>.
             </p>
           </div>
           {/* End Col */}

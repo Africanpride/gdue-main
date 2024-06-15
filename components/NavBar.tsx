@@ -60,7 +60,7 @@ const NavBar = (props: Props) => {
               <Akwado />
             </NavbarBrand>
             <NavbarItem>
-              <div className="md:text-md text-sm md:leading-5 px-2 border-s">
+              <div className="md:text-md text-sm md:leading-4 px-2 border-s">
                 Ghana Diaspora
                 <br />
                 Union in{" "}

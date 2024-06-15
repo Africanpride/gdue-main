@@ -15,63 +15,22 @@ import News from "@/components/News";
 import BusinessCategories from "@/components/BusinessCategories";
 import Divider from "@/ui/Divider";
 import Sponsors from "@/components/Sponsors";
+import Jumbotron from "@/components/Jumbotron";
 
 export default function Home() {
     return (
         <div className="space-y-3 md:space-y-16">
-            <section className="">
-                {/* Features */}
-                <div className="mx-auto">
-                    <div className="min-h-[35vh] h-auto md:min-h-[75vh] bg-[url('/images/festival2.jpg')] bg-bottom bg-cover  bg-no-repeat relative md:rounded-6xl">
-                       
-                        <div className="absolute bottom-0 start-0 end-0 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
-                            {/* Card */}
-                            <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">
-                                <div className="hidden md:block">
-                                    <h3
-                                        className={`${bebas.className} text-md font-bold text-gray-800 sm:text-2xl dark:text-neutral-200`}
-                                    >
-                                        Share Your Business?
-                                    </h3>
-                                    <p className="mt-2 text-gray-800 dark:text-neutral-200 text-sm">
-                                        Learn more about sharing your business with the{" "}
-                                        <span className="text-yellow-600 font-bold">
-                                            Ghana diasporan
-                                        </span>{" "}
-                                        community.
-                                    </p>
-                                </div>
-
-                                <div className="md:mt-16">
-                                    <a
-                                        className="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-neutral-400"
-                                        href="#"
-                                    >
-                                        <svg
-                                            className="flex-shrink-0 size-4"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth={2}
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <polygon points="5 3 19 12 5 21 5 3" />
-                                        </svg>
-                                        Watch our story
-                                    </a>
-                                </div>
-                            </div>
-                            {/* End Card */}
-                        </div>
-                    </div>
-                </div>
-                {/* End Features */}
-            </section>
-
+            <Jumbotron
+                heading="Thriving in Europe: GDUE's Support Network"
+                description={(<>  GDUE <span className="text-yellow-600 font-bold">
+                    empowers Ghanaians
+                </span>{" "} in Europe through advocacy, cultural events, educational programs, and business support for entrepreneurs and professionals.
+                </>)}
+                linkText="Watch our story"
+                linkHref="#"
+                backgroundImage="/images/festival2.jpg"
+                hideVideo={false}
+            />
             <Divider title={'Business Directory'} />
             <BusinessCategories />
 
