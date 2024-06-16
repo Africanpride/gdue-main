@@ -208,7 +208,6 @@ const Footer = () => {
                     <svg
                       className="size-3 rounded-full"
                       xmlns="http://www.w3.org/2000/svg"
-                      xlink="http://www.w3.org/1999/xlink"
                       id="flag-icon-css-cn"
                       viewBox="0 0 512 512"
                     >
