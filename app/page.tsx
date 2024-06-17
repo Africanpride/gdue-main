@@ -22,7 +22,7 @@ export default function Home() {
         <div className="space-y-3 md:space-y-16">
             <Jumbotron
                 heading="Thriving in Europe: GDUE's Support Network"
-                description={(<>  GDUE <span className="text-yellow-600 font-bold">
+                description={(<>  GDUE <span className="text-yellow-600">
                     empowers Ghanaians
                 </span>{" "} in Europe through advocacy, cultural events, educational programs, and business support for entrepreneurs and professionals.
                 </>)}

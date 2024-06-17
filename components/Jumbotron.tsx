@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import {
@@ -6,6 +7,8 @@ import {
   playfair_display,
   poppins,
 } from "@/config/fonts";
+import { usePathname } from 'next/navigation';  // Import usePathname
+
 
 type Props = {
   heading?: string;
@@ -16,12 +19,13 @@ type Props = {
   hideVideo?: boolean;
 };
 
+
 const Jumbotron = ({
   heading = "Share Your Business?",
   description = (
     <>
       Learn more about sharing your business with the{" "}
-      <span className="text-yellow-600 font-bold">Ghana diasporan</span> community.
+      <span className="text-yellow-600 ">Ghana diasporan</span> community.
     </>
   ),
   linkText = "Watch our story",
@@ -29,6 +33,9 @@ const Jumbotron = ({
   backgroundImage = "/images/festival2.jpg",
   hideVideo =false
 }: Props) => {
+  const pathname = usePathname();  // Get the current path
+  const currentUrl = pathname.replace('/','');
+
   return (
     <section className="">
       {/* Features */}
@@ -37,10 +44,11 @@ const Jumbotron = ({
           className={`min-h-[35vh] h-auto md:min-h-[75vh] bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl`}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-          <div className="absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
+          <div className={`text-7xl uppercase pt-[35dvh] px-6 italic ${poppins.className}`}>{currentUrl}</div>
+          <div className="hidden md:block absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
             {/* Card */}
             <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">
-              <div className="hidden md:block">
+              <div>
                 <h3 className={`${bebas.className} tracking-wide text-md font-bold text-gray-800 sm:text-xl dark:text-neutral-200`}>
                   {heading}
                 </h3>
