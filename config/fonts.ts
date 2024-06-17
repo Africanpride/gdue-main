@@ -7,6 +7,7 @@ import {
   Playfair_Display,
   Bebas_Neue,
   Montserrat,
+  Noto_Sans
   
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
@@ -22,6 +23,12 @@ type Props = {
 // const superbold = localFont({ src: '../localfonts/bold.ttf' })
 
 // define your variable fonts
+
+const notosans = Noto_Sans({
+  weight: ["100","200","300","400","500","700","900",],
+  subsets: ["latin"],
+  style: ["italic","normal"]
+});
 
 const montserrat = Montserrat({
   weight: ["100","200","300","400","500","700","900",],

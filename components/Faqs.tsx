@@ -22,7 +22,7 @@ const Faqs = () => {
     <div className=" max-w-4xl pb-8">
       Discover answers to common questions about the{" "}
       <span className="text-yellow-600">
-        Ghana Diaspora Union in Europe (GDUE)
+        Ghanaian Diaspora Union   in Europe (GDUE)
       </span>
       , covering membership benefits, empowerment initiatives, community
       events, and economic opportunities for Ghanaians living in Europe.

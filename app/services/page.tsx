@@ -33,7 +33,7 @@ const page = (props: Props) => {
 
           </div>
           <p className="w-full md:max-w-xl my-2 font-normal text-default-500 block max-w-full md:w-full text-base lg:text-lg">
-            The Ghana Diaspora Union in Europe (GDUE) is your bridge to a vibrant Ghanaian community abroad. We understand the joys and challenges of living in Europe, and we are here to empower you. <br /><br />As a member of GDUE, you&apos;ll connect with a network of fellow Ghanaians for friendship, cultural exchange, and professional advancement.
+            The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant Ghanaian community abroad. We understand the joys and challenges of living in Europe, and we are here to empower you. <br /><br />As a member of GDUE, you&apos;ll connect with a network of fellow Ghanaians for friendship, cultural exchange, and professional advancement.
 
           </p>
           <div className="flex flex-row gap-3 justify-start">

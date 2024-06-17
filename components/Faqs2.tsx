@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "What is GDUE?",
     answer:
-      "GDUE (Ghana Diaspora Union in Europe) is a community organization dedicated to empowering Ghanaians living in Europe through various programs and initiatives. It aims to create a network for friendship, cultural exchange, and professional advancement.",
+      "GDUE (Ghanaian Diaspora Union   in Europe) is a community organization dedicated to empowering Ghanaians living in Europe through various programs and initiatives. It aims to create a network for friendship, cultural exchange, and professional advancement.",
   },
   {
     question: "How does GDUE empower its members?",

@@ -72,7 +72,7 @@ export default function Home() {
                                     Development
                                 </div>
                                 <div className="text-2xl font-bold text-white ">
-                                    The Ghana Diaspora Union in Europe (GDUE) is your bridge to a
+                                    The Ghanaian Diaspora Union  in Europe (GDUE) is your bridge to a
                                     vibrant Ghanaian community abroad. We understand the joys and
                                     challenges of living in Europe, and we are here to empower
                                     you.

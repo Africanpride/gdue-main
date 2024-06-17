@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Ghana Diaspora Union in Europe (GDUE)",
+  name: "Ghanaian Diaspora Union   in Europe (GDUE)",
   description: "Fostering unity, cultural pride, economic empowerment, and social cohesion among Ghanaians in the diaspora.",
   navItems: [
     {

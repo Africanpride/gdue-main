@@ -44,10 +44,7 @@ const Jumbotron = ({
           className={`min-h-[35vh] h-auto md:min-h-[75vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-          <div className={`text-[9dvw] gap-x-2 opacity-55 uppercase  
-           text-default-900 px-8 font-extrabold ${poppins.className}`}>
-            {currentUrl}
-          </div>
+          {/* <div className={`text-[12rem] gap-x-2 opacity-55 uppercase  px-8 font-extrabold ${poppins.className}`}>{currentUrl}</div> */}
           <div className="hidden md:block absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
             {/* Card */}
             <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">

@@ -5,11 +5,11 @@ export default function TermsOfService() {
   return (
     <>
     <div className="max-w-7xl mx-auto  md:p-8  border border-gray-200 dark:border-neutral-700/30 rounded-3xl space-y-6" >
-        <h1 className="text-3xl font-bold mb-4">Terms of Service for Ghana Diaspora Union in Europe (GDUE)</h1>
+        <h1 className="text-3xl font-bold mb-4">Terms of Service for Ghanaian Diaspora Union   in Europe (GDUE)</h1>
 
         <section className="">
           <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
-          <p>Welcome to the Ghana Diaspora Union in Europe (GDUE) website. By accessing or using our website and services, you agree to comply with and be bound by the following terms and conditions. Please review these terms carefully. If you do not agree with these terms, you should not use our website or services.</p>
+          <p>Welcome to the Ghanaian Diaspora Union   in Europe (GDUE) website. By accessing or using our website and services, you agree to comply with and be bound by the following terms and conditions. Please review these terms carefully. If you do not agree with these terms, you should not use our website or services.</p>
         </section>
 
         <section className="">
@@ -54,7 +54,7 @@ export default function TermsOfService() {
           <h2 className="text-2xl font-semibold mb-2">Contact Us</h2>
           <p>If you have any questions or concerns about these Terms of Service, please contact us at:</p>
           <p className="mt-2">
-            Ghana Diaspora Union in Europe (GDUE) Headquarters<br />
+            Ghanaian Diaspora Union   in Europe (GDUE) Headquarters<br />
             [Address in Spain]<br />
             Email: [Email Address]<br />
             Phone: [Phone Number]

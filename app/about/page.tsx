@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <div className="md:space-y-16">
       <Jumbotron
-        heading="The Ghana Diaspora Union in Europe (GDUE)"
+        heading="The Ghanaian Diaspora Union   in Europe (GDUE)"
         description={(<>   There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)}
         linkText="Watch our story"
         linkHref="#"
@@ -47,7 +47,7 @@ export default function AboutPage() {
               </span>{" "}
             </h3>
             <p>
-            Join the Ghana Diaspora Union in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
+            Join the Ghanaian Diaspora Union   in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
             </p>
           </div>
           <div className="hidden text-center h-full bg-slate-500/25  justify-center items-center">
@@ -139,7 +139,7 @@ export default function AboutPage() {
                   </span>
                 </h1>
                 <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
-                  The Ghana Diaspora Union in Europe (GDUE) is your bridge to a
+                  The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a
                   vibrant Ghanaian community abroad. We understand the joys and
                   challenges of living in Europe, and we are here to empower
                   you. As a member of GDUE, you&apos;ll connect with a network
@@ -218,7 +218,7 @@ export default function AboutPage() {
       flex flex-col justify-center items-center space-y-5  "
       >
         <div className="text-md max-w-3xl">
-          The Ghana Diaspora Union in Europe (GDUE) is your bridge to a vibrant
+          The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant
           Ghanaian community abroad. We understand the joys and challenges of
           living in Europe, and we are here to empower you. As a member of GDUE,
           you&apos;ll connect with a network of fellow Ghanaians for friendship,
