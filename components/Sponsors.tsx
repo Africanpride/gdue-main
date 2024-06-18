@@ -1,13 +1,15 @@
 import React from 'react';
 import Divider from "@/ui/Divider";
 import Link from 'next/link';
+import { Button } from '@nextui-org/button';
+import { LucideArrowUpRight, LucideWallet, LucideWalletMinimal } from 'lucide-react';
 
 type Props = {}
 
 const Sponsors = (props: Props) => {
     return (
         <section>
-            <div>
+            <div className='space-y-3'>
                 { /* Clients */}
 
                 <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -55,11 +57,11 @@ const Sponsors = (props: Props) => {
                     </div>
                     { /* End Grid */}
 
-                    <div className="mt-8 text-center">
-                        <Link className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800" href="#">
-                            Become A Sponsor
-                            <svg className="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                        </Link>
+                    <div className='mt-4 md:mt-8 text-center'>
+                        <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid" href={'/about'}
+                            endContent={<LucideWalletMinimal className='bg-warning p-1 text-white' />}>
+                            <span className='text-sm'>Become a Sponsor of GDUE </span>
+                        </Button>
                     </div>
                 </div>
                 { /* End Clients */}

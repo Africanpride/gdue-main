@@ -57,7 +57,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="bg-neutral-200/25 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
+        className="bg-neutral-200/55 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
       flex flex-col justify-center"
       >
         <div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
               </span>
               .
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-8 rounded-3xl text-md flex justify-center items-center">
               Our Vision is to foster unity among Ghanaians in the diaspora by,
               promoting cultural pride, economic empowerment, and social
               cohesion, thus enhancing the well-being of our members and
@@ -114,7 +114,7 @@ export default function AboutPage() {
               </span>{" "}
               .
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-6 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-8 rounded-3xl text-md flex justify-center items-center">
               GDUE&apos;s mission is advocating for the rights and welfare of
               Ghanaians in diaspora, facilitating economic well-being,
               networking, providing support, and undertaking initiatives for

@@ -16,6 +16,7 @@ import BusinessCategories from "@/components/BusinessCategories";
 import Divider from "@/ui/Divider";
 import Sponsors from "@/components/Sponsors";
 import Jumbotron from "@/components/Jumbotron";
+import Intro from "@/components/Intro";
 
 export default function Home() {
     return (
@@ -31,12 +32,7 @@ export default function Home() {
                 backgroundImage="/images/festival2.jpg"
                 hideVideo={false}
             />
-            <Divider title={'Business Directory'} />
-            <BusinessCategories />
-
-            <Divider title={'Our Sponsors'} />
-            <Sponsors />
-
+            <Intro />
             <section>
                 <div className="w-full ">
                     <div className=" max-w-7xl lg:max-w-none ">
@@ -82,6 +78,13 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <Divider title={'Business Directory'} />
+            <BusinessCategories />
+
+            <Divider title={'Our Sponsors'} />
+            <Sponsors />
+
+
             {/* <Faqs /> */}
             <Newsletter />
         </div>

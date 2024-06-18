@@ -33,10 +33,10 @@ const Footer = () => {
             >
               GDUE
             </Link>
-            <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-neutral-400 capitalize">
+            <p className="mt-3 text-md sm:text-sm text-gray-600 dark:text-neutral-400 capitalize">
               &copy; {currentYear} Ghanaian Diaspora Union   in Europe. (GDUE)
             </p>
-            <p className="text-xs max-w-md font-thin">
+            <p className="text-sm max-w-md font-thin">
               Helping Ghanaians abroad thrive! We advocate for your rights,
               offer support programs, celebrate our culture, and empower you
               with education & economic opportunities. Together, we build a
