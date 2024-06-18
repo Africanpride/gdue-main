@@ -42,7 +42,12 @@ export default function AboutPage() {
           <div className="container flex flex-col flex-1 px-6 py-12 mx-auto">
             <div className="flex-1 lg:flex lg:items-center lg:-mx-6">
               <div className="text-white lg:w-1/2 lg:mx-6">
-                <h1 className="text-2xl font-semibold capitalize lg:text-3xl">Connect with GDUE Today</h1>
+              <h1 className="block text-2xl font-bold  sm:text-2xl md:text-3xl lg:text-4xl text-white">
+                  <span className={`${bebas.className} leading-8`}>
+                  Connect with GDUE Today
+                  </span>
+                </h1>
+
 
                 <p className="max-w-xl mt-6">
                 Get in touch with GDUE today! We&apos;re here to assist with any questions or support you need. Connect with us through our contact form, email, or social media. Together, let&apos;s strengthen and empower the Ghanaian diaspora community.

@@ -1,7 +1,8 @@
 import Jumbotron from "@/components/Jumbotron";
 import Newsletter from "@/components/Newsletter";
 import { Button } from "@nextui-org/button";
-import { LucideBitcoin, LucideCombine, LucideEuro, LucideMerge } from "lucide-react";
+import { LucideArrowUpRight, LucideBitcoin, LucideCombine, LucideEuro, LucideMerge } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 
@@ -36,11 +37,12 @@ const page = (props: Props) => {
             The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant Ghanaian community abroad. We understand the joys and challenges of living in Europe, and we are here to empower you. <br /><br />As a member of GDUE, you&apos;ll connect with a network of fellow Ghanaians for friendship, cultural exchange, and professional advancement.
 
           </p>
-          <div className="flex flex-row gap-3 justify-start">
-            <Button color="default" href={'/contact'} >
-              Contact GDUE
+          <Link href={'/contact'}>
+            <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
+              endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
+              <span className='text-sm'>Get in Touch With GDUE</span>
             </Button>
-          </div>
+          </Link>
         </div>
         <div className="col-span-12 md:col-span-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-2">
@@ -97,7 +99,7 @@ const page = (props: Props) => {
               </div>
               <div className="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
                 <p className="font-normal text-base text-default-500">
-                Nurture community with cultural events, networking, and lasting friendships in Europe.
+                  Nurture community with cultural events, networking, and lasting friendships in Europe.
                 </p>
               </div>
             </button>
@@ -116,7 +118,7 @@ const page = (props: Props) => {
               </div>
               <div className="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
                 <p className="font-normal text-base text-default-500">
-                Whether it&apos;s dealing with the government or just getting fair treatment, GDUE  will be your voice.
+                  Whether it&apos;s dealing with the government or just getting fair treatment, GDUE  will be your voice.
                 </p>
               </div>
             </button>

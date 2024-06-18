@@ -12,7 +12,7 @@ const Akwado = (props: Props) => {
         src={"/images/logo.png"}
         width={80}
         height={80}
-        className=""
+        className="box-border	 "
       />
     </Link>
   );

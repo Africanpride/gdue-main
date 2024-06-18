@@ -8,9 +8,10 @@ import {
   sourceCodePro400,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
+import { Button } from '@nextui-org/button';
 
 import Link from "next/link";
-import { Library } from "lucide-react";
+import { Library, LucideArrowUpRight } from "lucide-react";
 import Faqs from "@/components/Faqs";
 import Faqs2 from "@/components/Faqs2";
 import Newsletter from "@/components/Newsletter";
@@ -19,7 +20,7 @@ import Jumbotron from "@/components/Jumbotron";
 
 export default function AboutPage() {
   return (
-    <div className="md:space-y-16">
+    <div className="md:space-y-16 space-y-8">
       <Jumbotron
         heading="The Ghanaian Diaspora Union   in Europe (GDUE)"
         description={(<>   There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)}
@@ -47,7 +48,7 @@ export default function AboutPage() {
               </span>{" "}
             </h3>
             <p>
-            Join the Ghanaian Diaspora Union   in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
+              Join the Ghanaian Diaspora Union   in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
             </p>
           </div>
           <div className="hidden text-center h-full bg-slate-500/25  justify-center items-center">
@@ -133,8 +134,9 @@ export default function AboutPage() {
             {/* Grid */}
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
+                <h5 className={`${bebas.className} text-lg uppercase text-secondary tracking-wide pb-4`}>Networking The Diasporan Community</h5>
                 <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
-                  <span className={`${bebas.className}`}>
+                  <span className={`${bebas.className} leading-8`}>
                     friendship, cultural exchange, and professional advancement
                   </span>
                 </h1>
@@ -160,11 +162,11 @@ export default function AboutPage() {
                       placeholder="Enter work email"
                     />
                   </div> */}
-                  <Link
-                    className="w-full sm:w-auto py-3 px-4 inline-flex rounded-full justify-center items-center gap-x-2 text-sm font-semibold border border-transparent bg-yellow-600 text-white hover:bg-yellow-700 disabled:opacity-50 disabled:pointer-events-none"
-                    href="/services"
-                  >
-                    View Services
+                  <Link href={'/services'}>
+                    <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
+                      endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
+                      <span className='text-sm'>View Services</span>
+                    </Button>
                   </Link>
                 </div>
 

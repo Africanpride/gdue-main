@@ -78,7 +78,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <Divider title={'Business Directory'} />
+            <Divider title={'Diasporan Business Directory'} />
             <BusinessCategories />
 
             <Divider title={'Our Sponsors'} />

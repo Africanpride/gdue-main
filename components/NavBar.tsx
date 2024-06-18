@@ -56,7 +56,7 @@ const NavBar = (props: Props) => {
             className="sm:hidden"
           />
           <div className="flex justify-between items-center gap-x-2">
-            <NavbarBrand>
+            <NavbarBrand  >
               <Akwado />
             </NavbarBrand>
             <NavbarItem>
