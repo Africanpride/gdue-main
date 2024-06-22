@@ -61,7 +61,7 @@ const NavBar = (props: Props) => {
             </NavbarBrand>
             <NavbarItem>
               <div className="md:text-md text-sm md:leading-4 px-2 border-s">
-                Ghana Diaspora
+                Ghanaian Diaspora
                 <br />
                 Union in{" "}
                 <span className={`${playfair_display.className}`}>

@@ -4,6 +4,8 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
+import CookieConsent from "@/ui/CookieConsent";
+
 
 import { siteConfig } from "@/config/site";
 import { ibm_plex_sans_condense } from "@/config/fonts";
@@ -21,7 +23,6 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
-
 
 
 export const metadata: Metadata = {
@@ -55,8 +56,8 @@ export default function RootLayout({
         baseTheme: dark,
         layout: {
           socialButtonsPlacement: 'top',
-          termsPageUrl: 'https://ghanaiandiaspora.org/terms',
-          privacyPageUrl: 'https://ghanaiandiaspora.org/privacy',
+          termsPageUrl: '/terms',
+          privacyPageUrl: '/privacy',
         }
       }}
     >
@@ -65,22 +66,24 @@ export default function RootLayout({
         <head />
         <body
           className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
-        overflow-x-hidden text-[16px]`}
+              overflow-x-hidden text-[16px]`}
         >
 
 
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <div className="py-4">
-              <NavBar />
-            </div>
+            <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+              <div className="py-4">
+                <NavBar />
+              </div>
 
-            <div className="relative flex flex-col h-screen px-4">
-              <main className="container mx-auto ">{children}</main>
+              <div className="relative flex flex-col h-screen px-4">
+                <main className="container mx-auto ">{children}</main>
 
-              <Footer />
-            </div>
-          </Providers>
+                <CookieConsent />
+                <Footer />
+              </div>
+            </Providers>
         </body>
+
         <PrelineScript />
       </html>
     </ClerkProvider>

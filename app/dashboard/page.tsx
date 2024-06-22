@@ -1,4 +1,7 @@
+
+//dashboard/page.tsx
 import Jumbotron from '@/components/Jumbotron'
+import { UserProfile } from '@clerk/nextjs'
 import React from 'react'
 
 type Props = {}
@@ -16,6 +19,8 @@ const page = (props: Props) => {
         backgroundImage="/images/cargo2.jpg"
         hideVideo={false}
       />
+
+
       </div>
   )
 }

@@ -25,6 +25,10 @@ export const siteConfig = {
       label: "Businesses",
       href: "/businesses",
     },
+    {
+      label: "News",
+      href: "/news",
+    },
 
     {
       label: "Contact Us",

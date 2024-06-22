@@ -9,10 +9,11 @@ const Akwado = (props: Props) => {
     <Link href={"/"}>
       <Image
         alt="Akwado Logo"
-        src={"/images/logo.png"}
+        src="/images/logo.png"
         width={80}
         height={80}
-        className="box-border	 "
+        className="box-border"
+        style={{ width: 'auto', height: 'auto' }}
       />
     </Link>
   );
