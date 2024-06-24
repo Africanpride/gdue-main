@@ -9,7 +9,7 @@ const Intro = () => {
         <div className="container mx-auto px-4 md:px-8 py-8 space-y-3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <p className="text-gray-700">
+                    <p className="">
                         The Ghanaian Diaspora Union in Europe (GDUE) connects you with a dynamic Ghanaian community abroad, offering essential support and empowerment. Living in Europe, while exciting and full of opportunities, also presents unique joys and challenges. GDUE is here to help you navigate these experiences with confidence and ease. 
                         <br />
                         <br />
@@ -17,7 +17,7 @@ const Intro = () => {
                     </p>
                 </div>
                 <div>
-                    <p className="text-gray-700">
+                    <p className="">
                         We strive to create a sense of belonging and offer opportunities for members to thrive in both their personal and professional lives. Join GDUE and strengthen your ties to the Ghanaian community in Europe, making your experience abroad more fulfilling and connected.   Our organization is dedicated to fostering meaningful friendships, facilitating cultural exchange, and promoting professional advancement.
                         <br />
                         <br />

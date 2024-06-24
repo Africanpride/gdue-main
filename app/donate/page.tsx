@@ -1,4 +1,5 @@
 import EventCard from "@/components/EventCard";
+import IdentityCard from "@/components/IdentityCard";
 import Jumbotron from "@/components/Jumbotron";
 import Newsletter from "@/components/Newsletter";
 import { sourceCodePro700 } from "@/config/fonts";
@@ -22,6 +23,7 @@ const page = (props: Props) => {
         backgroundImage="/images/donate.jpg"
         hideVideo={false}
       />
+      <IdentityCard />
       <div className={`${sourceCodePro700} text-4xl font-bold`}>More information coming soon ...</div>
     </div>
   );

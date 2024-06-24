@@ -79,6 +79,7 @@ export default function RootLayout({
                 <main className="container mx-auto ">{children}</main>
 
                 <CookieConsent />
+                
                 <Footer />
               </div>
             </Providers>

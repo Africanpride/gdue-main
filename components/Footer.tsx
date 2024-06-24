@@ -11,6 +11,7 @@ const Footer = () => {
 
   return (
     <footer className="mt-auto w-full  relative ">
+      
       <div className="pt-20 block relative overflow-hidden">
         <div
           className="bg-[url('/images/kente2.jpg')] sm:hidden md:block w-full	bg-center	 bg-auto	 bg-repeat-x h-2 md:h-4
