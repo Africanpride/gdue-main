@@ -1,28 +1,34 @@
+// app/dashboard/page.tsx
+import Jumbotron from '@/components/Jumbotron';
+import { currentUser } from '@clerk/nextjs/server';
+import React from 'react';
 
-//dashboard/page.tsx
-import Jumbotron from '@/components/Jumbotron'
-import { UserProfile } from '@clerk/nextjs'
-import React from 'react'
+type Props = {
+  user: {
+    firstName: string;
+  } | null;
+};
 
-type Props = {}
+const DashboardPage = async () => {
+  const user = await currentUser();
 
-const page = (props: Props) => {
+  if (!user) {
+    return <div>Not signed in</div>;
+  }
+
   return (
     <div className="md:space-y-16">
-
       <Jumbotron
-        heading="Manage Your Business Details"
-        description={(<>  Welcome to your GDUE Dashboard! Here, you can easily add and manage your business details to be featured in our Diasporan Business Directory. Connect with the community, enhance your visibility, and grow your network. Start by entering your business information and join a vibrant network of Ghanaian entrepreneurs
+        heading={(<>Welcome! {user?.firstName} {user?.lastName}</>)}
+        description={(<>  Welcome to your <strong>GDUE Dashboard</strong>. Here, you can complete your <strong>Profile</strong> add and manage your <strong>business details</strong> to be featured in our Diasporan Business Directory. <br /> <br />Connect with the community, enhance your visibility, and grow your network. Start by entering your business information and join a vibrant network of Ghanaian entrepreneurs
         </>)}
         linkText="Watch our story"
         linkHref="#"
         backgroundImage="/images/cargo2.jpg"
         hideVideo={false}
       />
+    </div>
+  );
+};
 
-
-      </div>
-  )
-}
-
-export default page
+export default DashboardPage;

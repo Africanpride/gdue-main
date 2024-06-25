@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';  // Import usePathname
 
 
 type Props = {
-  heading?: string;
+  heading?: string | React.ReactNode;
   description?: React.ReactNode;
   linkText?: string;
   linkHref?: string;
