@@ -26,7 +26,7 @@ export default function AboutPage() {
         description={(<>   There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)}
         linkText="Watch our story"
         linkHref="#"
-        backgroundImage="/images/london2.jpg"
+        backgroundImage="/images/berlin.jpg"
         hideVideo={false}
       />
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="bg-neutral-200/55 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
+        className="bg-neutral-200/95 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
       flex flex-col justify-center"
       >
         <div>
@@ -134,8 +134,9 @@ export default function AboutPage() {
             {/* Grid */}
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
-                <h5 className={`${bebas.className} text-lg uppercase text-secondary tracking-wide pb-4`}>
-                  Networking The Diasporan Community</h5>
+                <h5 className={`${bebas.className} `}>
+                <span className="text-lg uppercase text-warning tracking-wide pb-4 py-3 flex items-center  after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600">Networking The Diasporan Community</span> 
+                  </h5>
                 <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
                   <span className={`${bebas.className} leading-8`}>
                     
@@ -165,8 +166,8 @@ export default function AboutPage() {
                     />
                   </div> */}
                   <Link href={'/services'}>
-                    <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
-                      endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
+                    <Button className='uppercase rounded-none' size='lg' color="warning" variant="solid"
+                      endContent={<LucideArrowUpRight className='bg-green-500  text-white' />}>
                       <span className='text-sm'>View Services</span>
                     </Button>
                   </Link>

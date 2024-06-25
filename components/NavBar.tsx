@@ -106,7 +106,7 @@ const NavBar = (props: Props) => {
                 <SignInButton>
                   <div className="text-sm cursor-pointer flex items-center">
                     <LucideUser />
-                    <span className="ps-2">Membership</span>
+                    <span className="ps-2">Login/Sign Up</span>
                   </div>
                 </SignInButton>
               </SignedOut>
@@ -114,7 +114,7 @@ const NavBar = (props: Props) => {
                 <div className="flex items-center divide-x gap-x-2">
                   <UserButton />
                   <div className="ps-2">
-                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">Login/Signup</NextUILink>
+                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">My Dashboard</NextUILink>
                   </div>
                 </div>
               </SignedIn>

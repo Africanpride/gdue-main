@@ -35,7 +35,7 @@ export default function ImpactPage() {
           At GDUE, we care deeply about giving back, not just to our Ghanaian community abroad, but also to those in need back home. We focus on helping some of the most vulnerable people in Africa, especially widows and orphans. We know these groups often get overlooked, so we&apos;re committed to making a real difference in their lives.
 
           Here&apos;s how we do it:
-          <ul className="list-disc md:list-inside indent-2 leading-loose py-6 md:text-lg ">
+          <ul className="list-disc list-inside indent-2 leading-loose py-6 md:text-lg ">
             <li>We provide essential supplies, like food and clothing, to help them meet their basic needs.</li>
             <li>We run initiatives that help them become more self-sufficient, so they can take care of themselves and their families.</li>
             <li>We offer educational programs to empower them with the skills they need to build a better future.</li>
@@ -63,7 +63,7 @@ export default function ImpactPage() {
                 </div>
 
                 <Button href={'https://wa.me/+41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
-                  <LucidePhoneOutgoing /> Join our Scoial Impact Programme  
+                  <LucidePhoneOutgoing /> Join GDUE Social Impact Programme  
                 </Button>
 
                 <div className="mt-6 md:mt-8">
@@ -105,7 +105,7 @@ export default function ImpactPage() {
                   width={470}
                   src={'/images/orphanage.jpg'}
                   alt="Social impact Ghana"
-                  className="m-5 grayscale saturate-150"
+                  className="md:m-5 grayscale saturate-150"
                 />
               </div>
             </div>
