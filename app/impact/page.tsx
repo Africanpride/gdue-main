@@ -17,44 +17,53 @@ import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
 
-export default function AboutPage() {
+export default function ImpactPage() {
   const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
   return (
     <div className="md:space-y-16">
       <Jumbotron
-        heading="Share Your Business?"
+        heading="Helping Africa's Most Vulnerable"
         description={description}
         linkText="Watch our story"
         linkHref="#"
-        backgroundImage="/images/europe.jpg"
+        backgroundImage="/images/slums.jpg"
         hideVideo={true}
       />
       <section className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">
-        <div className="flex items-center w-full justify-center md:text-xl  ">
-          
-        We&apos;d love to hear from you! Whether you have questions, need support, or want to get involved, GDUE is here for you. Reach out to us for any inquiries, feedback, or collaboration opportunities. Connect with our team through our online contact form, email, or social media. Together, we can build a stronger, more connected Ghanaian diaspora community.
+        <div className=" md:text-xl max-w-4xl mx-auto ">
+
+          At GDUE, we care deeply about giving back, not just to our Ghanaian community abroad, but also to those in need back home. We focus on helping some of the most vulnerable people in Africa, especially widows and orphans. We know these groups often get overlooked, so we&apos;re committed to making a real difference in their lives.
+
+          Here&apos;s how we do it:
+          <ul className="list-disc md:list-inside indent-2 leading-loose py-6 md:text-lg ">
+            <li>We provide essential supplies, like food and clothing, to help them meet their basic needs.</li>
+            <li>We run initiatives that help them become more self-sufficient, so they can take care of themselves and their families.</li>
+            <li>We offer educational programs to empower them with the skills they need to build a better future.</li>
+          </ul>
+
+          Our goal is simple: to improve the lives of these inspiring people and create a more sustainable future for everyone. We believe that by helping those in need, we&apos;re all making a positive difference in the world, both at home and abroad.
 
         </div>
-      </section>
-      
-      <section className="min-h-screen bg-cover -mx-8 md:-mx-12 " style={{ backgroundImage: "url('/images/airport.jpg')" }}>
+      </section >
+
+      <section className="min-h-screen bg-cover -mx-8 md:-mx-12 " style={{ backgroundImage: "url('/images/orphanage2.jpg')" }}>
         <div className="flex flex-col min-h-screen bg-black/60">
           <div className="container flex flex-col flex-1 px-6 py-12 mx-auto">
             <div className="flex-1 lg:flex lg:items-center lg:-mx-6">
               <div className="text-white lg:w-1/2 lg:mx-6">
-              <h1 className="block text-2xl font-bold  sm:text-2xl md:text-3xl lg:text-4xl text-white">
+                <h1 className="block text-2xl font-bold  sm:text-2xl md:text-3xl lg:text-4xl text-white">
                   <span className={`${bebas.className} leading-8`}>
-                  Connect with GDUE Today
+                    Uplifting Lives, Building Futures
                   </span>
                 </h1>
 
 
-                <p className="max-w-xl mt-6 md:text-xl">
-                Get in touch with GDUE today! We&apos;re here to assist with any questions or support you need. Connect with us through our contact form, email, or social media. Together, let&apos;s strengthen and empower the Ghanaian diaspora community.
-                </p>
+                <div className="max-w-xl mt-6 md:text-xl">
+                  We&apos;ve seen firsthand the challenges faced by widows struggling to raise families alone, or orphans navigating a world without parental guidance.  It&apos;s these stories that drive our passion at GDUE.  We believe education is the key that unlocks opportunity. By providing scholarships and mentorship programs, we equip these young minds with the tools they need to reach their full potential. <br /><br /> This isn&apos;t just about charity, it&apos;s about investing in the future leaders of Africa.  We partner with local organizations to ensure our resources reach those who need them most, fostering a spirit of self-reliance within the communities we serve.  Together, we can build a brighter tomorrow where every individual has the chance to thrive.
+                </div>
 
-                <Button href={'https://wa.me/41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
-                 <LucidePhoneOutgoing /> Whatsapp GDUE
+                <Button href={'https://wa.me/+41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
+                  <LucidePhoneOutgoing /> Join our Scoial Impact Programme  
                 </Button>
 
                 <div className="mt-6 md:mt-8">
@@ -91,35 +100,13 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 lg:w-1/2 lg:mx-6">
-                <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
-                  <h1 className="text-xl font-medium text-gray-700 dark:text-gray-200">Contact form</h1>
-
-                  <p className="mt-2 text-gray-500 dark:text-gray-400">
-                    Ask us everything and we would love
-                    to hear from you
-                  </p>
-
-                  <form className="mt-6">
-                    <div className="flex-1">
-                      <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" />
-                    </div>
-
-                    <div className="flex-1 mt-6">
-                      <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                      <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" />
-                    </div>
-
-                    <div className="w-full mt-6">
-                      <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
-                      <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" placeholder="Message" />
-                    </div>
-
-                    <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50">
-                      get in touch
-                    </button>
-                  </form>
-                </div>
+                <Image
+                  isBlurred
+                  width={470}
+                  src={'/images/orphanage.jpg'}
+                  alt="Social impact Ghana"
+                  className="m-5 grayscale saturate-150"
+                />
               </div>
             </div>
           </div>
@@ -127,6 +114,6 @@ export default function AboutPage() {
       </section>
 
       <Newsletter />
-    </div>
+    </div >
   );
 }

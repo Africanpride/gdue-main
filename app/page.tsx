@@ -17,11 +17,12 @@ import Divider from "@/ui/Divider";
 import Sponsors from "@/components/Sponsors";
 import Jumbotron from "@/components/Jumbotron";
 import Intro from "@/components/Intro";
+import JumbotronHome from "@/components/JumbotronHome";
 
 export default function Home() {
     return (
         <div className="space-y-3 md:space-y-16">
-            <Jumbotron
+            <JumbotronHome
                 heading="Thriving in Europe: GDUE's Support Network"
                 description={(<>  GDUE <span className="text-yellow-600">
                     empowers Ghanaians

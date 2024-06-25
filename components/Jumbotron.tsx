@@ -41,7 +41,7 @@ const Jumbotron = ({
       {/* Features */}
       <div className="mx-auto">
         <div
-          className={`min-h-[35vh] h-auto md:min-h-[75vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
+          className={`min-h-[35vh] h-auto md:min-h-[75vh] grayscale saturate-150	 flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <div className={`text-[9dvw] gap-x-2 opacity-75 dark:opacity-55 uppercase  

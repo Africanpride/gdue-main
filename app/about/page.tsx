@@ -134,9 +134,11 @@ export default function AboutPage() {
             {/* Grid */}
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
-                <h5 className={`${bebas.className} text-lg uppercase text-secondary tracking-wide pb-4`}>Networking The Diasporan Community</h5>
+                <h5 className={`${bebas.className} text-lg uppercase text-secondary tracking-wide pb-4`}>
+                  Networking The Diasporan Community</h5>
                 <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
                   <span className={`${bebas.className} leading-8`}>
+                    
                     friendship, cultural exchange, and professional advancement
                   </span>
                 </h1>

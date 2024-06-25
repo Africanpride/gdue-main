@@ -27,7 +27,7 @@ const Faqs = () => {
       , covering membership benefits, empowerment initiatives, community
       events, and economic opportunities for Ghanaians living in Europe.
     </div>
-    <div className="max-w-3xl">
+    <div className="max-w-4xl">
       {/* <Faqs /> */}
       <Faqs2 />
     </div>

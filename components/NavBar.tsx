@@ -114,7 +114,7 @@ const NavBar = (props: Props) => {
                 <div className="flex items-center divide-x gap-x-2">
                   <UserButton />
                   <div className="ps-2">
-                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">My Dashboard</NextUILink>
+                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">Login/Signup</NextUILink>
                   </div>
                 </div>
               </SignedIn>
