@@ -33,7 +33,7 @@ const NavBar = (props: Props) => {
   const { user } = useUser();
   const pathname = usePathname();  // Get the current path
 
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const menuItems = [
     "Profile",
     "Dashboard",

@@ -6,8 +6,8 @@ import React, { useState, useEffect } from 'react';
 type Props = {}
 
 const CookieConsent = (props: Props) => {
-    const [consent, setConsent] = useState(false);
-    const [visible, setVisible] = useState(true);
+    const [consent, setConsent] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(true);
 
 
     // tracking cookieconsent with use Effect
