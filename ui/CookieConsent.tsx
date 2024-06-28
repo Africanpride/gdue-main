@@ -11,9 +11,9 @@ const CookieConsent = (props: Props) => {
 
 
     // tracking cookieconsent with use Effect
-    useEffect(() => {
+    useEffect(() => { 
         const storedConsent = localStorage.getItem('cookieConsent');
-        if (storedConsent === 'true') {
+        if (storedConsent == 'true') {
             setConsent(true);
             setVisible(false);
         }
