@@ -7,7 +7,7 @@ import {
   Playfair_Display,
   Bebas_Neue,
   Montserrat,
-  Noto_Sans
+  Noto_Sans, Courier_Prime
   
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
@@ -24,6 +24,11 @@ type Props = {
 
 // define your variable fonts
 
+const courier = Courier_Prime({
+  weight: ["400","700"],
+  subsets: ["latin"],
+  style: ["italic","normal"]
+});
 const notosans = Noto_Sans({
   weight: ["100","200","300","400","500","700","900",],
   subsets: ["latin"],
@@ -72,5 +77,6 @@ export {
   ibm_plex_sans_condense,
   playfair_display,
   bebas,
-  montserrat
+  montserrat,
+  courier
 };

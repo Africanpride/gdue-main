@@ -22,7 +22,7 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
-  useUser
+  useUser,
 } from '@clerk/nextjs'
 import { LucideUser } from "lucide-react";
 import { usePathname } from 'next/navigation';  // Import usePathname
@@ -30,8 +30,9 @@ import { usePathname } from 'next/navigation';  // Import usePathname
 type Props = {};
 
 const NavBar = (props: Props) => {
-  const { user } = useUser();
+
   const pathname = usePathname();  // Get the current path
+  const { user } = useUser();  // Get the user object
 
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const menuItems = [
@@ -114,7 +115,9 @@ const NavBar = (props: Props) => {
                 <div className="flex items-center divide-x gap-x-2">
                   <UserButton />
                   <div className="ps-2">
-                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">My Dashboard</NextUILink>
+                    <NextUILink className="text-current hover:text-yellow-600" href="/dashboard">
+                      My Dashboard
+                    </NextUILink>
                   </div>
                 </div>
               </SignedIn>
@@ -142,6 +145,7 @@ const NavBar = (props: Props) => {
           ))}
         </NavbarMenu>
       </Navbar>
+      
     </div>
   );
 };
