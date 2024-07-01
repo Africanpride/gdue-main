@@ -9,6 +9,7 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@clerk/clerk-sdk-node": "^5.0.12",
 		"@clerk/nextjs": "^5.1.4",
 		"@clerk/themes": "^2.1.9",
 		"@nextui-org/button": "^2.0.31",
@@ -55,6 +56,7 @@
 		"react-hook-form": "^7.52.0",
 		"tailwind-variants": "^0.1.20",
 		"tailwindcss": "3.4.3",
-		"typescript": "5.0.4"
+		"typescript": "5.0.4",
+		"uuid": "^10.0.0"
 	}
 }
