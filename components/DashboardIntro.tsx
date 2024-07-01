@@ -43,7 +43,7 @@ const DashboardIntro = (props: Props) => {
     return (
         <section className="flex justify-start items-start space-y-3 md:w-1/2">
             <div className=' dark:border-neutral-900 rounded-3xl bg-neutral-200 dark:bg-neutral-900 p-2'>
-                <div className=" rounded-2xl overflow-hidden shadow bg-white dark:bg-neutral-950 p-2 md:p-2">
+                <div className=" rounded-2xl overflow-hidden shadow bg-white dark:bg-neutral-950 p-4 md:p-2">
 
 
                     <div className='w-full flex md:flex-row flex-col items-start justify-center md:justify-between space-y-4'>
