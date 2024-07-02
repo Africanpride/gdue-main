@@ -84,10 +84,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative h-auto min-h-[50dvh] md:min-h-[30dvh] w-full block ">
-            <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative h-auto min-h-[50dvh] md:min-h-[30dvh] w-full flex flex-col justify-center items-center px-4 ">
+            <div className="px-4">
+              <Image src={'/images/europe-ghana.png'} alt="alt" width={1200} height={500} />
+            </div>
+
+
+            <div className="absolute inset-0  items-center justify-center hidden">
               <div
-                className={`${poppins.className} bg-cover bg-center  text-7xl md:text-[12rem] font-extrabold text-transparent`}
+                className={`${bebas.className} bg-cover bg-center  text-7xl md:text-[12rem] font-extrabold text-transparent`}
                 style={{
                   backgroundImage: 'url("images/kente.avif")',
                   WebkitBackgroundClip: "text",
@@ -135,11 +140,11 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
                 <h5 className={`${bebas.className} `}>
-                <span className="text-lg uppercase text-warning tracking-wide pb-4 py-3 flex items-center  after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600">Networking The Diasporan Community</span> 
-                  </h5>
+                  <span className="text-lg uppercase text-warning tracking-wide pb-4 py-3 flex items-center  after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600">Networking The Diasporan Community</span>
+                </h5>
                 <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
                   <span className={`${bebas.className} leading-8`}>
-                    
+
                     friendship, cultural exchange, and professional advancement
                   </span>
                 </h1>
