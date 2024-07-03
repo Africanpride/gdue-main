@@ -2,7 +2,8 @@
 // app/api/user/diasporaID/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getAuth, clerkClient } from "@clerk/nextjs/server";
-import { generateUniqueDiasporanId } from "../../../../utils/functions";
+import { generateUniqueDiasporanId } from "@/utils/functions";
+// import { generateUniqueDiasporanId } from "@functions";
 
 export async function POST(req: NextRequest) {
   const { userId } = getAuth(req);

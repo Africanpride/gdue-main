@@ -86,7 +86,7 @@ export default function AboutPage() {
 
           <div className="relative h-auto min-h-[50dvh] md:min-h-[30dvh] w-full flex flex-col justify-center items-center px-4 ">
             <div className="px-4">
-              <Image src={'/images/europe-ghana.png'} alt="alt" width={1200} height={500} />
+              <Image src={'/images/europe-ghana.png'} alt="alt" width={800} height={300} />
             </div>
 
 

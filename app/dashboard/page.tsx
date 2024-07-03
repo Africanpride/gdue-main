@@ -24,7 +24,7 @@ const DashboardPage: React.FC = () => {
         heading={<span>Welcome!  {user?.fullName}</span>}
         description={(
           <>
-            Welcome to your <strong>GDUE Dashboard</strong>. Here, you can complete your <strong>Profile</strong> and add and manage your <strong>business details</strong> to be featured in our Diasporan Business Directory.
+            Welcome to your <strong>GDUE Dashboard</strong>. Here, you can complete your <strong>Profile</strong> and add  your <strong>business details</strong> to be featured in our Diasporan Business Directory.
             <br /><br />
             Connect with the community, enhance your visibility, and grow your network. Start by entering your business information and join a vibrant network of Ghanaian entrepreneurs.
           </>

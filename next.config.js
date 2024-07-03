@@ -14,6 +14,11 @@ const nextConfig = {
           protocol: 'https',
           hostname: 'flagcdn.com',
         },
+        {
+          protocol: 'https',
+          hostname: 'img.clerk.com',
+          port: '',        
+        },
       ],
     },
   }

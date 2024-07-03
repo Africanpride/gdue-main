@@ -3,10 +3,26 @@
 import React, { useEffect, useState } from 'react';
 // import { useUser } from "@clerk/clerk-react";
 import { UserButton, useUser } from '@clerk/nextjs';
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input } from "@nextui-org/react";
+import { MailIcon, User2Icon } from 'lucide-react';
+
 
 type Props = {};
 
+
 const DashboardIntro: React.FC<Props> = () => {
+    // handle modal
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [size, setSize] = React.useState<string>('md')
+
+    const sizes = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "full"];
+
+
+    const handleOpen = (size: string) => {
+        setSize(size)
+        onOpen();
+    }
+
     const { isSignedIn, user, isLoaded } = useUser();
     const [uniqueId, setUniqueId] = useState<string | null>(null);
 
@@ -56,7 +72,18 @@ const DashboardIntro: React.FC<Props> = () => {
                 <div className="rounded-2xl overflow-hidden shadow bg-white dark:bg-neutral-950 p-4 md:p-2">
                     <div className='w-full flex md:flex-row flex-col items-start justify-center md:justify-between space-y-4'>
                         <div>
-                            <img className="h-16 w-16 block text-center md:inline-block rounded-full" src={isLoaded ? user?.imageUrl : "https://via.placeholder.com/64"} alt="Profile Picture" />
+                            <UserButton
+                                appearance={{
+                                    elements: {
+                                        userButtonAvatarBox: {
+                                            width: '4rem',
+                                            height: '4rem'
+                                        }
+                                    }
+                                }}
+                                userProfileMode="modal"
+                                afterSignOutUrl="/"
+                            />
                         </div>
                         <div>
                             <table className='w-full'>
@@ -83,19 +110,49 @@ const DashboardIntro: React.FC<Props> = () => {
                         <button className="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700">
                             Request For Physical GDUE ID Card
                         </button>
-                        <UserButton
-                            appearance={{
-                                elements: {
-                                    userButtonAvatarBox: {
-                                        width: '3rem',
-                                        height: '3rem'
-                                    }
-                                }
-                            }}
-                            userProfileMode="modal"
-                            afterSignOutUrl="/"
-                        />
-                        <button className="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300">Edit Profile</button>
+
+                        <button onClick={() => handleOpen('md')} className="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300">
+                            Edit Profile</button>
+                        <Modal
+                            size={'md'}
+                            isOpen={isOpen}
+                            onClose={onClose}
+                        >
+                            <ModalContent>
+                                {(onClose) => (
+                                    <>
+                                        <ModalHeader className="flex flex-col gap-1">Update Your GDUE Profile</ModalHeader>
+                                        <ModalBody>
+                                            <textarea className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" rows={7} />
+
+
+                                            {/* <Input
+                                                autoFocus
+                                                // endContent={
+                                                //     <User2Icon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                                                // }
+                                                label="Profile Information"
+                                                placeholder="Tell us about yourself"
+                                                variant="bordered"
+                                            /> */}
+                                            <p>
+                                                Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
+                                                dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
+                                                Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
+                                            </p>
+                                        </ModalBody>
+                                        <ModalFooter>
+                                            <Button color="danger" variant="light" onPress={onClose}>
+                                                <strong>Close</strong>
+                                            </Button>
+                                            <Button color="warning" onPress={onClose}>
+                                                <strong>Update My Profile</strong>
+                                            </Button>
+                                        </ModalFooter>
+                                    </>
+                                )}
+                            </ModalContent>
+                        </Modal>
                     </div>
                 </div>
             </div>
