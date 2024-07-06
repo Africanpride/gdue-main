@@ -129,7 +129,9 @@ export async function POST(req: NextRequest) {
 
     // return NextResponse.json({ message: "New user created", user: newUser });
   }
-  
+
   // return NextResponse.json({ message: "New user created", user: newUser });
-  return NextResponse.json({message:'Webhook Consumed', status: 200 });
+  return new NextResponse("User Created Successfully!", {
+    status: 200,
+  });
 }
