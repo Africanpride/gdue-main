@@ -107,28 +107,29 @@ export async function POST(req: NextRequest) {
 
     const newUser = await createUser(userData);
 
-    if (newUser) {
-      // Check if the environment is production
-      if (process.env.NODE_ENV === "production") {
-        try {
-          await clerkClient.users.updateUserMetadata(id, {
-            publicMetadata: {
-              userId: newUser._id,
-            },
-          });
-          console.log("User metadata updated successfully");
-        } catch (error) {
-          console.error("Failed to update user metadata:", error);
-        }
-      } else {
-        console.log(
-          "User metadata update skipped, not in production environment"
-        );
-      }
-    }
+    // if (newUser) {
+    //   // Check if the environment is production
+    //   if (process.env.NODE_ENV === "production") {
+    //     try {
+    //       await clerkClient.users.updateUserMetadata(id, {
+    //         publicMetadata: {
+    //           userId: newUser._id,
+    //         },
+    //       });
+    //       console.log("User metadata updated successfully");
+    //     } catch (error) {
+    //       console.error("Failed to update user metadata:", error);
+    //     }
+    //   } else {
+    //     console.log(
+    //       "User metadata update skipped, not in production environment"
+    //     );
+    //   }
+    // }
 
-    return NextResponse.json({ message: "New user created", user: newUser });
+    // return NextResponse.json({ message: "New user created", user: newUser });
   }
-
-  return new Response("", { status: 200 });
+  
+  // return NextResponse.json({ message: "New user created", user: newUser });
+  return NextResponse.json({message:'Webhook Consumed', status: 200 });
 }
