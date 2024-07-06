@@ -22,7 +22,7 @@ const page = (props: Props) => {
           community.</>)}
         linkText="Watch our story"
         linkHref="#"
-        backgroundImage="/images/africa.jpg"
+        backgroundImage="/images/berlin3.jpg"
         hideVideo={false}
       />
       <section className=" w-full  py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">

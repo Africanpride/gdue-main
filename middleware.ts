@@ -4,8 +4,12 @@ import {
   createRouteMatcher
 } from '@clerk/nextjs/server';
 
+// Define a matcher for protected routes
 const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)'
+  '/dashboard(.*)',
+
+  // API route to the protected 
+  '/api/user(.*)', 
 ]);
 
 export default clerkMiddleware((auth, req) => {

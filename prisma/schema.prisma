@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String          @id @default(uuid())
+  externalId            String?         @unique
+  username              String?
+  firstName             String
+  lastName              String
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+  imageUrl              String?
+  profileImageUrl       String?
+  birthday              String?
+  gender                String?
+  lastSignInAt          DateTime?
+  passwordEnabled       Boolean
+  twoFactorEnabled      Boolean
+  totpEnabled           Boolean?
+  primaryEmailAddressId String?         @unique
+  primaryPhoneNumberId  String?         @unique
+  primaryWeb3WalletId   String?         @unique
+  publicMetadata        String?         // Storing JSON as String for SQLite compatibility
+  privateMetadata       String?         // Storing JSON as String for SQLite compatibility
+  unsafeMetadata        String?         // Storing JSON as String for SQLite compatibility
+  emailAddresses        EmailAddress[]  @relation("UserEmailAddresses")
+  phoneNumbers          PhoneNumber[]   @relation("UserPhoneNumbers")
+  web3Wallets           Web3Wallet[]    @relation("UserWeb3Wallets")
+  primaryEmailAddress   EmailAddress?   @relation("PrimaryEmailAddress", fields: [primaryEmailAddressId], references: [id])
+  primaryPhoneNumber    PhoneNumber?    @relation("PrimaryPhoneNumber", fields: [primaryPhoneNumberId], references: [id])
+  primaryWeb3Wallet     Web3Wallet?     @relation("PrimaryWeb3Wallet", fields: [primaryWeb3WalletId], references: [id])
+}
+
+model EmailAddress {
+  id               String   @id @default(uuid())
+  emailAddress     String   @unique
+  verification     String?  // Storing JSON as String for SQLite compatibility
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  userId           String?
+  user             User?    @relation("UserEmailAddresses", fields: [userId], references: [id], onDelete: Cascade)
+  primaryUser      User?    @relation("PrimaryEmailAddress")
+}
+
+model PhoneNumber {
+  id               String   @id @default(uuid())
+  phoneNumber      String   @unique
+  verification     String?  // Storing JSON as String for SQLite compatibility
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  userId           String?
+  user             User?    @relation("UserPhoneNumbers", fields: [userId], references: [id], onDelete: Cascade)
+  primaryUser      User?    @relation("PrimaryPhoneNumber")
+}
+
+model Web3Wallet {
+  id               String   @id @default(uuid())
+  walletAddress    String   @unique
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  userId           String?
+  user             User?    @relation("UserWeb3Wallets", fields: [userId], references: [id], onDelete: Cascade)
+  primaryUser      User?    @relation("PrimaryWeb3Wallet")
+}
