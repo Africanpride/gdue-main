@@ -1,3 +1,4 @@
+// app/api/webhooks/clerk/route.ts
 import { WebhookEvent, clerkClient, UserJSON } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
@@ -5,7 +6,6 @@ import { Webhook } from "svix";
 import { createUser } from "@/lib/createUser";
 
 export async function POST(req: NextRequest) {
-  // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const CLERK_WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 
   if (!CLERK_WEBHOOK_SECRET) {
@@ -14,29 +14,25 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Get the headers
   const headerPayload = headers();
   const svix_id = headerPayload.get("svix-id");
   const svix_timestamp = headerPayload.get("svix-timestamp");
   const svix_signature = headerPayload.get("svix-signature");
 
-  // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
-    return new Response("Error occured -- no svix headers", {
+    console.error("Missing svix headers");
+    return new Response("Error occurred -- no svix headers", {
       status: 400,
     });
   }
 
-  // Get the body
   const payload = await req.json();
   const body = JSON.stringify(payload);
 
-  // Create a new Svix instance with your secret.
   const wh = new Webhook(CLERK_WEBHOOK_SECRET);
 
   let clerkEvent: WebhookEvent;
 
-  // Verify the payload with the headers
   try {
     clerkEvent = wh.verify(body, {
       "svix-id": svix_id,
@@ -45,17 +41,14 @@ export async function POST(req: NextRequest) {
     }) as WebhookEvent;
   } catch (err) {
     console.error("Error verifying webhook:", err);
-    return new Response("Error occured", {
+    return new Response("Error occurred", {
       status: 400,
     });
   }
 
-  // Get the ID and type
   const eventType = clerkEvent.type;
 
-  // CREATE User in mongodb
   if (eventType === "user.created") {
-    // Extract data from userData
     const {
       id,
       email_addresses,
@@ -101,37 +94,21 @@ export async function POST(req: NextRequest) {
       web3Wallets: web3_wallets || [],
     };
 
-    console.log(userData);
+    console.log("User data to create:", userData);
 
-    console.log("Creating ............");
-
-    const newUser = await createUser(userData);
-
-    // if (newUser) {
-    //   // Check if the environment is production
-    //   if (process.env.NODE_ENV === "production") {
-    //     try {
-    //       await clerkClient.users.updateUserMetadata(id, {
-    //         publicMetadata: {
-    //           userId: newUser._id,
-    //         },
-    //       });
-    //       console.log("User metadata updated successfully");
-    //     } catch (error) {
-    //       console.error("Failed to update user metadata:", error);
-    //     }
-    //   } else {
-    //     console.log(
-    //       "User metadata update skipped, not in production environment"
-    //     );
-    //   }
-    // }
-
-    // return NextResponse.json({ message: "New user created", user: newUser });
+    try {
+      console.time("createUser");
+      const newUser = await createUser(userData);
+      console.timeEnd("createUser");
+      console.log("User created successfully:", newUser);
+    } catch (error) {
+      console.error("Failed to create user:", error);
+      return new Response("Error occurred during user creation", {
+        status: 500,
+      });
+    }
   }
 
-  // return NextResponse.json({ message: "New user created", user: newUser });
-  console.log("DONE CREATING .........");
   return new NextResponse("User Created Successfully!", {
     status: 200,
   });

@@ -1,3 +1,4 @@
+// lib/createUser.ts
 import { connect } from "@/prisma/mondoDB/mongo";
 import Profile from "@/prisma/mondoDB/userSchema";
 
@@ -13,17 +14,17 @@ export async function createUser(profiles: any) {
 
     // Create a new user
     const newUser = await Profile.create(profiles);
-    return JSON.parse(JSON.stringify(newUser));
+    return newUser;
   } catch (error) {
-    console.error(error);
-      console.log(`Failure in syncing webhook with mongoDB`);
-    // const mongoError = error as MongoError;
-    // if (mongoError.code === 11000) {
-    //   // Handle the duplicate key error as needed
-    //   // For example, you might want to return the existing user or a custom message
-    //   const existingUser = await User.findOne({ clerkId: profiles.clerkId });
-    //   return JSON.parse(JSON.stringify(existingUser));
-    // } else {
-    // }
+    const mongoError = error as MongoError;
+    console.error("MongoDB Error:", mongoError.message);
+    if (mongoError.code) {
+      console.error("MongoDB Error Code:", mongoError.code);
+    }
+    if (mongoError.errmsg) {
+      console.error("MongoDB Error Message:", mongoError.errmsg);
+    }
+    console.log("Failure in syncing webhook with MongoDB");
+    return null;
   }
 }
