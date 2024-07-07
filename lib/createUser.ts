@@ -16,9 +16,9 @@ export async function createUser(profiles: any) {
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     console.error(error);
+      console.log(`Failure in syncing webhook with mongoDB`);
     // const mongoError = error as MongoError;
     // if (mongoError.code === 11000) {
-    //   console.log(`Duplicate key error: ${mongoError.errmsg}`);
     //   // Handle the duplicate key error as needed
     //   // For example, you might want to return the existing user or a custom message
     //   const existingUser = await User.findOne({ clerkId: profiles.clerkId });
