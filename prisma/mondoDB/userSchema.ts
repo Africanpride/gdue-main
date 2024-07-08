@@ -13,11 +13,9 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
-    unique: true,
   },
   photo: {
     type: String,
-    required: true,
   },
   firstName: {
     type: String,
@@ -75,6 +73,7 @@ const UserSchema = new Schema({
   web3Wallets: [Schema.Types.Mixed],
 });
 
-const Profile = models?.Profile || model("Profile", UserSchema);
+const User = models.User || model('User', UserSchema);
 
-export default Profile;
+
+export default User;

@@ -1,6 +1,6 @@
-// lib/createUser.ts
+// lib/syncUserData.ts
 import { connect } from "@/prisma/mondoDB/mongo";
-import Profile from "@/prisma/mondoDB/userSchema";
+import User from "@/prisma/mondoDB/userSchema";
 
 
 interface MongoError extends Error {
@@ -8,12 +8,12 @@ interface MongoError extends Error {
   errmsg?: string;
 }
 
-export async function createUser(profiles: any) {
+export async function syncUserData(users: any) {
   try {
     await connect();
 
     // Create a new user
-    const newUser = await Profile.create(profiles);
+    const newUser = await User.create(users);
     return newUser;
   } catch (error) {
     const mongoError = error as MongoError;

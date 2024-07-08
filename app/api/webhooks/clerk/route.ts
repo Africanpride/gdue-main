@@ -3,7 +3,29 @@ import { WebhookEvent, clerkClient, UserJSON } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "svix";
-import { createUser } from "@/lib/createUser";
+import { syncUserData } from "@/lib/createUser";
+import { generateUniqueDiasporanId } from "@/utils/functions";
+
+async function updatePublicMetaProfile(newUser: any) {
+  const { clerkId, _id } = newUser;
+
+  try {
+    // generate unique Diasporan ID
+    const diasporanId = generateUniqueDiasporanId();
+    await clerkClient.users.updateUserMetadata(clerkId, {
+      publicMetadata: {
+        userId: _id,
+        uniqueId: diasporanId,
+        requestedForPhysicalCard: false,
+        profileDetails:
+          "Welcome to your profile! Tell us more about yourself so we can get to know you better. Add your interests, skills, and experiences to make your profile stand out.",
+      },
+    });
+    console.log("User metadata updated successfully");
+  } catch (error) {
+    console.error("Failed to update user metadata:", error);
+  }
+}
 
 export async function POST(req: NextRequest) {
   const CLERK_WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
@@ -48,7 +70,29 @@ export async function POST(req: NextRequest) {
 
   const eventType = clerkEvent.type;
 
+  // check if user has uniqueDiasporanID. If not, create one for the user
   if (eventType === "user.created") {
+    const { id } = clerkEvent.data;
+
+    try {
+      // generate unique Diasporan ID
+      const uniqueIdentity = generateUniqueDiasporanId();
+      await clerkClient.users.updateUserMetadata(id, {
+        publicMetadata: {
+          uniqueDiasporanID: uniqueIdentity,
+          requestedForPhysicalCard: false,
+          profileDetails:
+            "Welcome to your profile! Tell us more about yourself so we can get to know you better. Add your interests, skills, and experiences to make your profile stand out.",
+        },
+      });
+      console.log("User metadata updated successfully");
+    } catch (error) {
+      console.error("Failed to update user metadata:", error);
+    }
+  }
+
+  // sync with mongoDB database
+  if (eventType === "user.updated") {
     const {
       id,
       email_addresses,
@@ -94,21 +138,24 @@ export async function POST(req: NextRequest) {
       web3Wallets: web3_wallets || [],
     };
 
-    console.log("User data to create:", userData);
+    // console.log("User data to sync with database:", userData);
 
     try {
-      console.time("createUser");
-      const newUser = await createUser(userData);
-      console.timeEnd("createUser");
-      console.log("User created successfully:", newUser);
+      // sync updated user data wigth mongoDB Atlas
+      const newUser = await syncUserData(userData);
+      console.log("User updated successfully:", newUser);
+
+      console.log("public Meta Profile updated successfully:");
     } catch (error) {
-      console.error("Failed to create user:", error);
+      console.error("Failed to update user:", error);
       return new Response("Error occurred during user creation", {
         status: 500,
       });
     }
   }
 
-  return NextResponse.json({ message: "Webhook received and processed" }, { status: 200 });
-
+  return NextResponse.json(
+    { message: "Webhook received and processed" },
+    { status: 200 }
+  );
 }
