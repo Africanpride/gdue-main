@@ -14,41 +14,27 @@ const UserSchema = new Schema({
   username: {
     type: String,
   },
-  photo: {
-    type: String,
-  },
   firstName: {
     type: String,
   },
   lastName: {
     type: String,
   },
+  photo: {
+    type: String,
+  },
   createdAt: {
     type: Number,
   },
-  emailAddresses: [
-    {
-      emailAddress: String,
-      id: String,
-      linkedTo: [Schema.Types.Mixed],
-      object: String,
-      verification: Schema.Types.Mixed,
-    },
-  ],
-  externalAccounts: [Schema.Types.Mixed],
-  externalId: {
-    type: String,
-  },
-  lastSignInAt: {
+  updatedAt: {
     type: Number,
   },
-  object: {
+  imageUrl: {
     type: String,
   },
-  passwordEnabled: {
+  hasImage: {
     type: Boolean,
   },
-  phoneNumbers: [Schema.Types.Mixed],
   primaryEmailAddressId: {
     type: String,
   },
@@ -58,22 +44,49 @@ const UserSchema = new Schema({
   primaryWeb3WalletId: {
     type: String,
   },
-  privateMetadata: Schema.Types.Mixed,
-  profileImageUrl: {
+  lastSignInAt: {
+    type: Number,
+  },
+  externalId: {
     type: String,
   },
-  publicMetadata: Schema.Types.Mixed,
+  passwordEnabled: {
+    type: Boolean,
+  },
+  totpEnabled: {
+    type: Boolean,
+  },
+  backupCodeEnabled: {
+    type: Boolean,
+  },
   twoFactorEnabled: {
     type: Boolean,
   },
+  banned: {
+    type: Boolean,
+  },
+  publicMetadata: Schema.Types.Mixed,
+  privateMetadata: Schema.Types.Mixed,
   unsafeMetadata: Schema.Types.Mixed,
-  updatedAt: {
+  emailAddresses: [
+    {
+      emailAddress: String,
+      id: String,
+      linkedTo: [Schema.Types.Mixed],
+      verification: Schema.Types.Mixed,
+    },
+  ],
+  phoneNumbers: [Schema.Types.Mixed],
+  web3Wallets: [Schema.Types.Mixed],
+  externalAccounts: [Schema.Types.Mixed],
+  lastActiveAt: {
     type: Number,
   },
-  web3Wallets: [Schema.Types.Mixed],
+  createOrganizationEnabled: {
+    type: Boolean,
+  },
 });
 
-const User = models.User || model('User', UserSchema);
-
+const User = models.User || model("User", UserSchema);
 
 export default User;

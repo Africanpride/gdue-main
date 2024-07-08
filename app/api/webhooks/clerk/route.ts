@@ -3,7 +3,7 @@ import { WebhookEvent, clerkClient, UserJSON } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "svix";
-import { syncUserData } from "@/lib/createUser";
+import { syncUserData } from "@/lib/syncUserData";
 import { generateUniqueDiasporanId } from "@/utils/functions";
 
 async function updatePublicMetaProfile(newUser: any) {
@@ -72,12 +72,15 @@ export async function POST(req: NextRequest) {
 
   // check if user has uniqueDiasporanID. If not, create one for the user
   if (eventType === "user.created") {
-    const { id } = clerkEvent.data;
+    const { id }: { id: string } = clerkEvent.data;
+    const userId = id;
 
     try {
-      // generate unique Diasporan ID
+      // Generate unique Diasporan ID
       const uniqueIdentity = generateUniqueDiasporanId();
-      await clerkClient.users.updateUserMetadata(id, {
+
+      // Update user metadata
+      await clerkClient.users.updateUserMetadata(userId, {
         publicMetadata: {
           uniqueDiasporanID: uniqueIdentity,
           requestedForPhysicalCard: false,
@@ -85,72 +88,31 @@ export async function POST(req: NextRequest) {
             "Welcome to your profile! Tell us more about yourself so we can get to know you better. Add your interests, skills, and experiences to make your profile stand out.",
         },
       });
+
       console.log("User metadata updated successfully");
+
+      // Wait for 2 seconds (example, adjust as needed)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Fetch the updated user data
+      const updatedUser = await clerkClient.users.getUser(userId);
+
+      // Extract relevant data for MongoDB insertion
+      const userData = {
+        clerkId: updatedUser.id,
+        email: updatedUser.emailAddresses[0].emailAddress,
+        ...updatedUser,
+      };
+
+      // Sync user data with MongoDB Atlas
+      try {
+        await syncUserData(userData);
+        console.log("User data synced with MongoDB Atlas");
+      } catch (err) {
+        console.error("Error syncing user data:", err);
+      }
     } catch (error) {
       console.error("Failed to update user metadata:", error);
-    }
-  }
-
-  // sync with mongoDB database
-  if (eventType === "user.updated") {
-    const {
-      id,
-      email_addresses,
-      image_url,
-      first_name,
-      last_name,
-      username,
-      created_at,
-      external_accounts,
-      external_id,
-      last_sign_in_at,
-      object,
-      password_enabled,
-      phone_numbers,
-      primary_email_address_id,
-      public_metadata,
-      two_factor_enabled,
-      unsafe_metadata,
-      updated_at,
-      web3_wallets,
-    } = clerkEvent.data;
-
-    const userData = {
-      clerkId: id,
-      email: email_addresses[0].email_address,
-      username: username || "",
-      firstName: first_name || "",
-      lastName: last_name || "",
-      photo: image_url || "",
-      createdAt: created_at || 0,
-      externalAccounts: external_accounts || [],
-      externalId: external_id || "",
-      lastSignInAt: last_sign_in_at || 0,
-      object: object || "",
-      passwordEnabled: password_enabled || false,
-      phoneNumbers: phone_numbers || [],
-      primaryEmailAddressId: primary_email_address_id || "",
-      profileImageUrl: image_url || "",
-      publicMetadata: public_metadata || {},
-      twoFactorEnabled: two_factor_enabled || false,
-      unsafeMetadata: unsafe_metadata || {},
-      updatedAt: updated_at || 0,
-      web3Wallets: web3_wallets || [],
-    };
-
-    // console.log("User data to sync with database:", userData);
-
-    try {
-      // sync updated user data wigth mongoDB Atlas
-      const newUser = await syncUserData(userData);
-      console.log("User updated successfully:", newUser);
-
-      console.log("public Meta Profile updated successfully:");
-    } catch (error) {
-      console.error("Failed to update user:", error);
-      return new Response("Error occurred during user creation", {
-        status: 500,
-      });
     }
   }
 
