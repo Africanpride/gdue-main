@@ -16,7 +16,7 @@ export async function syncUserData(users: any) {
     // Create a new user
     const newUser = await User.create(users);
     return NextResponse.json(
-      { message: "Webhook received and processed" },
+      { message: "new user created on mongoDB Atlas" },
       { status: 200 }
     );
   } catch (error) {
