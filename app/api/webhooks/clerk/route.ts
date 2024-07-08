@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
 
   // check if user has uniqueDiasporanID. If not, create one for the user
   if (eventType === "user.created") {
-    const { id }: { id: string } = clerkEvent.data;
+    const { id }:{ id: string } = clerkEvent.data;
     const userId = id;
 
     try {

@@ -1,6 +1,7 @@
 // lib/syncUserData.ts
 import { connect } from "@/prisma/mondoDB/mongo";
 import User from "@/prisma/mondoDB/userSchema";
+import { NextResponse } from "next/server";
 
 
 interface MongoError extends Error {
@@ -14,7 +15,10 @@ export async function syncUserData(users: any) {
 
     // Create a new user
     const newUser = await User.create(users);
-    return newUser;
+    return NextResponse.json(
+      { message: "Webhook received and processed" },
+      { status: 200 }
+    );
   } catch (error) {
     const mongoError = error as MongoError;
     console.error("MongoDB Error:", mongoError.message);
