@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Webhook } from "svix";
 import { syncUserData } from "@/lib/syncUserData";
 import { generateUniqueDiasporanId } from "@/utils/functions";
+import { allowedIps } from "@/utils/allowedIps";
 
 async function updatePublicMetaProfile(newUser: any) {
   const { clerkId, _id } = newUser;
@@ -34,6 +35,13 @@ export async function POST(req: NextRequest) {
     throw new Error(
       "Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"
     );
+  }
+
+  const clientIp =
+    req.headers.get("x-forwarded-for") || req.headers.get("remote-addr");
+  if (!clientIp || !allowedIps.includes(clientIp)) {
+    console.error("Unauthorized IP:", clientIp);
+    return new Response("Unauthorized", { status: 401 });
   }
 
   const headerPayload = headers();
@@ -72,7 +80,7 @@ export async function POST(req: NextRequest) {
 
   // check if user has uniqueDiasporanID. If not, create one for the user
   if (eventType === "user.created") {
-    const { id }:{ id: string } = clerkEvent.data;
+    const { id }: { id: string } = clerkEvent.data;
     const userId = id;
 
     try {
@@ -92,7 +100,7 @@ export async function POST(req: NextRequest) {
       console.log("User metadata updated successfully");
 
       // Wait for 2 seconds (example, adjust as needed)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
 
       // Fetch the updated user data
       const updatedUser = await clerkClient.users.getUser(userId);
@@ -108,6 +116,10 @@ export async function POST(req: NextRequest) {
       try {
         await syncUserData(userData);
         console.log("User data synced with MongoDB Atlas");
+        return NextResponse.json(
+          { message: "Webhook received and processed" },
+          { status: 200 }
+        );
       } catch (err) {
         console.error("Error syncing user data:", err);
       }
@@ -115,9 +127,4 @@ export async function POST(req: NextRequest) {
       console.error("Failed to update user metadata:", error);
     }
   }
-
-  return NextResponse.json(
-    { message: "Webhook received and processed" },
-    { status: 200 }
-  );
 }

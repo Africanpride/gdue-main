@@ -1,3 +1,4 @@
+// utils/allowedIps.ts
 export const allowedIps: string[] = [
   "44.228.126.217",
   "50.112.21.217",
