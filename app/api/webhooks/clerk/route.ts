@@ -7,26 +7,26 @@ import { syncUserData } from "@/lib/syncUserData";
 import { generateUniqueDiasporanId } from "@/utils/functions";
 import { allowedIps } from "@/utils/allowedIps";
 
-async function updatePublicMetaProfile(newUser: any) {
-  const { clerkId, _id } = newUser;
+// async function updatePublicMetaProfile(newUser: any) {
+//   const { clerkId, _id } = newUser;
 
-  try {
-    // generate unique Diasporan ID
-    const diasporanId = generateUniqueDiasporanId();
-    await clerkClient.users.updateUserMetadata(clerkId, {
-      publicMetadata: {
-        userId: _id,
-        uniqueId: diasporanId,
-        requestedForPhysicalCard: false,
-        profileDetails:
-          "Welcome to your profile! Tell us more about yourself so we can get to know you better. Add your interests, skills, and experiences to make your profile stand out.",
-      },
-    });
-    console.log("User metadata updated successfully");
-  } catch (error) {
-    console.error("Failed to update user metadata:", error);
-  }
-}
+//   try {
+//     // generate unique Diasporan ID
+//     const diasporanId = generateUniqueDiasporanId();
+//     await clerkClient.users.updateUserMetadata(clerkId, {
+//       publicMetadata: {
+//         userId: _id,
+//         uniqueId: diasporanId,
+//         requestedForPhysicalCard: false,
+//         profileDetails:
+//           "Welcome to your profile! Tell us more about yourself so we can get to know you better. Add your interests, skills, and experiences to make your profile stand out.",
+//       },
+//     });
+//     console.log("User metadata updated successfully");
+//   } catch (error) {
+//     console.error("Failed to update user metadata:", error);
+//   }
+// }
 
 export async function POST(req: NextRequest) {
   const CLERK_WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;

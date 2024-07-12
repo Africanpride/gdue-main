@@ -34,14 +34,27 @@ export const metadata: Metadata = {
   icons: {
     icon: "/ghana.svg",
   },
-};
-
-export const viewport: Viewport = {
+  keywords: siteConfig.keywords,
+  colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+  viewport: { width: "device-width", initialScale: 1 },
+  publisher: 'Ghanaian Diaspora in Europe',
+  robots: "index, follow",
+  formatDetection: {
+    telephone: true,
+    date: true,
+    address: true,
+    email: true,
+    url: true,
+  }
+
 };
+
+// export const viewport: Viewport = {
+// };
 
 export default function RootLayout({
   children,
@@ -70,19 +83,19 @@ export default function RootLayout({
         >
 
 
-            <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-              <div className="py-4">
-                <NavBar />
-              </div>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="py-4">
+              <NavBar />
+            </div>
 
-              <div className="relative flex flex-col h-screen px-4">
-                <main className="container mx-auto ">{children}</main>
+            <div className="relative flex flex-col h-screen px-4">
+              <main className="container mx-auto ">{children}</main>
 
-                <CookieConsent />
-                
-                <Footer />
-              </div>
-            </Providers>
+              <CookieConsent />
+
+              <Footer />
+            </div>
+          </Providers>
         </body>
 
         <PrelineScript />
