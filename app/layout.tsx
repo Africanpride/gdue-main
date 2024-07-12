@@ -35,12 +35,6 @@ export const metadata: Metadata = {
     icon: "/ghana.svg",
   },
   keywords: siteConfig.keywords,
-  colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-  viewport: { width: "device-width", initialScale: 1 },
   publisher: 'Ghanaian Diaspora in Europe',
   robots: "index, follow",
   formatDetection: {
@@ -49,12 +43,17 @@ export const metadata: Metadata = {
     address: true,
     email: true,
     url: true,
-  }
-
+  },
+  
 };
 
-// export const viewport: Viewport = {
-// };
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function RootLayout({
   children,
