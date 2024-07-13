@@ -23,6 +23,10 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
+import { GoogleTagManager } from '@next/third-parties/google'
+
+
+
 
 
 export const metadata: Metadata = {
@@ -44,7 +48,7 @@ export const metadata: Metadata = {
     email: true,
     url: true,
   },
-  
+
 };
 
 export const viewport: Viewport = {
@@ -81,6 +85,13 @@ export default function RootLayout({
               overflow-x-hidden text-[16px]`}
         >
 
+          <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGQMFKJV"
+              height="0" width="0" style={{ display: "none", visibility: "hidden" }}>
+            </iframe>
+          </noscript>
+
+          <GoogleTagManager gtmId="GTM-TGQMFKJV" />
 
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             <div className="py-4">
