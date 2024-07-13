@@ -1,6 +1,10 @@
+/* import loading.css loacted in styles/loading.css */
+@import url('./loading.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 .card-background {
   background-image: url('/images/london.jpg'); /* Add the path to your background image here */
