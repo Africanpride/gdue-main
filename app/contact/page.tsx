@@ -26,7 +26,7 @@ export default function AboutPage() {
         description={description}
         linkText="Watch our story"
         linkHref="#"
-        backgroundImage="/images/europe.jpg"
+        backgroundImage="/images/contact.jpg"
         hideVideo={true}
       />
       <section className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">

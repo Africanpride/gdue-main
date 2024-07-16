@@ -8,6 +8,7 @@ import {
   poppins,
 } from "@/config/fonts";
 import { usePathname } from 'next/navigation';  // Import usePathname
+import Image from "next/image";
 
 
 type Props = {
@@ -31,21 +32,31 @@ const Jumbotron = ({
   linkText = "Watch our story",
   linkHref = "#",
   backgroundImage = "/images/festival2.jpg",
-  hideVideo =false
+  hideVideo = false
 }: Props) => {
   const pathname = usePathname();  // Get the current path
-  const currentUrl = pathname.replace('/','');
+  const currentUrl = pathname.replace('/', '');
 
   return (
     <section className="">
       {/* Features */}
       <div className="mx-auto">
         <div
-          className={`min-h-[35vh] h-auto md:min-h-[75vh] grayscale saturate-150	 flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          className={`min-h-[35vh] h-auto md:min-h-[75vh]  	 flex flex-col justify-center items-start  relative md:rounded-6xl overflow-hidden`}
+         
         >
-          <div className={`text-[9dvw] gap-x-2 opacity-75 dark:opacity-55 uppercase  
-           text-default-900 px-8 font-extrabold ${poppins.className}`}>
+          <Image
+            data-image
+            src={backgroundImage}
+            width={1728}
+            height={650}
+            alt="Blob"
+            // style={{ objectFit: "cover" }}
+            className="absolute  grayscale saturate-150
+            bg-bottom bg-cover bg-no-repeat"
+          />
+          <div className={`text-[9dvw] gap-x-2 text-yellow-600 opacity-55 dark:opacity-45 uppercase  
+           px-8 font-extrabold ${poppins.className}`}>
             {currentUrl}
           </div>
           <div className="hidden md:block absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
@@ -62,7 +73,7 @@ const Jumbotron = ({
               <div className={`hidden md:mt-16 `}>
                 <Link
                   href={linkHref}
-                  className={`${hideVideo ? 'hidden': 'flex'}  items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-neutral-400`}
+                  className={`${hideVideo ? 'hidden' : 'flex'}  items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-neutral-400`}
                 >
                   <svg
                     className="flex-shrink-0 size-4"
