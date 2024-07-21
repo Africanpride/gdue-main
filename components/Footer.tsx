@@ -41,7 +41,7 @@ const Footer = () => {
               Helping Ghanaians abroad thrive! We advocate for your rights,
               offer support programs, celebrate our culture, and empower you
               with education & economic opportunities. Together, we build a
-              strong, vibrant <span className="italic font-bold">Ghanaian diaspora community</span>.
+              strong, vibrant <span className="italic font-bold">Ghanaian diaspora community</span>. <span className="italic capitalize">Together We Stand, Divided We Fall! All For One, One For All!</span>
             </p>
           </div>
           {/* End Col */}

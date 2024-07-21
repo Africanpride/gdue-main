@@ -9,6 +9,8 @@ import {
 } from "@/config/fonts";
 import { usePathname } from 'next/navigation';  // Import usePathname
 import Image from "next/image";
+import { isMobile } from 'mobile-device-detect';
+
 
 
 type Props = {
@@ -26,7 +28,7 @@ const Jumbotron = ({
   description = (
     <>
       Learn more about sharing your business with the{" "}
-      <span className="text-yellow-600 ">Ghana diasporan</span> community.
+      <span className="text-yellow-800 ">Ghana diasporan</span> community.
     </>
   ),
   linkText = "Watch our story",
@@ -42,11 +44,12 @@ const Jumbotron = ({
       {/* Features */}
       <div className="mx-auto">
         <div
-          className={`min-h-[35vh] h-auto md:min-h-[75vh]  	 flex flex-col justify-center items-start  relative md:rounded-6xl overflow-hidden`}
+          className={`min-h-[35vh] h-auto md:min-h-[75vh] flex flex-col justify-center items-start  relative md:rounded-6xl overflow-hidden`}
          
         >
           <Image
             data-image
+            priority
             src={backgroundImage}
             width={1728}
             height={650}
@@ -55,18 +58,18 @@ const Jumbotron = ({
             className="absolute  grayscale saturate-150
             bg-bottom bg-cover bg-no-repeat"
           />
-          <div className={`text-[9dvw] gap-x-2 text-yellow-600 opacity-55 dark:opacity-45 uppercase  
-           px-8 font-extrabold ${poppins.className}`}>
+          <div className={`${isMobile ? 'text-[3.3rem] px-2'  : 'text-[9dvw] px-8'}  gap-x-2 text-yellow-600 opacity-75 dark:opacity-55 uppercase  
+            font-extrabold ${poppins.className}`}>
             {currentUrl}
           </div>
-          <div className="hidden md:block absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
+          <div className="hidden md:block absolute bottom-0 top-0 start-0 end-0 max-w-md text-center mx-auto p-3 md:start-auto md:text-start md:mx-0">
             {/* Card */}
-            <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">
+            <div className="px-5 py-4 inline-block h-full bg-white rounded-4xl rounded-tr-[3.5rem] rounded-ee-[3.5rem]	 md:p-7 dark:bg-yellow-700">
               <div>
                 <h3 className={`${bebas.className} tracking-wide text-md font-bold text-gray-800 sm:text-xl dark:text-neutral-200`}>
                   {heading}
                 </h3>
-                <p className="mt-2 text-gray-800 dark:text-neutral-200 text-sm">
+                <p className="mt-2 text-gray-800 dark:text-neutral-200 text-medium ">
                   {description}
                 </p>
               </div>

@@ -10,7 +10,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import Akwado from "@/ui/Akwado";
+import Akwado from "@/ui/GDUELogo";
 import { bebas, playfair_display } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
@@ -25,51 +25,49 @@ import {
   useUser,
 } from '@clerk/nextjs'
 import { LucideUser } from "lucide-react";
-import { usePathname } from 'next/navigation';  // Import usePathname
+import { usePathname } from 'next/navigation';
+import RegistrationModal from './RegistrationModal';
+import { Logo } from "./icons";
+import MainLogo from "@/ui/GDUELogo";
+import { isMobile } from "mobile-device-detect";
+import Link from "next/link";
 
 type Props = {};
 
 const NavBar = (props: Props) => {
 
-  const pathname = usePathname();  // Get the current path
-  const { user } = useUser();  // Get the user object
+  const pathname = usePathname();
+  const { user } = useUser();
 
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="md:py-8">
-      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
+      <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="full">
         <NavbarContent justify="start" className="md:!px-0">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden"
           />
+
           <div className="flex justify-between items-center gap-x-2">
-            <NavbarBrand  >
-              <Akwado />
+            <NavbarBrand>
+              <MainLogo />
+              <NavbarItem>
+                <div className={`${isMobile ? 'hidden' : 'md:text-md text-sm md:leading-4 px-2 border-s'}`}>
+                  Ghanaian Diaspora
+                  <br />
+                  Union in{" "}
+                  <span className={`${playfair_display.className}`}>
+                    Europe
+                  </span>{" "}
+                </div>
+              </NavbarItem>
             </NavbarBrand>
-            <NavbarItem>
-              <div className="md:text-md text-sm md:leading-4 px-2 border-s">
-                Ghanaian Diaspora
-                <br />
-                Union in{" "}
-                <span className={`${playfair_display.className}`}>
-                  Europe
-                </span>{" "}
-              </div>
-            </NavbarItem>
           </div>
         </NavbarContent>
 
@@ -84,7 +82,7 @@ const NavBar = (props: Props) => {
                   linkStyles({ color: "foreground" }),
                   {
                     "data-[active=true]:text-primary data-[active=true]:font-medium hover:text-yellow-600": true,
-                    "text-yellow-600": pathname === item.href  // Highlight active link
+                    "text-yellow-600": pathname === item.href // Highlight active link
                   }
                 )}
                 color="foreground"
@@ -94,9 +92,7 @@ const NavBar = (props: Props) => {
               </NextLink>
             </NavbarItem>
           ))}
-          <div className="pt-1">
-            <ThemeSwitch />
-          </div>
+          <RegistrationModal />
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem>
@@ -127,25 +123,16 @@ const NavBar = (props: Props) => {
         <NavbarMenu>
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <NextUILink
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === menuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                className="w-full"
-                href={item.href}
-                size="lg"
+              <Link href={item.href}
+                className={`${pathname === item.href ? 'text-danger-600' : 'text-primary'} `}
+                onClick={handleMenuItemClick} // Add onClick handler
               >
                 {item.label}
-              </NextUILink>
+              </Link>
             </NavbarMenuItem>
           ))}
         </NavbarMenu>
       </Navbar>
-      
     </div>
   );
 };

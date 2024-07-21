@@ -4,7 +4,7 @@ import { IconSvgProps } from "@/types";
 import Image, { ImageProps } from "next/image";
 
 export const Logo: React.FC<IconSvgProps> = ({
-  size = 36,
+  size = 16,
   width,
   height,
   ...props

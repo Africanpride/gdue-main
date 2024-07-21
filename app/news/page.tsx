@@ -13,13 +13,9 @@ const page = (props: Props) => {
     <div className="md:space-y-16">
 
       <Jumbotron
-        heading="Diasporan Business Directory"
-        description={(<>  Explore our Diasporan Business Directory showcasing diverse businesses owned by  {" "}
-          <span className="text-yellow-600 font-bold">
-          Ghanaians in the diaspora. 
-          </span>{" "}
-          Support community entrepreneurship. {" "}
-          </>)}
+        heading="News & Updates: Stay Connected"
+        description={(<>  Welcome to the GDUE News section! Here, you&apos;ll find the latest updates and insights on events, initiatives, and community engagements from the Ghanaian Diaspora Union in Europe. Stay informed about our advocacy efforts, cultural celebrations, educational programs, and economic empowerment initiatives.<br /><br /> This section is dedicated to keeping you connected with the vibrant activities and achievements of GDUE, highlighting our mission to promote unity, cultural pride, and economic well-being among Ghanaians in the diaspora. Join us in celebrating our community and stay updated on our journey toward a brighter future.
+        </>)}
         linkText="Watch our story"
         linkHref="#"
         backgroundImage="/images/news.jpg"

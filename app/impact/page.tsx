@@ -18,7 +18,8 @@ import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
 
 export default function ImpactPage() {
-  const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
+  const description = (<>At GDUE, we are dedicated to making a significant impact on the lives of the most vulnerable in Africa, especially widows and orphans. Our efforts include providing essential supplies, promoting self-sufficiency, and offering educational programs. <br />
+    <br />We believe in creating sustainable futures by helping those in need, both at home and abroad. By partnering with local organizations, we ensure our resources effectively reach those who need them most, fostering a spirit of self-reliance and empowering the future leaders of Africa.</>)
   return (
     <div className="md:space-y-16">
       <Jumbotron
@@ -63,7 +64,7 @@ export default function ImpactPage() {
                 </div>
 
                 <Button href={'https://wa.me/+41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
-                  <LucidePhoneOutgoing /> Join GDUE Social Impact Programme  
+                  <LucidePhoneOutgoing /> Join GDUE Social Impact Programme
                 </Button>
 
                 <div className="mt-6 md:mt-8">

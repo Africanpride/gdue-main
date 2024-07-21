@@ -10,17 +10,11 @@ import CookieConsent from "@/ui/CookieConsent";
 import { siteConfig } from "@/config/site";
 import { ibm_plex_sans_condense } from "@/config/fonts";
 import Footer from "@/components/Footer";
-import { Image } from "@nextui-org/image";
-import Heading from "@/components/Jumbotron";
-import Jumbotron from "@/components/Jumbotron";
 import PrelineScript from "@/components/PrelineScript";
 import NavBar from "@/components/NavBar";
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
 import { GoogleTagManager } from '@next/third-parties/google'
@@ -55,9 +49,10 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: dark)", color: "blue" },
   ],
 };
+
 
 export default function RootLayout({
   children,
@@ -68,21 +63,21 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-        layout: {
-          socialButtonsPlacement: 'top',
-          termsPageUrl: '/terms',
-          privacyPageUrl: '/privacy',
-        }
-      }}
+    appearance={{
+      baseTheme: dark,
+      layout: {
+        socialButtonsPlacement: 'top',
+        termsPageUrl: '/terms',
+        privacyPageUrl: '/privacy',
+      }
+    }}
     >
 
       <html suppressHydrationWarning lang="en">
         <head />
         <body
           className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
-              overflow-x-hidden text-[16px]`}
+            overflow-x-hidden text-[16px]`}
         >
 
           <noscript>
@@ -93,7 +88,7 @@ export default function RootLayout({
 
           <GoogleTagManager gtmId="GTM-TGQMFKJV" />
 
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
             <div className="py-4">
               <NavBar />
             </div>
