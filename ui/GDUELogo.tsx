@@ -10,12 +10,13 @@ type Props = {
 
 const MainLogo = (props: Props) => {
   return (
-    <Link href={"/"}  className="box-content pr-2">
+    <Link href={"/"} className="box-content pr-2">
       <Image
         alt="GDUE"
         src="/images/logo.png"
         width={props.width || 80}
-        height={props.height || 80}       
+        height={props.height || 80}
+        style={{ width: 'auto', height: 'auto' }}
       />
     </Link>
   );

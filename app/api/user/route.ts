@@ -17,6 +17,6 @@ export async function GET() {
 
   // Perform your Route Handler's logic with the returned user object
 
-  return NextResponse.json({ "user": user }, { status: 200 })
+  return NextResponse.json({ message: "user" }, { status: 200 })
 }
 

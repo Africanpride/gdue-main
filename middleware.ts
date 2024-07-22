@@ -9,7 +9,7 @@ const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
 
   // API route to the protected 
-  '/api/user(.*)', 
+  '/api/user(.*)',
 ]);
 
 export default clerkMiddleware((auth, req) => {

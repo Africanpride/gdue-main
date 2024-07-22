@@ -1,27 +1,65 @@
 "use client"
 import React from 'react';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Autocomplete, AutocompleteItem } from "@nextui-org/react";
+import {
+    Modal, ModalContent, ModalHeader, ModalBody, ModalFooter,
+    Button, useDisclosure, Input, Autocomplete, AutocompleteItem,
+    Avatar
+} from "@nextui-org/react";
 import MainLogo from '@/ui/GDUELogo';
 import { playfair_display } from '@/config/fonts';
-import { currentUser } from '@clerk/nextjs/dist/types/server';
 import { europeanCountries } from '@/config/site';
+import { useForm, SubmitHandler } from "react-hook-form";
 
+type InputsData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    telephone: number;
+    address: string;
+    spouseName: string;
+    fatherName: string;
+    motherName: string;
+    emergencyContact: string;
+    emergencyContactTelephone: number;
+    country: string;
+};
 
-type Props = {}
+const RegistrationModal: React.FC = () => {
+    const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
 
-const RegistrationModal = (props: Props) => {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const onSubmit: SubmitHandler<InputsData> = async (data) => {
+        console.log(data);
+        try {
+            const response = await fetch('/api/register/registrationForm/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const result = await response.json();
+            console.log('Success:', result);
+            onClose();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const handleAutocompleteChange = (value: string) => {
+        setValue("country", value);
+    };
+
     return (
         <>
             <Button onPress={onOpen} size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>
 
-            {/* <ul className="">
-                    <li onClick={onOpen} className="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold"><a className="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-foreground no-underline hover:opacity-80 active:opacity-disabled transition-opacity data-[active=true]:text-default data-[active=true]:font-medium hover:text-yellow-600" color="foreground" href="/join">Join Us</a></li>
-                </ul> */}
             <Modal placement={'top'} backdrop={'blur'} size={'5xl'} className='rounded-2xl'
                 isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false} isKeyboardDismissDisabled={true}
                 radius="lg"
-
                 motionProps={{
                     variants: {
                         enter: {
@@ -62,7 +100,6 @@ const RegistrationModal = (props: Props) => {
                                     </div>
 
                                     <div>
-                                        {/* Slogan */}
                                         <div className='italic text-[1.4rem] '>Together We Stand, Divided We Fall! All For One, One For All!</div>
                                     </div>
 
@@ -72,117 +109,129 @@ const RegistrationModal = (props: Props) => {
                                     Nullam pulvinar risus non risus hendrerit venenatis.
                                     Pellentesque sit amet hendrerit risus, sed porttitor quam.
                                 </p>
-                                <form className="" action="" method="">
+                                <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className='space-y-2'>
-
                                         <div className='flex flex-wrap gap-2 w-full'>
+                                            <Autocomplete
+                                                label="European Country"
+                                                defaultItems={europeanCountries}
+                                                placeholder="Select Country in Europe"
+                                                className="md:max-w-[220px]"
+                                                onSelectionChange={(value) => handleAutocompleteChange(value as string)}
+                                                {...register("country", { required: true })}
+                                                isInvalid={errors.country ? true : false}
+                                            >
+                                                {(country) => <AutocompleteItem
+                                                    key={country.value}
+                                                    startContent={<Avatar alt="Argentina" className="w-5 h-5" src={country.flag} />}
+                                                >
+                                                    {country.label}
+                                                </AutocompleteItem>}
+                                            </Autocomplete>
                                             <Input
-                                                key={'default'}
-                                                type="firstName"
-                                                // color={'default'}
+                                                autoFocus
+                                                {...register("firstName", { required: true })}
+                                                name="firstName"
                                                 label="First Name"
                                                 placeholder="Enter your First Name"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
-                                                className="md:max-w-[220px] flex-1"
+                                                className="md:max-w-[220px]"
+                                                isInvalid={errors.firstName ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="firstName"
-                                                color={'default'}
+                                                {...register("lastName", { required: true })}
+                                                name="lastName"
                                                 label="Last Name"
                                                 placeholder="Enter your Last Name"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.lastName ? true : false}
                                             />
+
                                             <Input
-                                                autoComplete={'true'}
-                                                key={'default'}
+                                                {...register("email", { required: true })}
+                                                name="email"
                                                 type="email"
-                                                color={'default'}
                                                 label="Email Address"
                                                 placeholder="Enter your Email Address"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.email ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="telephone"
-                                                color={'default'}
+                                                {...register("telephone", { required: true })}
+                                                name="telephone"
                                                 label="Telephone"
                                                 placeholder="Enter your Cellphone Number"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.telephone ? true : false}
                                             />
                                         </div>
                                         <div className='flex flex-wrap gap-2 '>
                                             <Input
-                                                key={'default'}
-                                                type="address"
-                                                color={'default'}
+                                                {...register("address", { required: true })}
+                                                name="address"
                                                 label="Current Address"
                                                 placeholder="Enter your Current Address and Apartment Number"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.address ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="spouseName"
-                                                color={'default'}
+                                                {...register("spouseName")}
+                                                name="spouseName"
                                                 label="Spouse Name"
                                                 placeholder="Name of Spouse"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.spouseName ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="fatherName"
-                                                color={'default'}
+                                                {...register("fatherName")}
+                                                name="fatherName"
                                                 label="Father's Name"
                                                 placeholder="Enter your Father's Name"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.fatherName ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="motherName"
-                                                color={'default'}
+                                                {...register("motherName")}
+                                                name="motherName"
                                                 label="Mother's Name"
                                                 placeholder="Enter your Mother's Name"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.motherName ? true : false}
                                             />
+
                                             <Input
-                                                autoComplete={'true'}
-                                                key={'default'}
-                                                type="emergencyContact"
-                                                color={'default'}
+                                                {...register("emergencyContact", { required: true })}
+                                                name="emergencyContact"
                                                 label="Emergency Contact"
                                                 placeholder="Name of Emergency Contact"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.emergencyContact ? true : false}
                                             />
+
                                             <Input
-                                                key={'default'}
-                                                type="telephone"
-                                                color={'default'}
+                                                {...register("emergencyContactTelephone", { required: true })}
+                                                name="emergencyContactTelephone"
                                                 label="Emergency Contact Telephone"
                                                 placeholder="Emergency Contact Telephone Number"
-                                                // defaultValue={`${ 'eg. Mensah'} `}
                                                 className="md:max-w-[220px]"
+                                                isInvalid={errors.emergencyContactTelephone ? true : false}
                                             />
-                                            <Autocomplete
-                                                isRequired
-                                                label="European Country"
-                                                defaultItems={europeanCountries}
-                                                placeholder="Select Country in Europe"
-                                                defaultSelectedKey="cat"
-                                                className="md:max-w-[220px]"
-                                            >
-                                                {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-                                            </Autocomplete>
                                         </div>
                                     </div>
+                                    <ModalFooter>
+                                        <Button color="danger" variant="flat" onPress={onClose}>
+                                            Cancel
+                                        </Button>
+                                        <Button color="primary" type="submit">
+                                            Submit
+                                        </Button>
+                                    </ModalFooter>
                                 </form>
+
                                 <p>
                                     Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
                                     dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
@@ -191,14 +240,6 @@ const RegistrationModal = (props: Props) => {
                                     proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
                                 </p>
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="flat" onPress={onClose}>
-                                    Cancel
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Submit
-                                </Button>
-                            </ModalFooter>
                         </>
                     )}
                 </ModalContent>
@@ -207,4 +248,4 @@ const RegistrationModal = (props: Props) => {
     )
 }
 
-export default RegistrationModal
+export default RegistrationModal;
