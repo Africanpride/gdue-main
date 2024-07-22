@@ -46,8 +46,7 @@ const NavBar = (props: Props) => {
   };
 
   return (
-    <div className="md:py-8">
-      <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="full">
+      <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="full" className="md:py-8">
         <NavbarContent justify="start" className="md:!px-0">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -133,7 +132,8 @@ const NavBar = (props: Props) => {
           ))}
         </NavbarMenu>
       </Navbar>
-    </div>
+    // <div className="md:py-8">
+    // </div>
   );
 };
 

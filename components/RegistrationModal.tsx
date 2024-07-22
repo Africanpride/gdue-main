@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
     Modal, ModalContent, ModalHeader, ModalBody, ModalFooter,
     Button, useDisclosure, Input, Autocomplete, AutocompleteItem,
@@ -9,6 +9,8 @@ import MainLogo from '@/ui/GDUELogo';
 import { playfair_display } from '@/config/fonts';
 import { europeanCountries } from '@/config/site';
 import { useForm, SubmitHandler } from "react-hook-form";
+
+
 
 type InputsData = {
     firstName: string;
@@ -25,8 +27,38 @@ type InputsData = {
 };
 
 const RegistrationModal: React.FC = () => {
+    const sitekey: string | undefined = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
     const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
+
+
+
+    // async function handleCaptchaSubmission(token: string | null) {
+    //   try {
+    //     if (token) {
+    //       await fetch("/api", {
+    //         method: "POST",
+    //         headers: {
+    //           Accept: "application/json",
+    //           "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({ token }),
+    //       });
+    //       setIsVerified(true);
+    //     }
+    //   } catch (e) {
+    //     setIsVerified(false);
+    //   }
+    // }
+
+    // const handleChange = (token: string | null) => {
+    //   handleCaptchaSubmission(token);
+    // };
+
+    // function handleExpired() {
+    //   setIsVerified(false);
+    // }
 
     const onSubmit: SubmitHandler<InputsData> = async (data) => {
         console.log(data);
@@ -109,25 +141,29 @@ const RegistrationModal: React.FC = () => {
                                     Nullam pulvinar risus non risus hendrerit venenatis.
                                     Pellentesque sit amet hendrerit risus, sed porttitor quam.
                                 </p>
+
+
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className='space-y-2'>
                                         <div className='flex flex-wrap gap-2 w-full'>
-                                            <Autocomplete
-                                                label="European Country"
-                                                defaultItems={europeanCountries}
-                                                placeholder="Select Country in Europe"
-                                                className="md:max-w-[220px]"
-                                                onSelectionChange={(value) => handleAutocompleteChange(value as string)}
-                                                {...register("country", { required: true })}
-                                                isInvalid={errors.country ? true : false}
-                                            >
-                                                {(country) => <AutocompleteItem
-                                                    key={country.value}
-                                                    startContent={<Avatar alt="Argentina" className="w-5 h-5" src={country.flag} />}
+                                            <div>
+                                                <Autocomplete
+                                                    label="European Country"
+                                                    defaultItems={europeanCountries}
+                                                    placeholder="Select Country in Europe"
+                                                    className="md:max-w-[220px]"
+                                                    onSelectionChange={(value) => handleAutocompleteChange(value as string)}
+                                                    {...register("country", { required: true })}
+                                                    isInvalid={errors.country ? true : false}
                                                 >
-                                                    {country.label}
-                                                </AutocompleteItem>}
-                                            </Autocomplete>
+                                                    {(country) => <AutocompleteItem
+                                                        key={country.value}
+                                                        startContent={<Avatar alt="Argentina" className="w-5 h-5" src={country.flag} />}
+                                                    >
+                                                        {country.label}
+                                                    </AutocompleteItem>}
+                                                </Autocomplete>
+                                            </div>
                                             <Input
                                                 autoFocus
                                                 {...register("firstName", { required: true })}
@@ -165,8 +201,7 @@ const RegistrationModal: React.FC = () => {
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.telephone ? true : false}
                                             />
-                                        </div>
-                                        <div className='flex flex-wrap gap-2 '>
+
                                             <Input
                                                 {...register("address", { required: true })}
                                                 name="address"
@@ -220,6 +255,9 @@ const RegistrationModal: React.FC = () => {
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.emergencyContactTelephone ? true : false}
                                             />
+
+                                            <div className="cf-turnstile" data-sitekey={sitekey} data-theme={'light'}></div>
+
                                         </div>
                                     </div>
                                     <ModalFooter>
@@ -230,6 +268,9 @@ const RegistrationModal: React.FC = () => {
                                             Submit
                                         </Button>
                                     </ModalFooter>
+
+
+
                                 </form>
 
                                 <p>
