@@ -79,7 +79,7 @@ export default function RootLayout({
       <html suppressHydrationWarning lang="en">
         <head />
         <body
-          className={`${ibm_plex_sans_condense.className} min-h-screen bg-background font-sans antialiased
+          className={`${ibm_plex_sans_condense.className} min-h-screen bg-background  font-sans antialiased
             overflow-x-hidden text-[16px]`}
         >
 

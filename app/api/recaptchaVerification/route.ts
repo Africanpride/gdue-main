@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   try {
     // Parse the JSON body
     const { token } = await req.json();
-    console.log(token);
+    // console.log(token);
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     const response = await fetch(

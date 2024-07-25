@@ -30,14 +30,19 @@ type InputsData = {
 };
 
 const RegistrationModal: React.FC = () => {
-    const sitekey: string = "6LfyzhUqAAAAANYGhxsaBusPaLv7RXw7Dr0dg9Pf";
+    const sitekey: string | undefined = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
 
     const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
     const [token, setToken] = useState<string>("");
     const [isVerified, setIsVerified] = useState<boolean>(false)
 
-    console.log(isVerified)
+    if (!sitekey || sitekey === undefined) {
+        return;
+    }
+
+    // console.log(isVerified)
 
     function verify(token: string) {
         if (!token) {
@@ -47,38 +52,41 @@ const RegistrationModal: React.FC = () => {
     }
 
     async function handleCaptchaSubmission(token: string | null) {
-        console.log(token);
-      
+
+
         try {
-          const response = await fetch("/api/recaptchaVerification/", {
-            method: "POST",
-            headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({token}),
-          });
-      
-          if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.statusText}`);
-          }
-      
-          const data = await response.json();
-      
-          if (data.success) {
-            console.log('Verification successful');
-            // Do something with the successful response
-            return true; // Or return other relevant data
-          } else {
-            console.error('Verification failed:', data.error);
-            return false; // Or throw an error
-          }
+            const response = await fetch("/api/recaptchaVerification/", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ token }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+
+            if (data.success) {
+                setIsVerified(true);
+                // console.log('Verification successful');
+                // Do something with the successful response
+                return true; // Or return other relevant data
+            } else {
+                setIsVerified(false);
+                console.error('Verification failed:', data.error);
+                return false; // Or throw an error
+            }
         } catch (error) {
-          console.error('Error submitting captcha:', error);
-          return false; // Or throw an error
+            setIsVerified(false);
+            console.error('Error submitting captcha:', error);
+            return false; // Or throw an error
         }
-      }
-      
+    }
+
 
     const handleChange = (token: string | null) => {
         handleCaptchaSubmission(token);
@@ -102,7 +110,8 @@ const RegistrationModal: React.FC = () => {
                 throw new Error('Network response was not ok');
             }
             const result = await response.json();
-            console.log('Success:', result);
+            // console.log('Success:', result);
+            // console.log("DONE")
             onClose();
         } catch (error) {
             console.error('Error:', error);
@@ -239,7 +248,7 @@ const RegistrationModal: React.FC = () => {
                                                 isInvalid={errors.address ? true : false}
                                             />
 
-                                            {/* <Input
+                                            <Input
                                                 {...register("spouseName")}
                                                 name="spouseName"
                                                 label="Spouse Name"
@@ -282,14 +291,22 @@ const RegistrationModal: React.FC = () => {
                                                 placeholder="Emergency Contact Telephone Number"
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.emergencyContactTelephone ? true : false}
-                                            /> */}
+                                            />
+
 
                                             <div>
-                                                <GoogleReCaptchaProvider reCaptchaKey={sitekey as string}>
-                                                    <GoogleReCaptcha refreshReCaptcha={false} onVerify={function (token: string): void | Promise<void> {
-                                                        verify(token);
-                                                    }} />
-                                                </GoogleReCaptchaProvider>
+                                                {sitekey && <GoogleReCaptchaProvider reCaptchaKey={sitekey as string}
+
+                                                    scriptProps={{
+                                                        async: false, // optional, default to false,
+                                                        defer: false, // optional, default to false
+                                                        appendTo: 'head', // optional, default to "head", can be "head" or "body",
+                                                        nonce: undefined // optional, default undefined
+                                                    }}>
+                                                    <GoogleReCaptcha
+                                                        refreshReCaptcha={false}
+                                                        onVerify={(token) => { handleCaptchaSubmission(token) }} />
+                                                </GoogleReCaptchaProvider>}
                                             </div>
 
                                         </div>
@@ -298,9 +315,9 @@ const RegistrationModal: React.FC = () => {
                                         <Button color="danger" variant="flat" onPress={onClose}>
                                             Cancel
                                         </Button>
-                                        <Button color="primary" type="submit">
+                                        {isVerified && (<Button color="primary" type="submit">
                                             Submit
-                                        </Button>
+                                        </Button>)}
 
                                     </ModalFooter>
 
