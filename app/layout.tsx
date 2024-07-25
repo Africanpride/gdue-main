@@ -17,7 +17,8 @@ import {
 
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google';
+
 
 
 
@@ -61,16 +62,18 @@ export default function RootLayout({
   children: React.ReactNode;
   header: React.ReactNode;
 }) {
+  const sitekey: string | undefined = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
   return (
     <ClerkProvider
-    appearance={{
-      baseTheme: dark,
-      layout: {
-        socialButtonsPlacement: 'top',
-        termsPageUrl: '/terms',
-        privacyPageUrl: '/privacy',
-      }
-    }}
+      appearance={{
+        baseTheme: dark,
+        layout: {
+          socialButtonsPlacement: 'top',
+          termsPageUrl: '/terms',
+          privacyPageUrl: '/privacy',
+        }
+      }}
     >
 
       <html suppressHydrationWarning lang="en">
@@ -89,12 +92,15 @@ export default function RootLayout({
           <GoogleTagManager gtmId="GTM-TGQMFKJV" />
 
           <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+
             <div className="py-4">
               <NavBar />
             </div>
 
             <div className="relative flex flex-col h-screen px-4">
+
               <main className="container mx-auto ">{children}</main>
+
 
               <CookieConsent />
 
@@ -105,7 +111,8 @@ export default function RootLayout({
 
         <PrelineScript />
       </html>
-    </ClerkProvider>
+
+    </ClerkProvider >
 
   );
 }

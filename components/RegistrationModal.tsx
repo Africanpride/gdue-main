@@ -9,7 +9,10 @@ import MainLogo from '@/ui/GDUELogo';
 import { playfair_display } from '@/config/fonts';
 import { europeanCountries } from '@/config/site';
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import {
+    GoogleReCaptchaProvider,
+    GoogleReCaptcha,
+} from 'react-google-recaptcha-v3';
 
 
 type InputsData = {
@@ -27,38 +30,63 @@ type InputsData = {
 };
 
 const RegistrationModal: React.FC = () => {
-    const sitekey: string | undefined = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    const sitekey: string = "6LfyzhUqAAAAANYGhxsaBusPaLv7RXw7Dr0dg9Pf";
 
     const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
+    const [token, setToken] = useState<string>("");
+    const [isVerified, setIsVerified] = useState<boolean>(false)
 
+    console.log(isVerified)
 
+    function verify(token: string) {
+        if (!token) {
+            console.log("Token not set")
+        }
+        handleCaptchaSubmission(token);
+    }
 
-    // async function handleCaptchaSubmission(token: string | null) {
-    //   try {
-    //     if (token) {
-    //       await fetch("/api", {
-    //         method: "POST",
-    //         headers: {
-    //           Accept: "application/json",
-    //           "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({ token }),
-    //       });
-    //       setIsVerified(true);
-    //     }
-    //   } catch (e) {
-    //     setIsVerified(false);
-    //   }
-    // }
+    async function handleCaptchaSubmission(token: string | null) {
+        console.log(token);
+      
+        try {
+          const response = await fetch("/api/recaptchaVerification/", {
+            method: "POST",
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({token}),
+          });
+      
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+          }
+      
+          const data = await response.json();
+      
+          if (data.success) {
+            console.log('Verification successful');
+            // Do something with the successful response
+            return true; // Or return other relevant data
+          } else {
+            console.error('Verification failed:', data.error);
+            return false; // Or throw an error
+          }
+        } catch (error) {
+          console.error('Error submitting captcha:', error);
+          return false; // Or throw an error
+        }
+      }
+      
 
-    // const handleChange = (token: string | null) => {
-    //   handleCaptchaSubmission(token);
-    // };
+    const handleChange = (token: string | null) => {
+        handleCaptchaSubmission(token);
+    };
 
-    // function handleExpired() {
-    //   setIsVerified(false);
-    // }
+    function handleExpired() {
+        setIsVerified(false);
+    }
 
     const onSubmit: SubmitHandler<InputsData> = async (data) => {
         console.log(data);
@@ -211,7 +239,7 @@ const RegistrationModal: React.FC = () => {
                                                 isInvalid={errors.address ? true : false}
                                             />
 
-                                            <Input
+                                            {/* <Input
                                                 {...register("spouseName")}
                                                 name="spouseName"
                                                 label="Spouse Name"
@@ -254,9 +282,15 @@ const RegistrationModal: React.FC = () => {
                                                 placeholder="Emergency Contact Telephone Number"
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.emergencyContactTelephone ? true : false}
-                                            />
+                                            /> */}
 
-                                            <div className="cf-turnstile" data-sitekey={sitekey} data-theme={'light'}></div>
+                                            <div>
+                                                <GoogleReCaptchaProvider reCaptchaKey={sitekey as string}>
+                                                    <GoogleReCaptcha refreshReCaptcha={false} onVerify={function (token: string): void | Promise<void> {
+                                                        verify(token);
+                                                    }} />
+                                                </GoogleReCaptchaProvider>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -267,6 +301,7 @@ const RegistrationModal: React.FC = () => {
                                         <Button color="primary" type="submit">
                                             Submit
                                         </Button>
+
                                     </ModalFooter>
 
 
