@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
     Modal, ModalContent, ModalHeader, ModalBody, ModalFooter,
     Button, useDisclosure, Input, Autocomplete, AutocompleteItem,
@@ -13,7 +13,7 @@ import {
     GoogleReCaptchaProvider,
     GoogleReCaptcha,
 } from 'react-google-recaptcha-v3';
-
+import axios from 'axios';
 
 type InputsData = {
     firstName: string;
@@ -32,86 +32,49 @@ type InputsData = {
 const RegistrationModal: React.FC = () => {
     const sitekey: string | undefined = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-
     const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
-    const [token, setToken] = useState<string>("");
-    const [isVerified, setIsVerified] = useState<boolean>(false)
+    const [isVerified, setIsVerified] = useState<boolean>(false);
 
-    if (!sitekey || sitekey === undefined) {
-        return;
-    }
-
-    // console.log(isVerified)
-
-    function verify(token: string) {
-        if (!token) {
-            console.log("Token not set")
-        }
-        handleCaptchaSubmission(token);
+    if (!sitekey) {
+        return null;
     }
 
     async function handleCaptchaSubmission(token: string | null) {
-
-
-        try {
-            const response = await fetch("/api/recaptchaVerification/", {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ token }),
+        const response = axios.post("/api/recaptchaVerification/", { token })
+            .then(function (response) {
+                console.log(response)
+                setIsVerified(true);
+            })
+            .catch(function (error) {
+                setIsVerified(false);
+                console.error('Verification failed:', error);
             });
 
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.statusText}`);
-            }
-
-            const data = await response.json();
-
-            if (data.success) {
-                setIsVerified(true);
-                // console.log('Verification successful');
-                // Do something with the successful response
-                return true; // Or return other relevant data
-            } else {
-                setIsVerified(false);
-                console.error('Verification failed:', data.error);
-                return false; // Or throw an error
-            }
-        } catch (error) {
-            setIsVerified(false);
-            console.error('Error submitting captcha:', error);
-            return false; // Or throw an error
-        }
     }
-
 
     const handleChange = (token: string | null) => {
         handleCaptchaSubmission(token);
     };
 
-    function handleExpired() {
+    const handleExpired = () => {
         setIsVerified(false);
     }
 
     const onSubmit: SubmitHandler<InputsData> = async (data) => {
         console.log(data);
         try {
-            const response = await fetch('/api/register/registrationForm/', {
-                method: 'POST',
+            const response = await axios.post('/api/register/registrationForm/', data, {
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+                }
             });
-            if (!response.ok) {
+
+            if (response.status !== 200) {
                 throw new Error('Network response was not ok');
             }
-            const result = await response.json();
-            // console.log('Success:', result);
-            // console.log("DONE")
+
+            const result = response.data;
             onClose();
         } catch (error) {
             console.error('Error:', error);
@@ -121,7 +84,6 @@ const RegistrationModal: React.FC = () => {
     const handleAutocompleteChange = (value: string) => {
         setValue("country", value);
     };
-
     return (
         <>
             <Button onPress={onOpen} size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>

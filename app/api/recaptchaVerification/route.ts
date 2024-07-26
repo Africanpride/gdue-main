@@ -20,11 +20,13 @@ export async function POST(req: NextRequest) {
     );
 
     const data = await response.json();
-    console.log(data);
-    return NextResponse.json(data);
+    if (data.success) {
+      console.log(data)
+      return NextResponse.json({ status: 200 });
+    }
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json
+    return NextResponse.json;
 
     // return NextResponse.json({ success: false })
   }
