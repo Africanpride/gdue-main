@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  console.log("TRYING REQUEST TO GOOGLE API");
+  console.log("REQUESTING VERIFICATION");
   try {
     // Parse the JSON body
     const { token } = await req.json();
@@ -21,13 +21,22 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json();
     if (data.success) {
-      console.log(data)
+      console.log(data);
       return NextResponse.json({ status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: "Verification failed",
+      });
     }
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json;
 
-    // return NextResponse.json({ success: false })
+    let errorMessage = "An unknown error occurred";
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+
+    return NextResponse.json({ success: false, error: errorMessage });
   }
 }
