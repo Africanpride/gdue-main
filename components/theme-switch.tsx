@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
 import clsx from "clsx";
 
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+import { SunFilledIcon } from "@/components/icons";
 import { LucideSunMoon } from "lucide-react";
 
 export interface ThemeSwitchProps {
@@ -23,7 +23,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   const isSSR = useIsSSR();
 
   const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    theme === "light" ? setTheme("light") : setTheme("light");
   };
 
   const {

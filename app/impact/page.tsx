@@ -1,21 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { title } from "@/components/primitives";
 import {
   bebas,
-  ibm_plex_sans_condense,
-  playfair_display,
-  poppins,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
 
-import Link from "next/link";
-import { Library, LucidePhoneOutgoing } from "lucide-react";
-import Faqs from "@/components/Faqs";
-import Faqs2 from "@/components/Faqs2";
+import { LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
-import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
+
 
 export default function ImpactPage() {
   const description = (<>At GDUE, we are dedicated to making a significant impact on the lives of the most vulnerable in Africa, especially widows and orphans. Our efforts include providing essential supplies, promoting self-sufficiency, and offering educational programs. <br />
@@ -101,6 +94,7 @@ export default function ImpactPage() {
               </div>
 
               <div className="mt-8 lg:w-1/2 lg:mx-6">
+            
                 <Image
                   isBlurred
                   width={470}

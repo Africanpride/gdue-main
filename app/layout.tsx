@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -18,6 +17,7 @@ import {
 } from '@clerk/nextjs'
 import { dark } from '@clerk/themes';
 import { GoogleTagManager } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 
@@ -103,6 +103,8 @@ export default function RootLayout({
 
 
               <CookieConsent />
+              <SpeedInsights />
+
 
               <Footer />
             </div>

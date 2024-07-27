@@ -1,19 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import { title } from "@/components/primitives";
 import {
   bebas,
-  ibm_plex_sans_condense,
   playfair_display,
-  poppins,
   sourceCodePro400,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
 import { Button } from '@nextui-org/button';
 
 import Link from "next/link";
-import { Library, LucideArrowUpRight } from "lucide-react";
+import { LucideArrowUpRight } from "lucide-react";
 import Faqs from "@/components/Faqs";
-import Faqs2 from "@/components/Faqs2";
 import Newsletter from "@/components/Newsletter";
 import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";

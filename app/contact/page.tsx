@@ -1,19 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { title } from "@/components/primitives";
 import {
   bebas,
-  ibm_plex_sans_condense,
-  playfair_display,
-  poppins,
 } from "@/config/fonts";
-import { Image } from "@nextui-org/image";
 
-import Link from "next/link";
-import { Library, LucidePhoneOutgoing } from "lucide-react";
-import Faqs from "@/components/Faqs";
-import Faqs2 from "@/components/Faqs2";
+import { LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
-import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
 
