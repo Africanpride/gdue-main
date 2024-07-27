@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import { generateUniqueDiasporanId } from "@functions";
 
 export async function POST(req: NextRequest) {
+  
   if (req.method !== "POST") {
     return NextResponse.json({
       success: false,

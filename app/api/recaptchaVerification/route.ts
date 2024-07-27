@@ -1,25 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
+import axios from "axios";
 
 export async function POST(req: NextRequest) {
-  console.log("REQUESTING VERIFICATION");
-  try {
-    // Parse the JSON body
-    const { token } = await req.json();
-    // console.log(token);
+  console.log("REQUESTING VERIFICATION USING AXIOS");
 
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const response = await fetch(
+  const { token } = await req.json();
+
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secretKey) {
+    return NextResponse.json({ success: false, error: "RECAPTCHA_SECRET_KEY is not defined" });
+  }
+
+  const params = new URLSearchParams();
+  params.append("secret", secretKey);
+  params.append("response", token);
+
+  try {
+    const response = await axios.post(
       `https://www.google.com/recaptcha/api/siteverify`,
+      params,
       {
-        method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `secret=${secretKey}&response=${token}`,
       }
     );
 
-    const data = await response.json();
+    const data = response.data;
     if (data.success) {
       console.log(data);
       return NextResponse.json({ status: 200 });
@@ -33,7 +40,9 @@ export async function POST(req: NextRequest) {
     console.error("Error:", error);
 
     let errorMessage = "An unknown error occurred";
-    if (error instanceof Error) {
+    if (axios.isAxiosError(error) && error.response) {
+      errorMessage = error.response.data.error || error.message;
+    } else if (error instanceof Error) {
       errorMessage = error.message;
     }
 

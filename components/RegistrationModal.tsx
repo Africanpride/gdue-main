@@ -45,6 +45,7 @@ const RegistrationModal: React.FC = () => {
         const response = axios.post("/api/recaptchaVerification/", { token })
             .then(function (response) {
                 console.log(response)
+                console.log("EVERYTHING COOL. LET'S SUBMIT FORM NOW.")
                 setIsVerified(true);
             })
             .catch(function (error) {
@@ -137,7 +138,8 @@ const RegistrationModal: React.FC = () => {
 
                                 </div>
                                 <p>
-                                    Join our vibrant community and make a difference! Register now to connect with like-minded individuals and support our mission. Learn more at <Link href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org</Link>.
+                                    Join our vibrant community and make a difference! Register now to connect with like-minded individuals and support our mission. Learn more at <Link
+                                    className='font-bold text-blue-500 ' href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org</Link>.
                                 </p>
 
 
