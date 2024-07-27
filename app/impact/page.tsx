@@ -107,6 +107,7 @@ export default function ImpactPage() {
                   src={'/images/orphanage.jpg'}
                   alt="Social impact Ghana"
                   className="md:m-5 grayscale saturate-150"
+                  fetchPriority="high"
                 />
               </div>
             </div>

@@ -14,6 +14,7 @@ import {
     GoogleReCaptcha,
 } from 'react-google-recaptcha-v3';
 import axios from 'axios';
+import Link from 'next/link';
 
 type InputsData = {
     firstName: string;
@@ -30,15 +31,15 @@ type InputsData = {
 };
 
 const RegistrationModal: React.FC = () => {
-    const sitekey: string | undefined = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    // const sitekey: string | undefined = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
     const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
     const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
     const [isVerified, setIsVerified] = useState<boolean>(false);
 
-    if (!sitekey) {
-        return null;
-    }
+    // if (!sitekey) {
+    //     return null;
+    // }
 
     async function handleCaptchaSubmission(token: string | null) {
         const response = axios.post("/api/recaptchaVerification/", { token })
@@ -136,9 +137,7 @@ const RegistrationModal: React.FC = () => {
 
                                 </div>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nullam pulvinar risus non risus hendrerit venenatis.
-                                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                                    Join our vibrant community and make a difference! Register now to connect with like-minded individuals and support our mission. Learn more at <Link href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org</Link>.
                                 </p>
 
 
@@ -257,7 +256,7 @@ const RegistrationModal: React.FC = () => {
 
 
                                             <div>
-                                                {sitekey && <GoogleReCaptchaProvider reCaptchaKey={sitekey as string}
+                                                <GoogleReCaptchaProvider reCaptchaKey={'6LfyzhUqAAAAANYGhxsaBusPaLv7RXw7Dr0dg9Pf'}
 
                                                     scriptProps={{
                                                         async: false, // optional, default to false,
@@ -268,7 +267,7 @@ const RegistrationModal: React.FC = () => {
                                                     <GoogleReCaptcha
                                                         refreshReCaptcha={false}
                                                         onVerify={(token) => { handleCaptchaSubmission(token) }} />
-                                                </GoogleReCaptchaProvider>}
+                                                </GoogleReCaptchaProvider>
                                             </div>
 
                                         </div>
@@ -287,13 +286,13 @@ const RegistrationModal: React.FC = () => {
 
                                 </form>
 
-                                <p>
+                                {/* <p>
                                     Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
                                     dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
                                     Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
                                     Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur
                                     proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-                                </p>
+                                </p> */}
                             </ModalBody>
                         </>
                     )}
