@@ -73,7 +73,7 @@ export default function RootLayout({
       }}
     >
 
-      <html suppressHydrationWarning lang="en">
+      <html  suppressHydrationWarning lang="en">
         <head />
         <body
           className={`${ibm_plex_sans_condense.className} min-h-screen bg-background  font-sans antialiased
@@ -88,7 +88,7 @@ export default function RootLayout({
 
           <GoogleTagManager gtmId="GTM-TGQMFKJV" />
 
-          <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "light", enableSystem: false, forcedTheme: "light"}}>
 
             <div className="py-4">
               <NavBar />
