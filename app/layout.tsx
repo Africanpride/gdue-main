@@ -21,9 +21,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 
-
-
-
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
