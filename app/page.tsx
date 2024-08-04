@@ -1,21 +1,9 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import { bebas, playfair_display } from "@/config/fonts";
-import { Library } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
-import Faqs from "@/components/Faqs";
-import Image from "next/image";
-import News from "@/components/News";
 import BusinessCategories from "@/components/BusinessCategories";
 import Divider from "@/ui/Divider";
 import Sponsors from "@/components/Sponsors";
-import Jumbotron from "@/components/Jumbotron";
 import Intro from "@/components/Intro";
 import JumbotronHome from "@/components/JumbotronHome";
 

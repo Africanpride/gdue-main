@@ -1,7 +1,5 @@
-import EventCard from "@/components/EventCard";
 import IdentityCard from "@/components/IdentityCard";
 import Jumbotron from "@/components/Jumbotron";
-import Newsletter from "@/components/Newsletter";
 import { sourceCodePro700 } from "@/config/fonts";
 import React from "react";
 
