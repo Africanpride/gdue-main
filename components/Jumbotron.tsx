@@ -49,13 +49,12 @@ const Jumbotron = ({
         >
           <Image
             data-image
-            priority
+            priority            
             src={backgroundImage}
             width={1728}
             height={650}
             alt="Blob"
-            // style={{ objectFit: "cover" }}
-            className="absolute  grayscale saturate-150
+            className="absolute  grayscale saturate-150 bg-slate-400
             bg-bottom bg-cover bg-no-repeat"
           />
           <div className={`${isMobile ? 'text-[3.3rem] px-2'  : 'text-[9dvw] px-8'}  gap-x-2 text-yellow-600 opacity-75 dark:opacity-55 uppercase  
