@@ -3,8 +3,6 @@ import React from "react";
 import Link from "next/link";
 import {
   bebas,
-  ibm_plex_sans_condense,
-  playfair_display,
   poppins,
 } from "@/config/fonts";
 import { usePathname } from 'next/navigation';  // Import usePathname
@@ -44,8 +42,7 @@ const Jumbotron = ({
       {/* Features */}
       <div className="mx-auto">
         <div
-          className={`min-h-[35vh] h-auto md:min-h-[75vh] flex flex-col justify-center items-start  relative md:rounded-6xl overflow-hidden`}
-         
+          className={`min-h-[35vh] h-auto md:min-h-[75vh] bg-slate-400/40 flex flex-col justify-center items-start  relative md:rounded-6xl overflow-hidden`}         
         >
           <Image
             data-image
@@ -53,8 +50,11 @@ const Jumbotron = ({
             src={backgroundImage}
             width={1728}
             height={650}
-            alt="Blob"
-            // style={{ objectFit: "cover" }}
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+            alt={linkText}
             className="absolute  grayscale saturate-150
             bg-bottom bg-cover bg-no-repeat"
           />

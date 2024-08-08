@@ -3,7 +3,6 @@ import {
   bebas,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
-
 import { LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
 import Jumbotron from "@/components/Jumbotron";
