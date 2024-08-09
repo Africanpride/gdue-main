@@ -18,7 +18,7 @@ import {
 import { dark } from '@clerk/themes';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 export const metadata: Metadata = {
@@ -73,7 +73,7 @@ export default function RootLayout({
       }}
     >
 
-      <html  suppressHydrationWarning lang="en">
+      <html suppressHydrationWarning lang="en">
         <head />
         <body
           className={`${ibm_plex_sans_condense.className} min-h-screen bg-background  font-sans antialiased
@@ -88,7 +88,7 @@ export default function RootLayout({
 
           <GoogleTagManager gtmId="GTM-TGQMFKJV" />
 
-          <Providers themeProps={{ attribute: "class", defaultTheme: "light", enableSystem: false, forcedTheme: "light"}}>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "light", enableSystem: false, forcedTheme: "light" }}>
 
             <div className="py-4">
               <NavBar />
@@ -101,6 +101,7 @@ export default function RootLayout({
 
               <CookieConsent />
               <SpeedInsights />
+              <Analytics />
 
 
               <Footer />
