@@ -1,5 +1,5 @@
 // app/dashboard/page.tsx
-// "use client";
+"use client";
 import DashboardIntro from '@/components/DashboardIntro';
 import Jumbotron from '@/components/Jumbotron';
 import {  useUser } from '@clerk/nextjs';
