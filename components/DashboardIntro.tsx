@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from 'react';
-// import { useUser } from "@clerk/clerk-react";
 import { UserButton, useUser } from '@clerk/nextjs';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input } from "@nextui-org/react";
-import { MailIcon, User2Icon } from 'lucide-react';
 
 
 type Props = {};

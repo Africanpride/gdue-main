@@ -10,13 +10,11 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import Akwado from "@/ui/GDUELogo";
 import { bebas, playfair_display } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
-import { ThemeSwitch } from "./theme-switch";
 import {
   SignInButton,
   SignedIn,
@@ -27,7 +25,6 @@ import {
 import { LucideUser } from "lucide-react";
 import { usePathname } from 'next/navigation';
 import RegistrationModal from './RegistrationModal';
-import { Logo } from "./icons";
 import MainLogo from "@/ui/GDUELogo";
 import { isMobile } from "mobile-device-detect";
 import Link from "next/link";

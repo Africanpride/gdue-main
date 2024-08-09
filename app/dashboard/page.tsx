@@ -2,7 +2,7 @@
 // "use client";
 import DashboardIntro from '@/components/DashboardIntro';
 import Jumbotron from '@/components/Jumbotron';
-import { useUser } from "@clerk/clerk-react";
+import {  useUser } from '@clerk/nextjs';
 import React from 'react';
 
 const DashboardPage: React.FC = () => {
