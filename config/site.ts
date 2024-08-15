@@ -21,11 +21,15 @@ export const siteConfig = {
       label: "Events",
       href: "/events",
     },
-    
     {
-      label: "Businesses",
-      href: "/businesses",
+      label: "GSAP",
+      href: "/gsap",
     },
+    
+    // {
+    //   label: "Businesses",
+    //   href: "/businesses",
+    // },
     {
       label: "News",
       href: "/news",

@@ -27,12 +27,16 @@ type Props = {
 const courier = Courier_Prime({
   weight: ["400","700"],
   subsets: ["latin"],
-  style: ["italic","normal"]
+  style: ["italic","normal"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 const notosans = Noto_Sans({
   weight: ["100","200","300","400","500","700","900",],
   subsets: ["latin"],
-  style: ["italic","normal"]
+  style: ["italic","normal"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const montserrat = Montserrat({
@@ -44,26 +48,35 @@ const bebas = Bebas_Neue({
   weight: ["400"],
   subsets: ["latin"],
   style: ["normal"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const playfair_display = Playfair_Display({
   subsets: ["latin"],
   weight: ["500"],
   style: ["italic"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 const ibm_plex_sans_condense = IBM_Plex_Sans_Condensed({
   weight: ["400", "700"],
   subsets: ["latin"],
   style: "normal",
+  display: "swap",
+  adjustFontFallback: false,
 });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "900"],
   style: ["normal"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 const inter_tight = Inter_Tight({
   subsets: ["latin"],
-  display: "swap", // Ensure proper loading behavior
+  display: "swap",
+  adjustFontFallback: false,
 });
 // define 2 weights of a non-variable font
 const sourceCodePro400 = Source_Sans_3({ subsets: ["latin"], weight: "400" });
