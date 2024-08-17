@@ -7,6 +7,8 @@ import { LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
+import AnimatedSections from "@/components/AnimatedSections";
+import AnimatedDivTag from "@/components/AnimatedDivTag";
 
 
 export default function ImpactPage() {
@@ -22,7 +24,7 @@ export default function ImpactPage() {
         backgroundImage="/images/slums.jpg"
         hideVideo={true}
       />
-      <section className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">
+      <AnimatedSections className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">
         <div className=" md:text-xl max-w-4xl mx-auto ">
 
           At GDUE, we care deeply about giving back, not just to our Ghanaian community abroad, but also to those in need back home. We focus on helping some of the most vulnerable people in Africa, especially widows and orphans. We know these groups often get overlooked, so we&apos;re committed to making a real difference in their lives.
@@ -37,7 +39,7 @@ export default function ImpactPage() {
           Our goal is simple: to improve the lives of these inspiring people and create a more sustainable future for everyone. We believe that by helping those in need, we&apos;re all making a positive difference in the world, both at home and abroad.
 
         </div>
-      </section >
+      </AnimatedSections >
 
       <section className="min-h-screen bg-cover -mx-8 md:-mx-12 " style={{ backgroundImage: "url('/images/orphanage2.jpg')" }}>
         <div className="flex flex-col min-h-screen bg-black/60">
@@ -51,9 +53,9 @@ export default function ImpactPage() {
                 </h1>
 
 
-                <div className="max-w-xl mt-6 md:text-xl">
+                <AnimatedDivTag className="max-w-xl mt-6 md:text-xl">
                   We&apos;ve seen firsthand the challenges faced by widows struggling to raise families alone, or orphans navigating a world without parental guidance.  It&apos;s these stories that drive our passion at GDUE.  We believe education is the key that unlocks opportunity. By providing scholarships and mentorship programs, we equip these young minds with the tools they need to reach their full potential. <br /><br /> This isn&apos;t just about charity, it&apos;s about investing in the future leaders of Africa.  We partner with local organizations to ensure our resources reach those who need them most, fostering a spirit of self-reliance within the communities we serve.  Together, we can build a brighter tomorrow where every individual has the chance to thrive.
-                </div>
+                </AnimatedDivTag>
 
                 <Button href={'https://wa.me/+41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
                   <LucidePhoneOutgoing /> Join GDUE Social Impact Programme

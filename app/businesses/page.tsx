@@ -1,11 +1,21 @@
+"use client"
+import { useAnimationContext } from "@/components/AnimationContext";
 import Jumbotron from "@/components/Jumbotron";
 import { sourceCodePro700 } from "@/config/fonts";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 
 type Props = {};
 
 const BusinessPage = (props: Props) => {
+  const { observe } = useAnimationContext();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      observe(sectionRef.current);
+    }
+  }, [observe]);
 
   return (
     <div className="md:space-y-16">
@@ -23,7 +33,7 @@ const BusinessPage = (props: Props) => {
         backgroundImage="/images/market.jpg"
         hideVideo={false}
       />
-      <div className={`${sourceCodePro700} text-4xl font-bold`}>More information coming soon ...</div>
+      <div ref={sectionRef} className={`${sourceCodePro700} text-4xl font-bold`}>More information coming soon ...</div>
     </div>
   );
 };

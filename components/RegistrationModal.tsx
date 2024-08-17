@@ -23,8 +23,8 @@ type InputsData = {
     telephone: number;
     address: string;
     spouseName: string;
-    fatherName: string;
-    motherName: string;
+    // fatherName: string;
+    // motherName: string;
     emergencyContact: string;
     emergencyContactTelephone: number;
     country: string;
@@ -139,7 +139,7 @@ const RegistrationModal: React.FC = () => {
                                 </div>
                                 <p>
                                     Join our vibrant community and make a difference! Register now to connect with like-minded individuals and support our mission. Learn more at <Link
-                                    className='font-bold text-blue-500 ' href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org</Link>.
+                                    className='font-bold text-blue-500 ' href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org/About</Link>.
                                 </p>
 
 
@@ -148,7 +148,7 @@ const RegistrationModal: React.FC = () => {
                                         <div className='flex flex-wrap gap-2 w-full'>
                                             <div>
                                                 <Autocomplete
-                                                    label="European Country"
+                                                    label="Diaspora Country"
                                                     defaultItems={europeanCountries}
                                                     placeholder="Select Country in Europe"
                                                     className="md:max-w-[220px]"
@@ -220,7 +220,7 @@ const RegistrationModal: React.FC = () => {
                                                 isInvalid={errors.spouseName ? true : false}
                                             />
 
-                                            <Input
+                                            {/* <Input
                                                 {...register("fatherName")}
                                                 name="fatherName"
                                                 label="Father's Name"
@@ -236,12 +236,12 @@ const RegistrationModal: React.FC = () => {
                                                 placeholder="Enter your Mother's Name"
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.motherName ? true : false}
-                                            />
+                                            /> */}
 
                                             <Input
                                                 {...register("emergencyContact", { required: true })}
                                                 name="emergencyContact"
-                                                label="Emergency Contact"
+                                                label="Emergency Contact Person"
                                                 placeholder="Name of Emergency Contact"
                                                 className="md:max-w-[220px]"
                                                 isInvalid={errors.emergencyContact ? true : false}

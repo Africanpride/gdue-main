@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import {
   bebas,
 } from "@/config/fonts";
@@ -7,8 +8,19 @@ import { LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
+import { useAnimationContext } from "@/components/AnimationContext";
+import { useRef, useEffect } from "react";
 
-export default function AboutPage() {
+export default function ContactPage() {
+  const { observe } = useAnimationContext();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      observe(sectionRef.current);
+    }
+  }, [observe]);
+  
   const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
   return (
     <div className="md:space-y-16">
@@ -21,7 +33,7 @@ export default function AboutPage() {
         hideVideo={true}
       />
       <section className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">
-        <div className="flex items-center w-full justify-center md:text-xl  ">
+        <div ref={sectionRef} className="flex items-center w-full justify-center md:text-xl  ">
           
         We&apos;d love to hear from you! Whether you have questions, need support, or want to get involved, GDUE is here for you. Reach out to us for any inquiries, feedback, or collaboration opportunities. Connect with our team through our online contact form, email, or social media. Together, we can build a stronger, more connected Ghanaian diaspora community.
 

@@ -1,14 +1,12 @@
-import {nextui} from '@nextui-org/theme'
+import { nextui } from "@nextui-org/theme";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
-    './node_modules/preline/preline.js',
-
-    
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/preline/preline.js",
   ],
   theme: {
     extend: {
@@ -17,13 +15,17 @@ module.exports = {
         mono: ["var(--font-geist-mono)"],
       },
       borderRadius: {
-        '4xl': '2rem',
-        '5xl': '3rem',
-        '6xl': '4rem',
-        '7xl': '5.5rem',
-      }
+        "4xl": "2rem",
+        "5xl": "3rem",
+        "6xl": "4rem",
+        "7xl": "5.5rem",
+      },
     },
   },
   darkMode: "class",
-  plugins: [nextui(),require('preline/plugin')],
-}
+  plugins: [
+    nextui(),
+    require("preline/plugin"),
+    require("tailwindcss-animated"),
+  ],
+};

@@ -21,11 +21,7 @@ export const siteConfig = {
       label: "Events",
       href: "/events",
     },
-    {
-      label: "GSAP",
-      href: "/gsap",
-    },
-    
+
     // {
     //   label: "Businesses",
     //   href: "/businesses",

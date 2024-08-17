@@ -1,12 +1,14 @@
 import { Library } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import AnimatedSections from "./AnimatedSections";
 
 type Props = {};
 
 const Newsletter = (props: Props) => {
   return (
-    <div className="w-full text-[16px]">
+<div>
+<AnimatedSections className="w-full text-[16px] ">
       <div className="lg:max-w-none lg:mt-38 mt-22 mx-auto sm:mt-30">
         <div
           className="-mx-6 md:rounded-6xl bg-neutral-950 px-6 py-16 sm:mx-0 sm:py-28 md:px-12"
@@ -65,7 +67,8 @@ const Newsletter = (props: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedSections>
+</div>
   );
 };
 

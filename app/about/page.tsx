@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import {
   bebas,
   playfair_display,
@@ -13,8 +14,21 @@ import Faqs from "@/components/Faqs";
 import Newsletter from "@/components/Newsletter";
 import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";
+import { useAnimationContext } from "@/components/AnimationContext";
+import { useEffect, useRef } from "react";
+import AnimatedSections from "@/components/AnimatedSections";
+import AnimatedDivTag from "@/components/AnimatedDivTag";
 
 export default function AboutPage() {
+  const { observe } = useAnimationContext();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      observe(sectionRef.current);
+    }
+  }, [observe]);
+
   return (
     <div className="md:space-y-16 space-y-8">
       <Jumbotron
@@ -28,9 +42,9 @@ export default function AboutPage() {
 
       <Divider title={'About G.D.U.E'} />
 
-      <section className="flex flex-col h-auto">
+      <AnimatedSections className="flex flex-col h-auto">
         <div className="w-full container mx-auto grid md:grid-cols-3 gap-4">
-          <div className="space-y-3 w-full  md:col-span-2">
+          <div className="space-y-3 w-full  md:col-span-2 animate-fade-up animate-once animate-ease-out animate-normal animate-fill-forwards">
 
             <h3
               className={`${sourceCodePro400.className} text-4xl md:text-6xl capitalize font-extrabold`}
@@ -43,7 +57,7 @@ export default function AboutPage() {
                 Europe
               </span>{" "}
             </h3>
-            <p>
+            <p ref={sectionRef}>
               Join the Ghanaian Diaspora Union   in Europe (GDUE) to connect with a thriving Ghanaian community abroad. We recognize the unique experiences of living in Europe and are dedicated to supporting you. As a GDUE member, you&apos;ll build friendships, engage in cultural exchanges, and advance your career with a network of fellow Ghanaians.
             </p>
           </div>
@@ -51,7 +65,7 @@ export default function AboutPage() {
             Image
           </div>
         </div>
-      </section>
+      </AnimatedSections>
 
       <section
         className="bg-neutral-200/95 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
@@ -128,7 +142,7 @@ export default function AboutPage() {
 
       <Faqs />
 
-      <section className="md:p-8 md:min-h-[90dvh]">
+      <AnimatedSections className="md:p-8 md:min-h-[90dvh]">
         <>
           {/* Hero */}
           <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +158,7 @@ export default function AboutPage() {
                     friendship, cultural exchange, and professional advancement
                   </span>
                 </h1>
-                <p className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+                <p ref={sectionRef} className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
                   The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a
                   vibrant Ghanaian community abroad. We understand the joys and
                   challenges of living in Europe, and we are here to empower
@@ -182,8 +196,8 @@ export default function AboutPage() {
 
               <div className="lg:col-span-4 mt-10 lg:mt-0">
                 <Image
-                  width={700}
-                  height={700}
+                  // fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="w-full rounded-xl"
                   src="/images/festival.jpg"
                   alt="Image Description"
@@ -195,9 +209,9 @@ export default function AboutPage() {
           </div>
           {/* End Hero */}
         </>
-      </section>
+      </AnimatedSections>
 
-      <section className="hidden h-auto md:px-4 md:py-24 py-8  mx-auto min-h-[50dvh]  flex-col justify-center  text-center ">
+      <div className="hidden h-auto md:px-4 md:py-24 py-8  mx-auto min-h-[50dvh]  flex-col justify-center  text-center ">
         <div className="flex flex-col md:flex-auto md:justify-between items-center">
           <div className={` font-semibold flex justify-start items-center`}>
             <span className=" text-xl md:text-7xl">We proudly </span>
@@ -218,12 +232,14 @@ export default function AboutPage() {
             
           </div> */}
         </div>
-      </section>
-      <section
+
+
+      </div>
+      <AnimatedSections
         className=" h-auto md:px-24 md:py-4   mx-auto min-h-[70dvh]
       flex flex-col justify-center items-center space-y-5  "
       >
-        <div className="text-md max-w-3xl">
+        <div className="text-md max-w-3xl mx-auto">
           The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant
           Ghanaian community abroad. We understand the joys and challenges of
           living in Europe, and we are here to empower you. As a member of GDUE,
@@ -251,7 +267,7 @@ export default function AboutPage() {
           together we can build a brighter future for Ghanaians living in
           Europe.
         </div>
-      </section>
+      </AnimatedSections>
       <Newsletter />
     </div>
   );
