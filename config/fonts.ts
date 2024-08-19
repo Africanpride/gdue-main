@@ -1,13 +1,11 @@
 import {
   Fira_Code as FontMono,
-  Poppins,
-  Source_Sans_3,
-  Inter_Tight,
   IBM_Plex_Sans_Condensed,
-  Playfair_Display,
   Bebas_Neue,
-  Montserrat,
-  Noto_Sans, Courier_Prime
+  Inter_Tight,
+  Source_Sans_3,
+  Playfair_Display,
+  
   
 } from "next/font/google";
 // import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
@@ -24,26 +22,26 @@ type Props = {
 
 // define your variable fonts
 
-const courier = Courier_Prime({
-  weight: ["400","700"],
-  subsets: ["latin"],
-  style: ["italic","normal"],
-  display: "swap",
-  adjustFontFallback: false,
-});
-const notosans = Noto_Sans({
-  weight: ["100","200","300","400","500","700","900",],
-  subsets: ["latin"],
-  style: ["italic","normal"],
-  display: "swap",
-  adjustFontFallback: false,
-});
+// const courier = Courier_Prime({
+//   weight: ["400","700"],
+//   subsets: ["latin"],
+//   style: ["italic","normal"],
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
+// const notosans = Noto_Sans({
+//   weight: ["100","200","300","400","500","700","900",],
+//   subsets: ["latin"],
+//   style: ["italic","normal"],
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
 
-const montserrat = Montserrat({
-  weight: ["100","200","300","400","500","700","900",],
-  subsets: ["latin"],
-  style: ["italic","normal"],
-});
+// const montserrat = Montserrat({
+//   weight: ["100","200","300","400","500","700","900",],
+//   subsets: ["latin"],
+//   style: ["italic","normal"],
+// });
 const bebas = Bebas_Neue({
   weight: ["400"],
   subsets: ["latin"],
@@ -66,30 +64,30 @@ const ibm_plex_sans_condense = IBM_Plex_Sans_Condensed({
   display: "swap",
   adjustFontFallback: false,
 });
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "900"],
-  style: ["normal"],
-  display: "swap",
-  adjustFontFallback: false,
-});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["400", "900"],
+//   style: ["normal"],
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
 const inter_tight = Inter_Tight({
   subsets: ["latin"],
   display: "swap",
   adjustFontFallback: false,
 });
 // define 2 weights of a non-variable font
-const sourceCodePro400 = Source_Sans_3({ subsets: ["latin"], weight: "400" });
+// const sourceCodePro400 = Source_Sans_3({ subsets: ["latin"], weight: "400" });
 const sourceCodePro700 = Source_Sans_3({ subsets: ["latin"], weight: "700" });
 // define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
 export {
   inter_tight,
-  poppins,
-  sourceCodePro400,
-  sourceCodePro700,
+  // poppins,
+  // sourceCodePro400,
+  // sourceCodePro700,
   ibm_plex_sans_condense,
   playfair_display,
   bebas,
-  montserrat,
-  courier
+  // montserrat,
+  // courier
 };

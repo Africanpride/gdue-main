@@ -3,7 +3,6 @@
 import {
   bebas,
   playfair_display,
-  sourceCodePro400,
 } from "@/config/fonts";
 import { Image } from "@nextui-org/image";
 import { Button } from '@nextui-org/button';
@@ -40,14 +39,14 @@ export default function AboutPage() {
         hideVideo={false}
       />
 
-      <Divider title={'About G.D.U.E'} />
+      {/* <Divider title={'About G.D.U.E'} /> */}
 
       <AnimatedSections className="flex flex-col h-auto">
-        <div className="w-full container mx-auto grid md:grid-cols-3 gap-4">
-          <div className="space-y-3 w-full  md:col-span-2 animate-fade-up animate-once animate-ease-out animate-normal animate-fill-forwards">
+        <div className="max-w-3xl container mx-auto grid  gap-4">
+          <div className="space-y-3 w-full   animate-fade-up animate-once animate-ease-out animate-normal animate-fill-forwards">
 
             <h3
-              className={`${sourceCodePro400.className} text-4xl md:text-6xl capitalize font-extrabold`}
+              className={` text-2xl md:text-5xl capitalize font-extrabold`}
             >
               Home in Europe &mdash; The Ghana <br />
               <span className={`${playfair_display.className} text-yellow-600`}>
@@ -68,13 +67,13 @@ export default function AboutPage() {
       </AnimatedSections>
 
       <section
-        className="bg-neutral-200/95 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-24 
+        className=" bg-neutral-100 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-8 
       flex flex-col justify-center"
       >
         <div>
           <div className="w-full md:flex md:space-x-5 p-4">
             <div
-              className={` w-full md:w-6/12 text-4xl p-4 md:pt-3 md:text-right`}
+              className={` w-full md:w-6/12 text-2xl md:text-4xl p-4 md:pt-3 md:text-right`}
             >
               A Vision for a brighter future for all{" "}
               <span className={`${playfair_display.className} text-yellow-600`}>
@@ -95,8 +94,15 @@ export default function AboutPage() {
           </div>
 
           <div className="relative h-auto min-h-[50dvh] md:min-h-[30dvh] w-full flex flex-col justify-center items-center px-4 ">
-            <div className="px-4">
-              <Image src={'/images/europe-ghana.png'} alt="alt" width={800} height={300} />
+            <div className="px-4 py-12">
+              <Image src={'/images/map.png'}
+                alt="alt"
+                width={1728}
+                height={650}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }} />
             </div>
 
 
@@ -118,7 +124,7 @@ export default function AboutPage() {
 
           <div className="w-full md:flex md:space-x-5 p-4">
             <div
-              className={` w-full md:w-6/12 text-4xl p-4 md:pt-3 md:text-right`}
+              className={` w-full md:w-6/12 text-2xl md:text-4xl p-4 md:pt-3 md:text-right`}
             >
               Advocating for{" "}
               <span className={`${playfair_display.className} text-yellow-600`}>
@@ -128,7 +134,7 @@ export default function AboutPage() {
               <span className={`${playfair_display.className} text-yellow-600`}>
                 Ghanaians
               </span>{" "}
-              .
+              
             </div>
             <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-8 rounded-3xl text-md flex justify-center items-center">
               GDUE&apos;s mission is advocating for the rights and welfare of

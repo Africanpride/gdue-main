@@ -7,7 +7,7 @@ import {
 } from "@nextui-org/react";
 import MainLogo from '@/ui/GDUELogo';
 import { playfair_display } from '@/config/fonts';
-import { europeanCountries } from '@/config/site';
+import { allCountries } from '@/config/site';
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
     GoogleReCaptchaProvider,
@@ -90,7 +90,8 @@ const RegistrationModal: React.FC = () => {
         <>
             <Button onPress={onOpen} size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>
 
-            <Modal placement={'top'} backdrop={'blur'} size={'5xl'} className='rounded-2xl'
+            <Modal placement={'top'} backdrop={'blur'} size={'xl'}
+
                 isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false} isKeyboardDismissDisabled={true}
                 radius="lg"
                 motionProps={{
@@ -132,26 +133,27 @@ const RegistrationModal: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div>
-                                        <div className='italic text-[1.4rem] '>Together We Stand, Divided We Fall! All For One, One For All!</div>
-                                    </div>
 
+                                </div>
+                                <div>
+                                    <div className='italic md:text-lg '>Together We Stand, Divided We Fall! 
+                                        <br />All For One, One For All!</div>
                                 </div>
                                 <p>
                                     Join our vibrant community and make a difference! Register now to connect with like-minded individuals and support our mission. Learn more at <Link
-                                    className='font-bold text-blue-500 ' href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org/About</Link>.
+                                        className='font-bold text-blue-500 ' href={'https://www.ghanaiandiaspora.org/about'}>https://www.ghanaiandiaspora.org/About</Link>.
                                 </p>
 
 
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className='space-y-2'>
                                         <div className='flex flex-wrap gap-2 w-full'>
-                                            <div>
+                                            <div className='group flex flex-col data-[hidden=true]:hidden w-full md:max-w-auto]'>
                                                 <Autocomplete
                                                     label="Diaspora Country"
-                                                    defaultItems={europeanCountries}
+                                                    defaultItems={allCountries}
                                                     placeholder="Select Country in Europe"
-                                                    className="md:max-w-[220px]"
+                                                    className="md:max-w-auto]"
                                                     onSelectionChange={(value) => handleAutocompleteChange(value as string)}
                                                     {...register("country", { required: true })}
                                                     isInvalid={errors.country ? true : false}
@@ -170,7 +172,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="firstName"
                                                 label="First Name"
                                                 placeholder="Enter your First Name"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.firstName ? true : false}
                                             />
 
@@ -179,7 +181,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="lastName"
                                                 label="Last Name"
                                                 placeholder="Enter your Last Name"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.lastName ? true : false}
                                             />
 
@@ -189,7 +191,7 @@ const RegistrationModal: React.FC = () => {
                                                 type="email"
                                                 label="Email Address"
                                                 placeholder="Enter your Email Address"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.email ? true : false}
                                             />
 
@@ -198,7 +200,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="telephone"
                                                 label="Telephone"
                                                 placeholder="Enter your Cellphone Number"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.telephone ? true : false}
                                             />
 
@@ -207,7 +209,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="address"
                                                 label="Current Address"
                                                 placeholder="Enter your Current Address and Apartment Number"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.address ? true : false}
                                             />
 
@@ -216,7 +218,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="spouseName"
                                                 label="Spouse Name"
                                                 placeholder="Name of Spouse"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.spouseName ? true : false}
                                             />
 
@@ -225,7 +227,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="fatherName"
                                                 label="Father's Name"
                                                 placeholder="Enter your Father's Name"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.fatherName ? true : false}
                                             />
 
@@ -234,7 +236,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="motherName"
                                                 label="Mother's Name"
                                                 placeholder="Enter your Mother's Name"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.motherName ? true : false}
                                             /> */}
 
@@ -243,7 +245,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="emergencyContact"
                                                 label="Emergency Contact Person"
                                                 placeholder="Name of Emergency Contact"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.emergencyContact ? true : false}
                                             />
 
@@ -252,7 +254,7 @@ const RegistrationModal: React.FC = () => {
                                                 name="emergencyContactTelephone"
                                                 label="Emergency Contact Telephone"
                                                 placeholder="Emergency Contact Telephone Number"
-                                                className="md:max-w-[220px]"
+                                                className="md:max-w-auto]"
                                                 isInvalid={errors.emergencyContactTelephone ? true : false}
                                             />
 
@@ -274,8 +276,8 @@ const RegistrationModal: React.FC = () => {
 
                                         </div>
                                     </div>
-                                    <ModalFooter>
-                                        <Button color="danger" variant="flat" onPress={onClose}>
+                                    <ModalFooter className='grid grid-cols-2 gap-x-2'>
+                                        <Button color="danger" variant="solid" onPress={onClose}>
                                             Cancel
                                         </Button>
                                         {isVerified && (<Button color="primary" type="submit">
@@ -283,9 +285,6 @@ const RegistrationModal: React.FC = () => {
                                         </Button>)}
 
                                     </ModalFooter>
-
-
-
                                 </form>
 
                                 {/* <p>

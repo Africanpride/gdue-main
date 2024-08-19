@@ -1,10 +1,9 @@
 "use client";
 import React, { useRef } from "react";
 import Link from "next/link";
-import { bebas, poppins } from "@/config/fonts";
+import { bebas } from "@/config/fonts";
 import { usePathname } from 'next/navigation';
 import Image from "next/image";
-import { isMobile } from 'mobile-device-detect';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -33,7 +32,6 @@ const Jumbotron = ({
   const pathname = usePathname();
   const currentUrl = pathname.replace('/', '');
 
-  const myRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const currentUrlCharRef = useRef<HTMLDivElement>(null);
@@ -60,16 +58,6 @@ const Jumbotron = ({
         ease: "power2.inOut"
       },">-0.5");
     }
-
-    // // Stagger letters of currentUrl
-    // const letters = document.querySelectorAll('.inline-block');
-    // tl.from(letters, {
-    //   duration: 0.3,
-    //   opacity: 0,
-    //   y: 10,
-    //   ase: "elastic.out(1,0.3)",
-    //   stagger: 0.1
-    // });
   });
 
 
@@ -85,7 +73,8 @@ const Jumbotron = ({
   return (
     <section className="">
       <div className="mx-auto">
-        <div className={`min-h-[35vh] h-auto md:min-h-[75vh] bg-slate-400/40 flex flex-col justify-center items-start relative md:rounded-6xl overflow-hidden`}
+        <div className={`min-h-[35vh] h-auto md:min-h-[80vh] 
+         flex flex-col justify-center items-start relative md:rounded-6xl overflow-hidden`}
         >
           <Image
             data-image
@@ -93,14 +82,14 @@ const Jumbotron = ({
             src={backgroundImage}
             width={1728}
             height={650}
-            style={{
-              width: '100%',
-              height: 'auto',
-            }}
+            // style={{
+            //   width: '100%',
+            //   height: 'fit-content',
+            // }}
             alt={linkText}
-            className="absolute grayscale saturate-150 bg-bottom bg-cover bg-no-repeat"
+            className="absolute grayscale saturate-150 bg-bottom bg-cover bg-no-repeat "
           />
-          <div className={`${isMobile ? 'text-[3.3rem] px-2' : 'text-[9dvw] px-8'} gap-x-2 text-yellow-600 opacity-75 dark:opacity-55 uppercase font-extrabold ${poppins.className}`}>
+          <div className=" text-[9vw] px-8 gap-x-2 text-yellow-600 opacity-75 dark:opacity-55 uppercase font-extrabold font-poppins  ">
             {splitText(currentUrl)}
           </div>
           <div className="hidden md:block absolute bottom-0 top-0 start-0 end-0 max-w-md text-center mx-auto p-3 md:start-auto md:text-start md:mx-0">

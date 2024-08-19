@@ -6,6 +6,7 @@ import Divider from "@/ui/Divider";
 import Sponsors from "@/components/Sponsors";
 import Intro from "@/components/Intro";
 import JumbotronHome from "@/components/JumbotronHome";
+import AnimatedSections from "@/components/AnimatedSections";
 
 export default function Home() {
     return (
@@ -21,8 +22,10 @@ export default function Home() {
                 backgroundImage="/images/festival2.jpg"
                 hideVideo={false}
             />
-            <Intro />
-            <section>
+            <div className="max-w-5xl mx-auto">
+                <Intro />
+            </div>
+            <AnimatedSections>
                 <div className="w-full ">
                     <div className=" max-w-7xl lg:max-w-none ">
                         <div
@@ -66,7 +69,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </AnimatedSections>
             <Divider title={'Diasporan Business Directory'} />
             <BusinessCategories />
 

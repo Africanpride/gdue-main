@@ -9,7 +9,7 @@ export default function AnimatedDivTag
         className,
     }: {
         children: React.ReactNode;
-        className: string;
+        className?: string;
     }) {
 
     const divRef = useRef(null);

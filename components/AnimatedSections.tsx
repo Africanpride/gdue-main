@@ -9,7 +9,7 @@ export default function AnimatedSections
         className,
     }: {
         children: React.ReactNode;
-        className: string;
+        className?: string;
     }) {
 
     const ref = useRef(null);

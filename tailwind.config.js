@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-geist-mono)"],
+        ibm: ["IBMPlexSansCondensed-Regular", "sans-serif"], // For IBM Plex Sans Condensed
+        inter: ["Inter", "sans-serif"], // For Inter font
+        poppins: ["Poppins", "sans-serif"], // For Poppins font
       },
       borderRadius: {
         "4xl": "2rem",

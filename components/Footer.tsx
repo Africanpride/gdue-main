@@ -55,7 +55,7 @@ const Footer = () => {
 
         <div className="pt-5 mt-5 border-t border-gray-200 dark:border-neutral-700/30">
           <div className="sm:flex sm:justify-between sm:items-center">
-            <div className="flex items-center gap-x-3">
+            <div className="flex flex-wrap items-center gap-3">
               {/* Language Dropdown */}
               <div className="hs-dropdown [--placement:top-left] relative inline-flex">
                 <button
@@ -257,7 +257,7 @@ const Footer = () => {
               </div>
               {/* End Language Dropdown */}
 
-              <div className="space-x-4 text-sm ms-4">
+              <div className="space-x-4 text-sm md:ms-4">
                 <Link
                   className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                   href={"/terms"}
@@ -279,7 +279,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex justify-between items-center">
+            <div className="flex flex-wrap gap-3 items-center md:justify-between">
               <div className="mt-3 sm:hidden">
                 <Link
                   className="flex-none text-xl font-semibold dark:text-white"

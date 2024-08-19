@@ -1,5 +1,4 @@
 import Jumbotron from "@/components/Jumbotron";
-import { sourceCodePro700 } from "@/config/fonts";
 import React from "react";
 
 
@@ -38,7 +37,7 @@ const page = (props: Props) => {
         backgroundImage="/images/europe2.jpg"
         hideVideo={false}
       />
-      <div className={`${sourceCodePro700} text-4xl font-bold`}>More information coming soon ...</div>
+      <div className={` text-4xl font-bold`}>More information coming soon ...</div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 "use client"
 import { useAnimationContext } from "@/components/AnimationContext";
 import Jumbotron from "@/components/Jumbotron";
-import { sourceCodePro700 } from "@/config/fonts";
 import React, { useEffect, useRef } from "react";
 
 
@@ -33,7 +32,7 @@ const BusinessPage = (props: Props) => {
         backgroundImage="/images/market.jpg"
         hideVideo={false}
       />
-      <div ref={sectionRef} className={`${sourceCodePro700} text-4xl font-bold`}>More information coming soon ...</div>
+      <div ref={sectionRef} className={`text-4xl font-bold`}>More information coming soon ...</div>
     </div>
   );
 };
