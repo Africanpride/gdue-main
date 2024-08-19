@@ -90,7 +90,7 @@ const RegistrationModal: React.FC = () => {
         <>
             <Button onPress={onOpen} size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>
 
-            <Modal placement={'top'} backdrop={'blur'} size={'xl'}
+            <Modal placement={'top'} backdrop={'blur'} size={'5xl'}
 
                 isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false} isKeyboardDismissDisabled={true}
                 radius="lg"

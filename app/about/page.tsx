@@ -71,9 +71,9 @@ export default function AboutPage() {
       flex flex-col justify-center"
       >
         <div>
-          <div className="w-full md:flex md:space-x-5 p-4">
+          <div className="w-full md:flex md:space-x-5 p-6">
             <div
-              className={` w-full md:w-6/12 text-2xl md:text-4xl p-4 md:pt-3 md:text-right`}
+              className={` w-full md:w-6/12 text-2xl md:text-4xl p-6 md:pt-3 md:text-right`}
             >
               A Vision for a brighter future for all{" "}
               <span className={`${playfair_display.className} text-yellow-600`}>
@@ -85,7 +85,7 @@ export default function AboutPage() {
               </span>
               .
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-8 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-auto md:w-6/12 md:bg-white dark:bg-neutral-900 h-auto md:p-6 rounded-3xl text-md md:flex justify-center items-center">
               Our Vision is to foster unity among Ghanaians in the diaspora by,
               promoting cultural pride, economic empowerment, and social
               cohesion, thus enhancing the well-being of our members and
@@ -122,7 +122,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="w-full md:flex md:space-x-5 p-4">
+          <div className="md:flex md:space-x-5 p-6 w-full">
             <div
               className={` w-full md:w-6/12 text-2xl md:text-4xl p-4 md:pt-3 md:text-right`}
             >
@@ -136,7 +136,7 @@ export default function AboutPage() {
               </span>{" "}
               
             </div>
-            <div className="w-full md:w-6/12 bg-white dark:bg-neutral-900 h-auto p-4 md:p-8 rounded-3xl text-md flex justify-center items-center">
+            <div className="w-auto md:w-6/12 md:bg-white dark:bg-neutral-900 h-auto md:p-6 rounded-3xl text-md md:flex justify-center items-center">
               GDUE&apos;s mission is advocating for the rights and welfare of
               Ghanaians in diaspora, facilitating economic well-being,
               networking, providing support, and undertaking initiatives for

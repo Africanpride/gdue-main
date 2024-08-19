@@ -10,6 +10,7 @@ import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
 import { useAnimationContext } from "@/components/AnimationContext";
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 
 export default function ContactPage() {
   const { observe } = useAnimationContext();
@@ -20,7 +21,7 @@ export default function ContactPage() {
       observe(sectionRef.current);
     }
   }, [observe]);
-  
+
   const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
   return (
     <div className="md:space-y-16">
@@ -34,31 +35,38 @@ export default function ContactPage() {
       />
       <section className=" w-full  py-10  gap-6 md:gap-0 z-20 container md:px-8 ">
         <div ref={sectionRef} className="flex items-center w-full justify-center md:text-xl  ">
-          
-        We&apos;d love to hear from you! Whether you have questions, need support, or want to get involved, GDUE is here for you. Reach out to us for any inquiries, feedback, or collaboration opportunities. Connect with our team through our online contact form, email, or social media. Together, we can build a stronger, more connected Ghanaian diaspora community.
+
+          We&apos;d love to hear from you! Whether you have questions, need support, or want to get involved, GDUE is here for you. Reach out to us for any inquiries, feedback, or collaboration opportunities. Connect with our team through our online contact form, email, or social media. Together, we can build a stronger, more connected Ghanaian diaspora community.
 
         </div>
       </section>
-      
+
       <section className="min-h-screen bg-cover -mx-8 md:-mx-12 " style={{ backgroundImage: "url('/images/airport.jpg')" }}>
         <div className="flex flex-col min-h-screen bg-black/60">
           <div className="container flex flex-col flex-1 px-6 py-12 mx-auto">
             <div className="flex-1 lg:flex lg:items-center lg:-mx-6">
               <div className="text-white lg:w-1/2 lg:mx-6">
-              <h1 className="block text-2xl font-bold  sm:text-2xl md:text-3xl lg:text-4xl text-white">
+                <h1 className="block text-2xl font-bold  sm:text-2xl md:text-3xl lg:text-4xl text-white">
                   <span className={`${bebas.className} leading-8`}>
-                  Connect with GDUE Today
+                    Connect with GDUE Today
                   </span>
                 </h1>
 
 
                 <p className="max-w-xl mt-6 md:text-xl">
-                Get in touch with GDUE today! We&apos;re here to assist with any questions or support you need. Connect with us through our contact form, email, or social media. Together, let&apos;s strengthen and empower the Ghanaian diaspora community.
+                  Get in touch with GDUE today! We&apos;re here to assist with any questions or support you need. Connect with us through our contact form, email, or social media. Together, let&apos;s strengthen and empower the Ghanaian diaspora community.
                 </p>
 
-                <Button href={'https://wa.me/41779934824'} className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50">
-                 <LucidePhoneOutgoing /> Whatsapp GDUE
-                </Button>
+                <Link
+                  href="https://wa.me/+41779934824"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50"
+                >
+                  <LucidePhoneOutgoing /> Whatsapp GDUE
+                </Link>
+
+
 
                 <div className="mt-6 md:mt-8">
                   <h3 className="text-gray-300 ">Follow us</h3>
@@ -118,7 +126,7 @@ export default function ContactPage() {
                       <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" placeholder="Message" />
                     </div>
 
-                    <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50">
+                    <button type="submit" className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50">
                       get in touch
                     </button>
                   </form>

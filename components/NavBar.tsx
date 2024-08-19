@@ -9,6 +9,7 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Button,
 } from "@nextui-org/react";
 import { bebas, playfair_display } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
@@ -24,13 +25,16 @@ import { usePathname } from 'next/navigation';
 import RegistrationModal from './RegistrationModal';
 import MainLogo from "@/ui/GDUELogo";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
 
 
 type Props = {};
 
 const NavBar = (props: Props) => {
 
-
+  // media query for mobile etc
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const pathname = usePathname();
   const { user } = useUser();
@@ -40,7 +44,7 @@ const NavBar = (props: Props) => {
   const handleMenuItemClick = () => {
     setIsMenuOpen(false);
   };
-  
+
 
   return (
     <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} maxWidth="full" className="md:py-8">
@@ -96,7 +100,10 @@ const NavBar = (props: Props) => {
           <div
             className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6`}
           >
-            <RegistrationModal />
+              <Link href={'/join'} >
+                <Button size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>
+              </Link>
+
             {/* <SignedOut>
               <SignInButton>
                 <div className="text-sm cursor-pointer flex items-center">
