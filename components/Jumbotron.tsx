@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { url } from "inspector";
+import AnimatedSections from "./AnimatedSections";
 
 type Props = {
   heading?: string | React.ReactNode;
@@ -56,7 +58,7 @@ const Jumbotron = ({
         opacity: 0,
         y: 10,
         ease: "power2.inOut"
-      },">-0.5");
+      }, ">-0.5");
     }
   });
 
@@ -71,25 +73,23 @@ const Jumbotron = ({
   };
 
   return (
-    <section className="">
-      <div className="mx-auto">
-        <div className={`min-h-[35vh] h-auto md:min-h-[80vh] 
-         flex flex-col justify-center items-start relative md:rounded-6xl overflow-hidden`}
+    <AnimatedSections>
+      <div className="mx-auto  py-3 pb-5">
+        <div
+          className={`min-h-[80dvh] rounded-2xl h-auto md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
         >
-          <Image
-            data-image
-            priority
-            src={backgroundImage}
-            width={1728}
-            height={650}
-            // style={{
-            //   width: '100%',
-            //   height: 'fit-content',
-            // }}
-            alt={linkText}
-            className="absolute grayscale saturate-150 bg-bottom bg-cover bg-no-repeat "
-          />
-          <div className=" text-[9vw] px-8 gap-x-2 text-yellow-600 opacity-75 dark:opacity-55 uppercase font-extrabold font-poppins  ">
+          <div className="absolute inset-0 z-0" style={{ filter: "grayscale(100%)" }}>
+            <Image
+              src={backgroundImage}
+              alt="Background"
+              fill
+              style={{ objectFit: "cover", objectPosition: "bottom" }}
+              priority
+            />
+          </div>
+
+
+          <div className=" text-5xl md:text-[9vw]  px-2 md:px-8 gap-x-2 text-yellow-600 opacity-85 dark:opacity-55 uppercase font-extrabold font-poppins  ">
             {splitText(currentUrl)}
           </div>
           <div className="hidden md:block absolute bottom-0 top-0 start-0 end-0 max-w-md text-center mx-auto p-3 md:start-auto md:text-start md:mx-0">
@@ -128,7 +128,7 @@ const Jumbotron = ({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSections>
   );
 };
 

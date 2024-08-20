@@ -38,7 +38,7 @@ const page = (props: Props) => {
 
           </p>
           <Link href={'/contact'}>
-            <Button  className='uppercase rounded-none' size='lg' color="warning" variant="solid"
+            <Button  className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
                       endContent={<LucideArrowUpRight className='bg-green-500  text-white' />}>
               <span className='text-sm'>Get in Touch With GDUE</span>
             </Button>

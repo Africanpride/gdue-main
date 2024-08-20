@@ -113,7 +113,7 @@ const JoinPage = () => {
           </div>
         </div>
 
-        <div className="h-dvh">
+        <div className="h-auto">
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='space-y-2'>

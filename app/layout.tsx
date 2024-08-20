@@ -90,8 +90,9 @@ export default function RootLayout({
 
           <Providers themeProps={{ attribute: "class", defaultTheme: "light", enableSystem: false, forcedTheme: "light" }}>
 
-            <div className="py-4">
+            <div className="border-b md:border-none border-b-neutral-100 mb-2 py-2 ">
               <NavBar />
+              <CookieConsent />
             </div>
 
             <div className="relative flex flex-col h-screen px-4">
@@ -99,7 +100,7 @@ export default function RootLayout({
               <main className="container mx-auto ">{children}</main>
 
 
-              <CookieConsent />
+
               <SpeedInsights />
               <Analytics />
 

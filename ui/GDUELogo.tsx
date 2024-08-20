@@ -15,18 +15,24 @@ const MainLogo = (props: Props) => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   // Set default dimensions based on media query
-  const logoWidth = isMobile ? 50 : isTabletOrMobile ? 60 : props.width || 90;
-  const logoHeight = isMobile ? 50 : isTabletOrMobile ? 60 : props.height || 90;
+  const logoWidth = isMobile ? 30 : props.width || 90;
+  const logoHeight = isMobile ? 30 : props.height || 90;
   return (
-    <Link className="pr-2" href="/">
       <Image
         alt="GDUE"
+        priority
         src="/images/logo.png"
-        width={logoWidth}
-        height={logoHeight}
-        sizes="(max-width: 700px) 30vw, 80px"
+        width={30}
+        height={30}
+        sizes="(max-width: 700px) 18vw, 90px"
+        style={{
+          width: '100%',
+          height: 'auto',
+        }}
+        className="pr-2"
       />
-    </Link>
+    // <Link className="pr-2 w-16 md:w-[7rem] " href="/">
+    // </Link>
   );
 };
 

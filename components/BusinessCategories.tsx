@@ -23,7 +23,7 @@ const BusinessCategories = (props: Props) => {
                 Discover and support Ghanaian-owned businesses across Europe! Our directory connects you with a vibrant community of entrepreneurs.  Empower your fellow Ghanaians and foster economic connections within the diaspora. 
                 </h2>
             </div>
-            <div className="max-w-[85rem] px-4 py-10 sm:px-10 lg:px-16 lg:py-14 mx-auto">
+            <div className="max-w-[85rem]  py-10 sm:px-10 lg:px-16 lg:py-14 mx-auto">
                 {/* Grid */}
                 { /* Title */}
                 { /* End Title */}

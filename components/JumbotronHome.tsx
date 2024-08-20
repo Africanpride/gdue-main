@@ -7,6 +7,7 @@ import {
 import { usePathname } from 'next/navigation';  // Import usePathname
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import AnimatedSections from "./AnimatedSections";
 
 
 type Props = {
@@ -63,15 +64,15 @@ const JumbotronHome = ({ heading = "Share Your Business?",
 
 
   return (
-    <section className="">
+    <AnimatedSections>
       {/* Features */}
-      <div className="mx-auto">
+      <div className="mx-auto py-3">
         <div
-          className={`min-h-[45vh] h-auto md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
+          className={`min-h-[90dvh] rounded-2xl h-auto md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-          <div className={`text-[9dvw] gap-x-2 opacity-75 dark:opacity-55 uppercase  
-           text-default-900 px-8 font-extrabold font-poppins`}>
+          <div className={`text-[7dvw] gap-x-2 opacity-65 dark:opacity-55 uppercase   
+           text-default-900 px-2 md:px-8 font-extrabold font-poppins`}>
             {currentUrl}
           </div>
           <div className="hidden md:block absolute bottom-0 start-0 end-0 max-w-md text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
@@ -113,7 +114,7 @@ const JumbotronHome = ({ heading = "Share Your Business?",
         </div>
       </div>
       {/* End Features */}
-    </section>
+    </AnimatedSections>
   );
 };
 
