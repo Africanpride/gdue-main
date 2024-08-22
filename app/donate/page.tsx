@@ -23,7 +23,7 @@ const page = (props: Props) => {
         backgroundImage="/images/donate.jpg"
         hideVideo={false}
       />
-      <IdentityCard />
+      {/* <IdentityCard /> */}
       <div className={` text-4xl font-bold`}>More information coming soon ...</div>
     </div>
   );

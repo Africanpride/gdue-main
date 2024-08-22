@@ -8,6 +8,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 import { SubmitHandler, useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -26,6 +27,7 @@ type InputsData = {
 };
 
 const JoinPage = () => {
+  const notify = () => toast('Membership Form Submitted!');
 
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
   const [isVerified, setIsVerified] = useState<boolean>(false);
@@ -34,8 +36,10 @@ const JoinPage = () => {
     const response = axios.post("/api/recaptchaVerification/", { token })
       .then(function (response) {
         console.log(response)
-        console.log("EVERYTHING COOL. LET'S SUBMIT FORM NOW.")
         setIsVerified(true);
+
+
+        console.log("EVERYTHING COOL. LET'S SUBMIT FORM NOW.")
       })
       .catch(function (error) {
         setIsVerified(false);
@@ -53,7 +57,6 @@ const JoinPage = () => {
   }
 
   const onSubmit: SubmitHandler<InputsData> = async (data) => {
-    console.log(data);
     try {
       const response = await axios.post('/api/register/registrationForm/', data, {
         headers: {
@@ -65,12 +68,30 @@ const JoinPage = () => {
         throw new Error('Network response was not ok');
       }
 
-      const result = response.data;
-      // onClose();
+      toast.success('Membership Request Sumitted!');
+      // reload page
+      window.location.reload();
+
+      // Optionally close the form or reset fields here
     } catch (error) {
-      console.error('Error:', error);
+      if (axios.isAxiosError(error)) {
+        // Check if the error response exists and handle specific status codes
+        if (error.response) {
+          if (error.response.status === 409) {
+            toast.error('User is already registered');
+          } else {
+            toast.error('Submission Error. Contact GDUE Office. ');
+          }
+        } else {
+          // console.error('Error:', error.message);
+          toast.error('Submission Error. Contact GDUE Office. ');
+        }
+      } else {
+        toast.error('An unexpected error occurred. Please try again later.');
+      }
     }
   };
+
 
   const handleAutocompleteChange = (value: string) => {
     setValue("country", value);
@@ -262,6 +283,7 @@ const JoinPage = () => {
 
         </div>
       </div>
+      <Toaster />
 
     </div>
   );

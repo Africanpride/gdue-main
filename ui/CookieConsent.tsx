@@ -16,7 +16,7 @@ const CookieConsent = (props: Props) => {
             setConsent(true);
             setVisible(false);
         }
-    }, []);
+    }, [consent]);
 
     const handleAccept = () => {
         setConsent(true);
