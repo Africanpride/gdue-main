@@ -1,17 +1,17 @@
+import ContactSchema from "@/prisma/mondoDB/contactGDUESchema";
 import { connect } from "@/prisma/mondoDB/mongo";
-import NewGdueMember from "@/prisma/mondoDB/newGdueMemberSchema";
 
 interface MongoError extends Error {
   code?: number;
   errmsg?: string;
 }
 
-export async function joinGDUE(memberData: any) {
+export async function contactGDUE(contactFormData: any) {
   try {
     await connect();
 
     // Create a new user
-    await NewGdueMember.create(memberData);
+    await ContactSchema.create(contactFormData);
 
     return {
       message: "New member created on MongoDB Atlas",

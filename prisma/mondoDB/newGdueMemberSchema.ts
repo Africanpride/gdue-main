@@ -30,7 +30,11 @@ const NewGdueMemberSchema = new Schema({
     required: true,
     index: true, // Add index for faster queries
   },
-  address: {
+  addressInDiaspora: {
+    type: String,
+    required: true,
+  },
+  addressInGhana: {
     type: String,
     required: true,
   },
@@ -60,6 +64,6 @@ const NewGdueMemberSchema = new Schema({
 
 // Create the model
 const NewGdueMember =
-  models.NewGdueMemberForm || model("NewGdueMemberForm", NewGdueMemberSchema);
+  models.NewGdueMembership || model("NewGdueMembership", NewGdueMemberSchema);
 
 export default NewGdueMember;

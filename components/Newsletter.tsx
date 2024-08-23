@@ -46,8 +46,9 @@ const Newsletter = (props: Props) => {
                   >
                     <li>
                       <address className="text-sm not-italic text-neutral-300">
-                        <strong className="text-white">Barcelona</strong>
-                        <br />Calle Río sella, <br /> 43 Bajo izquierda <br />33010 Oviedo Spain <br />+34624490895
+                        <strong className="text-white">Barcelona</strong><br />
+                        Calle Río sella, 43 Bajo izquierda <br />
+                        33010 Oviedo Spain <br />+34 624490895
                       </address>
                     </li>
                     {/* <li>

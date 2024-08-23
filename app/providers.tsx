@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { AnimationProvider } from "@/components/AnimationContext";
+import GoogleCaptchaWrapper from "@/components/GoogleCaptchaWrapper";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -20,8 +21,8 @@ export function Providers({ children, themeProps }: ProvidersProps) {
       <NextThemesProvider {...themeProps}>
         <AnimationProvider>
 
-          {children}
-          
+            {children}
+
         </AnimationProvider>
       </NextThemesProvider>
     </NextUIProvider>

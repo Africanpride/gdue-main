@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
 export async function POST(req: NextRequest) {
-  console.log("REQUESTING VERIFICATION USING AXIOS");
+  // console.log("REQUESTING VERIFICATION USING AXIOS");
 
   const { token } = await req.json();
 
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
     const data = response.data;
     if (data.success) {
-      console.log(data);
+      // console.log(data);
       return NextResponse.json({ status: 200 });
     } else {
       return NextResponse.json({

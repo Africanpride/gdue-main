@@ -28,7 +28,7 @@ export async function syncUserData(users: any) {
     if (mongoError.errmsg) {
       console.error("MongoDB Error Message:", mongoError.errmsg);
     }
-    console.log("Failure in syncing webhook with MongoDB");
+    // console.log("Failure in syncing webhook with MongoDB");
     return null;
   }
 }

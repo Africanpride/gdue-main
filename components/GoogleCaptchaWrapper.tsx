@@ -4,12 +4,13 @@ import React from "react";
 
 export default function GoogleCaptchaWrapper({
   children,
+  className
 }: {
   children: React.ReactNode;
+  className?:  string;
 }) {
-  const recaptchaKey: string | undefined =
-    process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-    console.log(recaptchaKey);
+  const recaptchaKey: string | undefined = process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}
@@ -18,8 +19,7 @@ export default function GoogleCaptchaWrapper({
         defer: false,
         appendTo: "head",
         nonce: undefined,
-      }}
-    >
+      }}>
       {children}
     </GoogleReCaptchaProvider>
   );

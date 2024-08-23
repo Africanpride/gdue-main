@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   }
 
   const formData = await req.json();
-  console.log("Received formData:", formData);
+  // console.log("Received formData:", formData);
 
   // Destructure formData and add additional fields
   const {
@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
     lastName,
     email,
     telephone,
-    address,
+    addressInDiaspora,
+    addressInGhana,
     spouseName = '',
     emergencyContact = '',
     emergencyContactTelephone = '',
@@ -32,7 +33,8 @@ export async function POST(req: NextRequest) {
     lastName,
     email,
     telephone,
-    address,
+    addressInDiaspora,
+    addressInGhana,
     spouseName,
     emergencyContact,
     emergencyContactTelephone,
@@ -42,11 +44,11 @@ export async function POST(req: NextRequest) {
     membershipNumber: null,
   };
 
-  console.log("Constructed memberData:", memberData);
+  // console.log("Constructed memberData:", memberData);
 
   try {
     const userResponse = await joinGDUE(memberData);
-    console.log("User response from joinGDUE:", userResponse);
+    // console.log("User response from joinGDUE:", userResponse);
     return NextResponse.json(
       { message: userResponse.message },
       { status: userResponse.status }

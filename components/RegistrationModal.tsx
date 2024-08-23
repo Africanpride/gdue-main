@@ -44,8 +44,8 @@ const RegistrationModal: React.FC = () => {
     async function handleCaptchaSubmission(token: string | null) {
         const response = axios.post("/api/recaptchaVerification/", { token })
             .then(function (response) {
-                console.log(response)
-                console.log("EVERYTHING COOL. LET'S SUBMIT FORM NOW.")
+                // console.log(response)
+                // console.log("EVERYTHING COOL. LET'S SUBMIT FORM NOW.")
                 setIsVerified(true);
             })
             .catch(function (error) {
@@ -64,7 +64,7 @@ const RegistrationModal: React.FC = () => {
     }
 
     const onSubmit: SubmitHandler<InputsData> = async (data) => {
-        console.log(data);
+        // console.log(data);
         try {
             const response = await axios.post('/api/register/registrationForm/', data, {
                 headers: {

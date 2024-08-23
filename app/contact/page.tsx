@@ -4,15 +4,38 @@ import {
   bebas,
 } from "@/config/fonts";
 
-import { LucidePhoneOutgoing } from "lucide-react";
+import { DatabaseBackupIcon, LucidePhoneOutgoing } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
 import Jumbotron from "@/components/Jumbotron";
 import { Button } from "@nextui-org/button";
 import { useAnimationContext } from "@/components/AnimationContext";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { GoogleReCaptchaProvider, GoogleReCaptcha, useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { Image } from "@nextui-org/react";
+
+
+
+// Define the form data structure
+interface FormData {
+  fullName: string;
+  email: string;
+  message: string;
+  token?: string;
+}
+
 
 export default function ContactPage() {
+
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const [token, setToken] = useState<string>();
+  const [isVerified, setIsVerified] = useState<boolean>(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+
   const { observe } = useAnimationContext();
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -22,7 +45,83 @@ export default function ContactPage() {
     }
   }, [observe]);
 
+
+  const checkForToken = useCallback(async () => {
+    if (!token && executeRecaptcha) {
+      try {
+        const recaptchaToken = await executeRecaptcha('inquirySubmit');
+        if (recaptchaToken) {
+          // console.log("Token received from Google::::::::", recaptchaToken);
+          setToken(recaptchaToken); // Set the token in state
+          // now verify token with verifyToken
+          verifyToken(recaptchaToken)
+
+        }
+      } catch (error) {
+        // console.error("Error executing reCAPTCHA:", error);
+      }
+    } else {
+      // console.log("Token already present or executeRecaptcha not available");
+    }
+  }, [token, executeRecaptcha]);
+
+  useEffect(() => {
+    checkForToken();
+  }, [checkForToken])
+
+
+  // verify token
+  async function verifyToken(token: string | null) {
+    axios.post("/api/recaptchaVerification/", { token })
+      .then(response => {
+        if (response.status !== 200) {
+          toast.error("Recaptcha Verification failed ...");
+          return;
+        }
+      })
+      .then(() => {
+        setIsVerified(true);
+      })
+      .catch(function (error) {
+        setIsVerified(false);
+      });
+
+  }
+
+  // Handle form submission
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    // console.log(data)
+    // console.log("sending token ...................." + token)
+    try {
+      // Ensure the token is verified before proceeding
+      if (!isVerified) {
+        toast.error("Please verify that you are a human!");
+        return;
+      }
+
+      // Send the form data and the token to the server for processing using axios
+      const response = await axios.post('/api/contactForm', {
+        ...data
+      });
+
+      if (response.status === 200) {
+        toast.success('Form submitted successfully');
+      } else {
+        toast.error('Error submitting form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Error submitting form');
+    }
+  };
+
+
+
+
   const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
+
+
+
   return (
     <div className="md:space-y-16">
       <Jumbotron
@@ -58,7 +157,7 @@ export default function ContactPage() {
                 </p>
 
                 <Link
-                  href="https://wa.me/+41779934824"
+                  href="https://wa.me/+34624490895"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 mt-6 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform bg-green-600 rounded-md flex justify-center items-center gap-x-3 uppercase hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-400 focus:ring-opacity-50"
@@ -102,7 +201,13 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 lg:w-1/2 lg:mx-6">
-                <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
+
+                <Image
+                  width={600}
+                  alt="connect with gdue"
+                  src="/images/contactForm.jpg"
+                />
+                <div className="hidden w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
                   <h1 className="text-xl font-medium text-gray-700 dark:text-gray-200">Contact form</h1>
 
                   <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -110,24 +215,50 @@ export default function ContactPage() {
                     to hear from you
                   </p>
 
-                  <form className="mt-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                     <div className="flex-1">
                       <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" />
+                      <input
+                        {...register("fullName", { required: "Full Name is required" })}
+                        type="text"
+                        placeholder="John Doe"
+                        className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring"
+                      />
+                      {errors.fullName && <p className="text-red-500 text-sm mt-2">{errors.fullName.message}</p>}
                     </div>
 
                     <div className="flex-1 mt-6">
                       <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                      <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" />
+                      <input
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: {
+                            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                            message: "Enter a valid email address"
+                          }
+                        })}
+                        type="email"
+                        placeholder="johndoe@example.com"
+                        className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring"
+                      />
+                      {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email.message}</p>}
                     </div>
 
                     <div className="w-full mt-6">
                       <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
-                      <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring" placeholder="Message" />
+                      <textarea
+                        {...register("message", { required: "Message is required" })}
+                        className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-green-400 focus:ring-green-300 focus:ring-opacity-40 dark:focus:border-green-300 focus:outline-none focus:ring"
+                        placeholder="Message"
+                      />
+                      {errors.message && <p className="text-red-500 text-sm mt-2">{errors.message.message}</p>}
                     </div>
 
-                    <button type="submit" className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50">
-                      get in touch
+                    <button
+                      type="submit"
+                      className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-600 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50"
+                    >
+                      Get in touch
                     </button>
                   </form>
                 </div>

@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      console.log("User metadata updated successfully");
+      // console.log("User metadata updated successfully");
 
       // Wait for 2 seconds (example, adjust as needed)
       // await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
       // Sync user data with MongoDB Atlas
       try {
         await syncUserData(userData);
-        console.log("User data synced with MongoDB Atlas");
+        // console.log("User data synced with MongoDB Atlas");
         return NextResponse.json(
           { message: "Webhook received and processed" },
           { status: 200 }

@@ -361,32 +361,32 @@ export default Footer;
 // Usage with your menu items
 const communityMenuItems = [
   { label: "About Us", href: "/about" }, // Replace with actual links
-  { label: "Membership", href: "/membership" },
+  { label: "Membership", href: "/join" },
   { label: "Events Calendar", href: "/events" },
-  { label: "Volunteer Opportunities", href: "/volunteer" },
-  { label: "Success Stories", href: "/success-stories" },
+  { label: "Volunteer Opportunities", href: "/" },
+  { label: "Success Stories", href: "/" },
 ];
 
 const engagementMenuItems = [
-  { label: "News & Updates", href: "/news-updates" }, // Replace with actual links
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Discussion Forum", href: "/forum" },
-  { label: "Social Media", href: "/social-media" },
+  { label: "News & Updates", href: "/" }, // Replace with actual links
+  { label: "Blog", href: "/" },
+  { label: "Gallery", href: "/" },
+  { label: "Discussion Forum", href: "/" },
+  { label: "Social Media", href: "/" },
 ];
 
 const supportMenuItems = [
-  { label: "Advocacy & Representation", href: "/advocacy" }, // Replace with actual links
-  { label: "Community Programs", href: "/community-programs" },
-  { label: "Resources", href: "/resources" },
-  { label: "Cultural Promotion & Celebration", href: "/cultural" },
-  { label: "Networking Opportunities", href: "/networking" },
+  { label: "Advocacy & Representation", href: "/" }, // Replace with actual links
+  { label: "Community Programs", href: "/" },
+  { label: "Resources", href: "/" },
+  { label: "Cultural Promotion & Celebration", href: "/" },
+  { label: "Networking Opportunities", href: "/" },
 ];
 
 const resourcesAndInformationMenuItems = [
-  { label: "Government Services", href: "/government-services" }, // Replace with actual links
-  { label: "Community Organizations", href: "/community-organizations" },
-  { label: "Educational Materials", href: "/educational-materials" },
+  { label: "Government Services", href: "/" }, // Replace with actual links
+  { label: "Community Organizations", href: "/" },
+  { label: "Educational Materials", href: "/" },
   { label: "FAQs", href: "/faqs" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Contact Us", href: "/" },
 ];
