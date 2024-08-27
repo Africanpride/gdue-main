@@ -31,10 +31,6 @@ export const siteConfig = {
       href: "/news",
     },
     
-    {
-      label: "Contact Us",
-      href: "/contact",
-    },
     
     {
       label: "Impact",
@@ -43,6 +39,10 @@ export const siteConfig = {
     {
       label: "Donate",
       href: "/donate",
+    },
+    {
+      label: "Contact Us",
+      href: "/contact",
     },
 
   ],

@@ -1,4 +1,5 @@
 import GoogleCaptchaWrapper from "@/components/GoogleCaptchaWrapper"
+import { Toaster } from "react-hot-toast"
 
 export default function JOINLayout({
     children,
@@ -7,6 +8,7 @@ export default function JOINLayout({
 }) {
     return (
         <GoogleCaptchaWrapper>
+                  <Toaster />
             {children}
         </GoogleCaptchaWrapper>
     )

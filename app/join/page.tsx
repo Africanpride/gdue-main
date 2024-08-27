@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Autocomplete, AutocompleteItem, Avatar } from "@nextui-org/react";
 import axios from "axios";
+import { LucideBadgeCheck } from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { GoogleReCaptchaProvider, GoogleReCaptcha, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
@@ -14,7 +15,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 
-type InputsData = {
+interface InputsData  {
   firstName: string;
   lastName: string;
   email: string;
@@ -75,7 +76,7 @@ const JoinPage = () => {
           toast.error("Verification failed ...");
           return;
         }
-      
+
         setIsVerified(true);
 
       })
@@ -89,39 +90,56 @@ const JoinPage = () => {
 
 
   const onSubmit: SubmitHandler<InputsData> = async (data) => {
+    // Create a promise for the axios request
+    const myPromise = axios.post('/api/register/registrationForm/', data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    // Use toast.promise to handle the toast notifications
+    toast.promise(
+      myPromise,
+      {
+        loading: 'Submitting your request...',
+        success: (response) => {
+          // Handle success response
+          window.location.reload(); // Reload page
+          return 'Membership Request Submitted!';
+        },
+        error: (err) => {
+          if (axios.isAxiosError(err)) {
+            if (err.response) {
+              // Handle specific status codes
+              if (err.response.status === 409) {
+                return 'User is already registered';
+              }
+              return 'Submission Error. Contact GDUE Office.';
+            } else {
+              return 'Submission Error. Contact GDUE Office.';
+            }
+          } else {
+            return 'An unexpected error occurred. Please try again later.';
+          }
+        },
+      },
+      {
+        style: {
+          minWidth: '250px',
+        },
+        success: {
+          duration: 6000,
+          icon: <LucideBadgeCheck color="limegreen" />,
+        },
+      }
+    );
 
     try {
-      const response = await axios.post('/api/register/registrationForm/', data, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (response.status !== 200) {
-        throw new Error('Network response was not ok');
-      }
-
-      toast.success('Membership Request Sumitted!');
-      // reload page
-      window.location.reload();
-
-      // Optionally close the form or reset fields here
+      // Await the promise to ensure that errors are caught
+      await myPromise;
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        // Check if the error response exists and handle specific status codes
-        if (error.response) {
-          if (error.response.status === 409) {
-            toast.error('User is already registered');
-          } else {
-            toast.error('Submission Error. Contact GDUE Office. ');
-          }
-        } else {
-          // console.error('Error:', error.message);
-          toast.error('Submission Error. Contact GDUE Office. ');
-        }
-      } else {
-        toast.error('An unexpected error occurred. Please try again later.');
-      }
+      // Additional error handling (if needed)
+      console.error('Submission failed:', error);
     }
   };
 
@@ -149,7 +167,6 @@ const JoinPage = () => {
         backgroundImage="/images/accra-fishing.jpg"
         hideVideo={false}
       />
-      <div className={` text-4xl font-bold`}></div>
 
       <div className="md:p-8 h-auto">
 
@@ -175,24 +192,6 @@ const JoinPage = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='space-y-2'>
                 <div className='flex flex-wrap gap-4 w-full'>
-                  <div className='group flex flex-col data-[hidden=true]:hidden w-full md:max-w-auto]'>
-                    <Autocomplete
-                      label="Select Diaspora Country"
-                      defaultItems={allCountries}
-                      // placeholder="Select Country in Europe"
-                      className="md:max-w-auto]"
-                      onSelectionChange={(value) => handleAutocompleteChange(value as string)}
-                      {...register("country", { required: true })}
-                      isInvalid={errors.country ? true : false}
-                    >
-                      {(country) => <AutocompleteItem
-                        key={country.value}
-                        startContent={<Avatar alt="Argentina" className="w-5 h-5" src={country.flag} />}
-                      >
-                        {country.label}
-                      </AutocompleteItem>}
-                    </Autocomplete>
-                  </div>
 
                   <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 ">
                     <Input
@@ -282,6 +281,25 @@ const JoinPage = () => {
                     />
 
                   </div>
+                  <div className='group flex flex-col data-[hidden=true]:hidden w-full md:max-w-auto]'>
+                    <Autocomplete
+                      label="Select Diaspora Country"
+                      defaultItems={allCountries}
+                      // placeholder="Select Country in Europe"
+                      className="md:max-w-auto]"
+                      onSelectionChange={(value) => handleAutocompleteChange(value as string)}
+                      {...register("country", { required: true })}
+                      isInvalid={errors.country ? true : false}
+                    >
+                      {(country) => <AutocompleteItem
+                        key={country.value}
+                        startContent={<Avatar alt="Argentina" className="w-5 h-5" src={country.flag} />}
+                      >
+                        {country.label}
+                      </AutocompleteItem>}
+                    </Autocomplete>
+                  </div>
+
 
                   <div>
                     {/* <GoogleReCaptchaProvider reCaptchaKey={'6LfyzhUqAAAAANYGhxsaBusPaLv7RXw7Dr0dg9Pf'}
@@ -316,7 +334,7 @@ const JoinPage = () => {
 
 
       </div>
-      <Toaster />
+
 
     </div>
 
