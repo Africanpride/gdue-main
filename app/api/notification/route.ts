@@ -55,7 +55,7 @@ export async function POST(req: Request) {
                 Thank you for joining <span class="font-semibold ">The Ghanian Diaspora Union in Europe </span>Organisation.
             </p>
             <p class="mt-2 leading-loose text-gray-600 dark:text-gray-300">
-               Kindly keep this nummber <strong>${memberData.gdueMemberId}</strong> as your membership number.
+               Kindly keep this number <strong>${memberData.gdueMemberId}</strong> as your membership number and use it in all correspondence with us.
             </p>
 
              <p class="mt-2 leading-loose text-gray-600 dark:text-gray-300">
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
         </main>
         
         <footer class="mt-16  ">
-            <p class="text-gray-300 dark:text-white text-[9px]">
+            <p class="text-gray-500 dark:text-white text-[0.7rem]">
                 This email was sent to ${memberData.email} and as a part of discussion between The Ghanaian Diaspora Union in Europe (GDUE) and the addressee whose name is specified above. Should you receive this message by mistake, we ask that you inform us at your earliest possible experience. In this case, we also ask that you delete this message from your mailbox, and do not forward it or any part of it to anyone else. Thank you for your cooperation and understanding.
                
             </p>
