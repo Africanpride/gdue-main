@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     <title>Email Template</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900">
+<body class="bg-gray-100 dark:bg-gray-900 text-[12px]">
     <section class="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
 
 
