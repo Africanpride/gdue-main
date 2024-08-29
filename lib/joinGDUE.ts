@@ -1,5 +1,6 @@
 import { connect } from "@/prisma/mondoDB/mongo";
 import NewGdueMember from "@/prisma/mondoDB/newGdueMemberSchema";
+import axios from "axios";
 
 interface MongoError extends Error {
   code?: number;
@@ -20,7 +21,7 @@ export async function joinGDUE(memberData: any) {
   } catch (error) {
     const mongoError = error as MongoError;
     console.error("MongoDB Error:", mongoError.message);
-    
+
     // Check for duplicate key error (code 11000)
     if (mongoError.code === 11000) {
       return {

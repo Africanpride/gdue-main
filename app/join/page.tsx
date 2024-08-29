@@ -15,7 +15,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 
-interface InputsData  {
+interface InputsData {
   firstName: string;
   lastName: string;
   email: string;
@@ -68,6 +68,26 @@ const JoinPage = () => {
   // }, [checkForToken]);
 
 
+  async function notifyAllParties(firstName: string, email: string, gdueMemberId: string) {
+    try {
+      const response = await fetch('/api/notification/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, email, gdueMemberId }),
+      });
+
+      if (response.ok) {
+        // console.log('Notification sent successfully');
+      } else {
+        console.error('Notification not sent successfully');
+      }
+    } catch (error) {
+      console.error('An error occurred while sending the notification:', error);
+    }
+  }
+
 
   async function handleCaptchaSubmission(token: string | null) {
     const response = axios.post("/api/recaptchaVerification/", { token })
@@ -97,6 +117,8 @@ const JoinPage = () => {
       },
     });
 
+
+
     // Use toast.promise to handle the toast notifications
     toast.promise(
       myPromise,
@@ -104,7 +126,20 @@ const JoinPage = () => {
         loading: 'Submitting your request...',
         success: (response) => {
           // Handle success response
-          window.location.reload(); // Reload page
+          const firstName = response.data.firstName;
+          const email = response.data.email;
+          const gdueMemberId = response.data.membershipNumber;
+
+          // console.log("NOTIFYING ....")
+          const notify = notifyAllParties(
+            firstName,
+            email,
+            gdueMemberId
+          );
+
+          // Log the membershipNumber
+          // console.log('Membership Number:', membershipNumber);
+
           return 'Membership Request Submitted!';
         },
         error: (err) => {
@@ -128,7 +163,7 @@ const JoinPage = () => {
           minWidth: '250px',
         },
         success: {
-          duration: 6000,
+          duration: 18000,
           icon: <LucideBadgeCheck color="limegreen" />,
         },
       }

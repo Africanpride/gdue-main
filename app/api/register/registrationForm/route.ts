@@ -1,16 +1,10 @@
 import { joinGDUE } from "@/lib/joinGDUE";
+import { generateUniqueDiasporanId } from "@/utils/functions";
+import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
-export async function POST(req: NextRequest) {
-  if (req.method !== "POST") {
-    return NextResponse.json({
-      success: false,
-      error: "Method not allowed",
-      status: 405,
-    });
-  }
 
+export async function POST(req: NextRequest) {
   const formData = await req.json();
-  // console.log("Received formData:", formData);
 
   // Destructure formData and add additional fields
   const {
@@ -21,10 +15,13 @@ export async function POST(req: NextRequest) {
     telephone,
     addressInDiaspora,
     addressInGhana,
-    spouseName = '',
-    emergencyContact = '',
-    emergencyContactTelephone = '',
+    spouseName = "",
+    emergencyContact = "",
+    emergencyContactTelephone = "",
   } = formData;
+
+  // generate member id and assign it to membershipNumber
+  const generatedNumber = generateUniqueDiasporanId();
 
   // Create the complete member object
   const memberData = {
@@ -41,24 +38,33 @@ export async function POST(req: NextRequest) {
     membershipApproved: false,
     membershipApprovedDate: null,
     membershipApprovedBy: null,
-    membershipNumber: null,
+    membershipNumber: generatedNumber,
   };
 
-  // console.log("Constructed memberData:", memberData);
-
   try {
+    // send notification
+
+    // Send the member data to the server
     const userResponse = await joinGDUE(memberData);
-    // console.log("User response from joinGDUE:", userResponse);
     return NextResponse.json(
-      { message: userResponse.message },
+      {
+        success: true,
+        message: userResponse.message,
+        status: userResponse.status,
+        firstName: memberData.firstName,
+        email: memberData.email,
+        membershipNumber: memberData.membershipNumber,
+      },
       { status: userResponse.status }
     );
   } catch (error) {
-    console.error("Error in POST handler:", error);
-    return NextResponse.json({
-      success: false,
-      error: "Error joining GDUE",
-      status: 500,
-    });
+    if (error instanceof Error) {
+      console.error("Error joining GDUE:", error.message);
+      return NextResponse.json({
+        success: false,
+        error: error.message,
+        status: 500,
+      });
+    }
   }
 }

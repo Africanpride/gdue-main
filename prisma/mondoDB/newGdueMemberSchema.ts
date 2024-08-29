@@ -64,6 +64,6 @@ const NewGdueMemberSchema = new Schema({
 
 // Create the model
 const NewGdueMember =
-  models.NewGdueMembership || model("NewGdueMembership", NewGdueMemberSchema);
+  models.gduemembership || model("gduemembership", NewGdueMemberSchema);
 
 export default NewGdueMember;
