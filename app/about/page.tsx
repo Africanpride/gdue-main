@@ -17,6 +17,7 @@ import { useAnimationContext } from "@/components/AnimationContext";
 import { useEffect, useRef } from "react";
 import AnimatedSections from "@/components/AnimatedSections";
 import AnimatedDivTag from "@/components/AnimatedDivTag";
+import AboutFaqs from "@/components/AboutFaqs";
 
 export default function AboutPage() {
   const { observe } = useAnimationContext();
@@ -134,7 +135,7 @@ export default function AboutPage() {
               <span className={`${playfair_display.className} text-yellow-600`}>
                 Ghanaians
               </span>{" "}
-              
+
             </div>
             <div className="w-auto md:w-6/12 md:bg-white dark:bg-neutral-900 h-auto md:p-6 rounded-3xl text-md md:flex justify-center items-center">
               GDUE&apos;s mission is advocating for the rights and welfare of
@@ -145,8 +146,40 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <AnimatedSections
+        className=" h-auto md:px-24 md:py-4   mx-auto min-h-[70dvh]
+      flex flex-col justify-center items-center space-y-5  "
+      >
+        <div className="text-md max-w-3xl mx-auto">
+          The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant
+          Ghanaian community abroad. We understand the joys and challenges of
+          living in Europe, and we are here to empower you. As a member of GDUE,
+          you&apos;ll connect with a network of fellow Ghanaians for friendship,
+          cultural exchange, and professional advancement. <br /> <br />
+          <span className="font-bold">Empowerment and Opportunity:</span> GDUE
+          offers a variety of programs to help you thrive in Europe. We advocate
+          for your rights and fair treatment, ensuring your voice is heard. Our
+          workshops and training sessions equip you with valuable skills to
+          excel in your career, while mentorship opportunities connect you with
+          experienced professionals. <br /> <br />
+          <span className="font-bold">Economic Benefits:</span> Being a GDUE
+          member opens doors to economic opportunities. We provide access to
+          business networks, financial literacy programs, and mentorship
+          specifically geared towards helping you succeed financially. Whether
+          you&apos;re seeking employment or pursuing entrepreneurial ventures,
+          GDUE empowers you to achieve your goals.
+          <br /> <br />
+          <span className="font-bold">Together We Rise:</span> Beyond the
+          professional sphere, GDUE fosters a strong sense of community. We
+          organize cultural events and celebrations to keep Ghanaian traditions
+          alive and share them with others in Europe. Through social gatherings
+          and networking events, you&apos;ll build lasting friendships and feel
+          a sense of belonging. Join GDUE and experience the difference &mdash;
+          together we can build a brighter future for Ghanaians living in
+          Europe.
+        </div>
+      </AnimatedSections>
 
-      <Faqs />
 
       <AnimatedSections className="md:p-8 md:min-h-[90dvh]">
         <>
@@ -241,38 +274,8 @@ export default function AboutPage() {
 
 
       </div>
-      <AnimatedSections
-        className=" h-auto md:px-24 md:py-4   mx-auto min-h-[70dvh]
-      flex flex-col justify-center items-center space-y-5  "
-      >
-        <div className="text-md max-w-3xl mx-auto">
-          The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a vibrant
-          Ghanaian community abroad. We understand the joys and challenges of
-          living in Europe, and we are here to empower you. As a member of GDUE,
-          you&apos;ll connect with a network of fellow Ghanaians for friendship,
-          cultural exchange, and professional advancement. <br /> <br />
-          <span className="font-bold">Empowerment and Opportunity:</span> GDUE
-          offers a variety of programs to help you thrive in Europe. We advocate
-          for your rights and fair treatment, ensuring your voice is heard. Our
-          workshops and training sessions equip you with valuable skills to
-          excel in your career, while mentorship opportunities connect you with
-          experienced professionals. <br /> <br />
-          <span className="font-bold">Economic Benefits:</span> Being a GDUE
-          member opens doors to economic opportunities. We provide access to
-          business networks, financial literacy programs, and mentorship
-          specifically geared towards helping you succeed financially. Whether
-          you&apos;re seeking employment or pursuing entrepreneurial ventures,
-          GDUE empowers you to achieve your goals.
-          <br /> <br />
-          <span className="font-bold">Together We Rise:</span> Beyond the
-          professional sphere, GDUE fosters a strong sense of community. We
-          organize cultural events and celebrations to keep Ghanaian traditions
-          alive and share them with others in Europe. Through social gatherings
-          and networking events, you&apos;ll build lasting friendships and feel
-          a sense of belonging. Join GDUE and experience the difference &mdash;
-          together we can build a brighter future for Ghanaians living in
-          Europe.
-        </div>
+      <AnimatedSections className="md:p-8 md:min-h-[80vh] flex flex-col justify-center">
+        <AboutFaqs />
       </AnimatedSections>
       <Newsletter />
     </div>
