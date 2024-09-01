@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     <title>Email Template</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-[12px]">
+<body style="font-size:12px;font-weight:500;line-height:16px" class="bg-gray-100 dark:bg-gray-900 text-[12px]">
     <section class="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
 
 
@@ -73,12 +73,13 @@ export async function POST(req: Request) {
         </main>
         
         <footer class="mt-16  ">
-            <p class="text-gray-500 dark:text-white text-[0.7rem]">
+
+            <p style="color:#677185;font-size:10px;font-weight:500;line-height:16px">
                 This email was sent to ${memberData.email} and as a part of discussion between The Ghanaian Diaspora Union in Europe (GDUE) and the addressee whose name is specified above. Should you receive this message by mistake, we ask that you inform us at your earliest possible experience. In this case, we also ask that you delete this message from your mailbox, and do not forward it or any part of it to anyone else. Thank you for your cooperation and understanding.
                
             </p>
 
-            <p class="mt-5 text-gray-500 dark:text-gray-400">© ${currentYear} Ghanaian Diaspora Union In Europe (GDUE). All Rights Reserved.</p>
+            <p style="color:#677185;font-size:10px;font-weight:500;line-height:16px" class="mt-5 text-gray-500 dark:text-gray-400">© ${currentYear} Ghanaian Diaspora Union In Europe (GDUE). All Rights Reserved.</p>
         </footer>
     </section>
 </body>
@@ -98,13 +99,13 @@ export async function POST(req: Request) {
 
   try {
     await transporter.sendMail({
-      from: `"GDUE" <${NEXT_PUBLIC_FROM_EMAIL}>`,
+      from: `"Ghanaian Diaspora Union - GDUE" <${NEXT_PUBLIC_FROM_EMAIL}>`,
       to: memberData.email,
       replyTo: NEXT_PUBLIC_FROM_EMAIL,
       subject: `GDUE Member ID: ${memberData.gdueMemberId}`,
       html: emailTemplate,
     });
-
+    console.log("Email sent successfully");
     return NextResponse.json(
       { message: "Success: email was sent" },
       { status: 200 }

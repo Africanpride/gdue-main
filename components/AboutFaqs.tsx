@@ -37,7 +37,7 @@ const AboutFaqs = (props: Props) => {
   return (
     <Accordion className='border border-neutral-300 divide-y  rounded-2xl max-w-4xl mx-auto' transition transitionTimeout={200}>
       {faqs.map(({ question, answer }, i) => (
-        <div key={i} className='sm:px-4'>
+        <div key={i} className='px-4'>
           <AccordionItem
             header={({ state: { isEnter } }) => (
               <div className='w-full flex items-center justify-between'>
