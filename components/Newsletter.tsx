@@ -9,49 +9,50 @@ const Newsletter = (props: Props) => {
   return (
     <div>
       <AnimatedSections className="w-full text-[16px] ">
-        <div className="lg:max-w-none lg:mt-38 mt-22 mx-auto sm:mt-30">
+        <div className="lg:max-w-none  mt-22 mx-auto sm:mt-30">
           <div
-            className="-mx-6 md:rounded-6xl bg-neutral-950 px-6 py-16 sm:mx-0 sm:py-28 md:px-12"
+            className="-mx-6 md:rounded-6xl bg-neutral-950 px-6 py-12 sm:mx-0 sm:py-24 md:px-12"
             style={{ opacity: "1", transform: "none" }}
           >
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-4xl divide-y divide-neutral-900 space-y-8  ">
+
               <div className="max-w-2xl space-y-5 ">
                 <h2 className="font-display text-3xl  text-white [text-wrap:balance] sm:text-4xl">
-                  Stay Connected with GDUE
+                Join the Ghanaian Diaspora Union in Europe (GDUE)!
                 </h2>
                 <p className="text-md text-gray-500">
-                  Join our newsletter to stay informed about events, support
-                  services, and community news. Be part of our mission to unite
-                  and empower Ghanaians in the diaspora.
+                Unite with fellow Ghanaians in Europe to build lasting friendships, share cultural experiences, and advance your career. Empower yourself with the GDUE network today!
                 </p>
                 <div className="mt-6 flex">
                   <Link
                     className="inline-flex items-center rounded-full px-4 py-1.5 space-x-3 text-sm font-semibold transition bg-white text-neutral-950 hover:bg-neutral-200"
-                    href="/contact"
+                    href="/join"
                   >
-                    <span className="relative top-px">Say Hi</span>
+                    <span className="relative top-px">Click Here to Join GDUE</span>
                     <span>
                       <Library className="text-current h-5 w-5" />
                     </span>
                   </Link>
                 </div>
 
-                <div className="mt-10 border-t border-white/10 pt-10">
-                  <h3 className="font-display text-base font-semibold text-white">
-                    Our offices
-                  </h3>
-                  <ul
-                    role="list"
-                    className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                  >
-                    <li>
-                      <address className="text-sm not-italic text-neutral-300">
-                        <strong className="text-white">Barcelona</strong><br />
-                        Calle Río sella, 43 Bajo izquierda <br />
-                        33010 Oviedo Spain <br />+34 624490895
-                      </address>
-                    </li>
-                    {/* <li>
+              </div>
+
+              <div className="pt-6">
+                <h3 className="font-display  text-2xl  text-white">
+                  Our Office
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-2 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                >
+                  <li>
+                    <address className="text-sm not-italic text-neutral-300">
+                      <strong className="text-white">Barcelona</strong><br />
+                      Calle Río sella, 43 Bajo izquierda, 33010
+                      <br />Oviedo Spain, +34 624490895
+                    </address>
+                  </li>
+                  {/* <li>
                       <address className="text-sm not-italic text-neutral-300">
                         <strong className="text-white">Ankara</strong>
                         <br />
@@ -60,9 +61,9 @@ const Newsletter = (props: Props) => {
                         7190, Billund, Turkey
                       </address>
                     </li> */}
-                  </ul>
-                </div>
+                </ul>
               </div>
+
             </div>
           </div>
         </div>

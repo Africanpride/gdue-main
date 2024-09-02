@@ -27,6 +27,7 @@ import MainLogo from "@/ui/GDUELogo";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
+import Socials from "./Socials";
 
 
 type Props = {};
@@ -96,6 +97,7 @@ const NavBar = (props: Props) => {
             </NextLink>
           </NavbarItem>
         ))}
+
 
       </NavbarContent>
 

@@ -110,7 +110,6 @@ export default function RootLayout({
           </Providers>
         </body>
 
-        <PrelineScript />
       </html>
 
     </ClerkProvider >

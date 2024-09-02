@@ -1,3 +1,4 @@
+import CallToAction from "@/components/CallToAction";
 import Jumbotron from "@/components/Jumbotron";
 import React from "react";
 
@@ -38,6 +39,8 @@ const page = (props: Props) => {
         hideVideo={false}
       />
       <div className={` text-4xl font-bold`}>More information coming soon ...</div>
+
+      {/* <CallToAction /> */}
     </div>
   );
 };
