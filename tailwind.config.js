@@ -1,4 +1,6 @@
+import { Button } from "@nextui-org/button";
 import { nextui } from "@nextui-org/theme";
+import { Radius } from "lucide-react";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -16,7 +18,7 @@ module.exports = {
         ibm: ["IBMPlexSansCondensed-Regular", "sans-serif"], // For IBM Plex Sans Condensed
         inter: ["Inter", "sans-serif"], // For Inter font
         poppins: ["Poppins", "sans-serif"], // For Poppins font
-      },
+      },      
       borderRadius: {
         "4xl": "2rem",
         "5xl": "3rem",

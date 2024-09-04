@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   }
 
   const memberData = await req.json();
-  console.log("member: " + memberData);
+  console.log("member: " + memberData.firstName);
 
   if (!memberData.firstName || !memberData.email || !memberData.gdueMemberId) {
     return NextResponse.json(

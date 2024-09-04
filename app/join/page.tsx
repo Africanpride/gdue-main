@@ -20,6 +20,7 @@ interface InputsData {
   lastName: string;
   email: string;
   telephone: number;
+  dateOfBirth: Date;
   addressInDiaspora: string;
   addressInGhana: string;
   spouseName: string;
@@ -270,6 +271,14 @@ const JoinPage = () => {
                     />
 
                   </div>
+                    <Input
+                      {...register("dateOfBirth", { required: true })}
+                      name="dateOfBirth"
+                      label="Date of Birth"
+                      // placeholder="Enter your Cellphone Number"
+                      className="md:max-w-auto]"
+                      isInvalid={errors.dateOfBirth ? true : false}
+                    />
                   <Input
                     {...register("addressInDiaspora", { required: true })}
                     name="addressInDiaspora"

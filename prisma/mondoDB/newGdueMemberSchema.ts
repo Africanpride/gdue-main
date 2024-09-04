@@ -30,6 +30,10 @@ const NewGdueMemberSchema = new Schema({
     required: true,
     index: true, // Add index for faster queries
   },
+  dateOfBirth: {
+    type: Date,
+    required: false,
+  },
   addressInDiaspora: {
     type: String,
     required: true,

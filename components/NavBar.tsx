@@ -27,7 +27,6 @@ import MainLogo from "@/ui/GDUELogo";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
-import Socials from "./Socials";
 
 
 type Props = {};
@@ -106,10 +105,9 @@ const NavBar = (props: Props) => {
           <div
             className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6`}
           >
-            <Link href={'/join'} >
-              <Button size="sm" color="warning" className='text-[14px] text-white'>Join GDUE</Button>
+            <Link href={'/join'}>
+              <Button size="sm" color="warning" className='text-[16px] text-white rounded-full sm:w-24 font-light tracking-wider hover:bg-yellow-500 transition-colors duration-300 transform '>Join GDUE </Button>
             </Link>
-
             {/* <SignedOut>
               <SignInButton>
                 <div className="text-sm cursor-pointer flex items-center">
@@ -144,9 +142,9 @@ const NavBar = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={{
-              hidden: {  y: 20 },
+              hidden: { y: 20 },
               visible: {
-                
+
                 y: 0,
                 transition: {
                   ease: "easeOut",
@@ -155,7 +153,7 @@ const NavBar = (props: Props) => {
                 },
               },
             }}
-            
+
 
             className="space-y-2 font-poppins font-extrabold uppercase italic "
 
