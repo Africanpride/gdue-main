@@ -36,6 +36,10 @@ export const siteConfig = {
       href: "/impact",
     },
     {
+      label: "Admin",
+      href: "/admin",
+    },
+    {
       label: "Donate",
       href: "/donate",
     },
