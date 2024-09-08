@@ -375,15 +375,17 @@ const JoinPage = () => {
 
 
                 </div>
-              </div>
-              <div className='grid md:grid-cols-2 gap-2'>
-                <Button type="reset" color="danger" variant="solid">
-                  Cancel
-                </Button>
-                {isVerified && (<Button color="primary" type="submit">
-                  Submit
-                </Button>)}
+               <div className="py-3">
+               <div className='grid md:grid-cols-2 gap-2'>
+                  <Button type="reset" color="danger" variant="solid">
+                    Cancel
+                  </Button>
+                  {isVerified && (<Button color="primary" type="submit">
+                    Submit
+                  </Button>)}
 
+                </div>
+               </div>
               </div>
             </form>
 

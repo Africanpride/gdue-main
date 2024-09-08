@@ -125,7 +125,7 @@ export default function AboutPage() {
 
           <div className="md:flex md:space-x-5 p-6 w-full">
             <div
-              className={` w-full md:w-6/12 text-2xl md:text-4xl p-4 md:pt-3 md:text-right`}
+              className={` w-full md:w-6/12 text-2xl md:text-4xl md:p-4 md:pt-3 md:text-right`}
             >
               Advocating for{" "}
               <span className={`${playfair_display.className} text-yellow-600`}>
@@ -184,7 +184,7 @@ export default function AboutPage() {
       <AnimatedSections className="md:p-8 md:min-h-[90dvh]">
         <>
           {/* Hero */}
-          <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[85rem] mx-auto sm:px-6 lg:px-8">
             {/* Grid */}
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
@@ -197,7 +197,7 @@ export default function AboutPage() {
                     friendship, cultural exchange, and professional advancement
                   </span>
                 </h1>
-                <p ref={sectionRef} className="mt-3 text-lg text-gray-800 dark:text-neutral-400">
+                <p ref={sectionRef} className="mt-3  text-gray-800 dark:text-neutral-400">
                   The Ghanaian Diaspora Union   in Europe (GDUE) is your bridge to a
                   vibrant Ghanaian community abroad. We understand the joys and
                   challenges of living in Europe, and we are here to empower
