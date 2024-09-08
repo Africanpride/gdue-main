@@ -19,7 +19,7 @@ export default function Home() {
                 </>)}
                 linkText="Watch our story"
                 linkHref="#"
-                backgroundImage="/images/festival2.jpg"
+                backgroundImage="/images/african8.png"
                 hideVideo={false}
             />
             <div className="max-w-5xl mx-auto">
@@ -27,21 +27,21 @@ export default function Home() {
             </div>
             <AnimatedSections>
                 <div className="w-full ">
-                    <div className=" max-w-7xl lg:max-w-none ">
+                    <div className="-mx-16 max-w-7xl lg:max-w-none ">
                         <div
-                            className="-mx-6 md:rounded-6xl relative overflow-hidden bg-neutral-950 px-6 py-16 sm:mx-0 sm:py-28 md:px-12 min-h-[70dvh]
+                            className=" md:rounded-none relative overflow-hidden bg-neutral-950 px-16 py-16 sm:mx-0 sm:py-28 md:px-18 min-h-[85dvh]
             flex flex-col justify-center"
                             style={{
                                 opacity: "1",
                                 transform: "none",
-                                backgroundImage: "url('/images/africa.jpg')",
+                                backgroundImage: "url('/images/twins2.jpg')",
                                 backgroundSize: "cover",
-                                backgroundPosition: "center",
+                                backgroundPosition: "right 5% bottom 55%",
                             }}
                         >
                             <div className="absolute inset-0 bg-black opacity-60 z-10"> </div>
 
-                            <div className=" z-20 max-w-5xl space-y-4">
+                            <div className=" z-20 max-w-4xl space-y-4">
                                 <div
                                     className={`${bebas.className} text-5xl md:text-6xl md:leading-[4rem] font-bold text-white capitalize`}
                                 >
@@ -59,7 +59,7 @@ export default function Home() {
                                     </span>{" "}
                                     Development
                                 </div>
-                                <div className="text-2xl font-bold text-white ">
+                                <div className="text-3xl  text-white ">
                                     The Ghanaian Diaspora Union  in Europe (GDUE) is your bridge to a
                                     vibrant Ghanaian community abroad. We understand the joys and
                                     challenges of living in Europe, and we are here to empower

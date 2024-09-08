@@ -94,7 +94,7 @@ const DashboardIntro: React.FC<Props> = () => {
                                         <th scope="row" className=''>ID Number:</th>
                                         <td className='whitespace-nowrap flex gap-x-4 items-center pl-10'>
                                             <div>{uniqueId ? uniqueId : "Loading..."}</div>
-                                            <img className="w-6 h-4" src="https://flagcdn.com/w20/gh.png" alt="Ghana Flag" />
+                                            <img className="w-6 h-4" src={'/images/gh2.png'} alt="Ghana Flag" />
                                         </td>
                                     </tr>
                                 </tbody>

@@ -82,7 +82,7 @@
     font-style: normal;
     src: url('/fonts/Poppins/Poppins-ExtraBold.eot');
     src: url('/fonts/Poppins/Poppins-ExtraBold.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/Poppins/Poppins-ExtraBold.woff2') format('woff2'),
+         /* url('/fonts/Poppins/Poppins-ExtraBold.woff2') format('woff2'), */
          url('/fonts/Poppins/Poppins-ExtraBold.woff') format('woff'),
          url('/fonts/Poppins/Poppins-ExtraBold.ttf') format("truetype");
     font-display: swap;
@@ -93,7 +93,7 @@
     font-style: normal;
     src: url('/fonts/Poppins/Poppins-Black.eot');
     src: url('/fonts/Poppins/Poppins-Black.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/Poppins/Poppins-Black.woff2') format('woff2'),
+         /* url('/fonts/Poppins/Poppins-Black.woff2') format('woff2'), */
          url('/fonts/Poppins/Poppins-Black.woff') format('woff'),
          url('/fonts/Poppins/Poppins-Black.ttf') format("truetype");
     font-display: swap;

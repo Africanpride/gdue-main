@@ -4,7 +4,8 @@ import Jumbotron from "@/components/Jumbotron";
 import { allCountries } from "@/config/site";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { Autocomplete, AutocompleteItem, Avatar } from "@nextui-org/react";
+import { Autocomplete, AutocompleteItem, Avatar, DateInput } from "@nextui-org/react";
+import { CalendarDate } from "@internationalized/date";
 import axios from "axios";
 import { LucideBadgeCheck } from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
@@ -12,6 +13,7 @@ import { GoogleReCaptchaProvider, GoogleReCaptcha, useGoogleReCaptcha } from "re
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
+import router from "next/router";
 
 
 
@@ -32,7 +34,22 @@ interface InputsData {
 const JoinPage = () => {
   const notify = () => toast('Membership Form Submitted!');
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<InputsData>();
+  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<InputsData>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      telephone: 0o0,
+      dateOfBirth: new Date(),
+      addressInDiaspora: '',
+      addressInGhana: '',
+      spouseName: '',
+      emergencyContact: '',
+      emergencyContactTelephone: 0o0,
+      country: '',
+    },
+  });
+  const [dateOfBirth, setDateOfBirth] = useState<CalendarDate>();
   const [isVerified, setIsVerified] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -80,7 +97,7 @@ const JoinPage = () => {
       });
 
       if (response.ok) {
-        // console.log('Notification sent successfully');
+        return;
       } else {
         console.error('Notification not sent successfully');
       }
@@ -131,7 +148,8 @@ const JoinPage = () => {
           const email = response.data.email;
           const gdueMemberId = response.data.membershipNumber;
 
-          // console.log("NOTIFYING ....")
+          console.log("NOTIFYING ....", firstName, email, gdueMemberId);
+
           const notify = notifyAllParties(
             firstName,
             email,
@@ -140,8 +158,9 @@ const JoinPage = () => {
 
           // Log the membershipNumber
           // console.log('Membership Number:', membershipNumber);
-
+          // reset();
           return 'Membership Request Submitted!';
+
         },
         error: (err) => {
           if (axios.isAxiosError(err)) {
@@ -173,12 +192,19 @@ const JoinPage = () => {
     try {
       // Await the promise to ensure that errors are caught
       await myPromise;
+      // window.location.reload();
     } catch (error) {
       // Additional error handling (if needed)
       console.error('Submission failed:', error);
     }
   };
 
+
+  // Managing the DateInput changes
+  const handleDateChange = (date: CalendarDate) => {
+    setDateOfBirth(date); // Update the state
+    setValue("dateOfBirth", new Date(date.year, date.month - 1, date.day)); // Set the date in react-hook-form
+  };
 
   const handleAutocompleteChange = (value: string) => {
     setValue("country", value);
@@ -271,14 +297,17 @@ const JoinPage = () => {
                     />
 
                   </div>
-                    <Input
-                      {...register("dateOfBirth", { required: true })}
-                      name="dateOfBirth"
-                      label="Date of Birth"
-                      // placeholder="Enter your Cellphone Number"
-                      className="md:max-w-auto]"
-                      isInvalid={errors.dateOfBirth ? true : false}
-                    />
+                  <DateInput
+                    label="Date of Birth"
+                    placeholderValue={dateOfBirth}
+                    value={dateOfBirth}
+                    onSubmit={() => {
+                      handleDateChange
+                    }} // Handle changes
+                    labelPlacement="inside"
+                  />
+
+
                   <Input
                     {...register("addressInDiaspora", { required: true })}
                     name="addressInDiaspora"
@@ -344,21 +373,6 @@ const JoinPage = () => {
                     </Autocomplete>
                   </div>
 
-
-                  <div>
-                    {/* <GoogleReCaptchaProvider reCaptchaKey={'6LfyzhUqAAAAANYGhxsaBusPaLv7RXw7Dr0dg9Pf'}
-
-                    scriptProps={{
-                      async: false, // optional, default to false,
-                      defer: false, // optional, default to false
-                      appendTo: 'head', // optional, default to "head", can be "head" or "body",
-                      nonce: undefined // optional, default undefined
-                    }}>
-                    <GoogleReCaptcha
-                      refreshReCaptcha={false}
-                      onVerify={(token) => { handleCaptchaSubmission(token) }} />
-                  </GoogleReCaptchaProvider> */}
-                  </div>
 
                 </div>
               </div>

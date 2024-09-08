@@ -13,7 +13,7 @@ export async function GET() {
 }
 
 // Handles POST requests to /api/notification
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const { REAL_EMAIL_PASSWORD, NEXT_PUBLIC_FROM_EMAIL, API_SECRET_TOKEN } = process.env;
 
   if (!REAL_EMAIL_PASSWORD || !NEXT_PUBLIC_FROM_EMAIL || !API_SECRET_TOKEN) {
@@ -24,7 +24,8 @@ export async function POST(req: Request) {
   }
 
   const memberData = await req.json();
-  console.log("member: " + memberData.firstName);
+
+  console.log("REQUEST DATA", memberData);
 
   if (!memberData.firstName || !memberData.email || !memberData.gdueMemberId) {
     return NextResponse.json(
