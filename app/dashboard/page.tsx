@@ -1,32 +1,24 @@
-// app/dashboard/page.tsx
 "use client";
-import DashboardIntro from '@/components/DashboardIntro';
+import React from 'react';
 import Jumbotron from '@/components/Jumbotron';
 import MembersPage from '@/components/MembersTable';
-import { Protection } from '@/components/Protection';
 import { useUser } from '@clerk/nextjs';
-import React from 'react';
 
 const DashboardPage: React.FC = () => {
   const { isSignedIn, user, isLoaded } = useUser();
+  const isAdmin = user?.publicMetadata?.role === 'admin';
 
-  if (!isLoaded) {
-    // Handle loading state however you like
-    return <div>Loading...</div>;
-  }
-
-  if (!isSignedIn) {
-    return <div>Not signed in</div>;
-  }
+  if (!isLoaded) return <div>Loading...</div>;
+  if (!isSignedIn) return <div>Not signed in</div>;
+  if (!isAdmin) return <div>Reserved for Administrators only</div>;
 
   return (
     <div className="md:space-y-16 space-y-8">
-
       <Jumbotron
-        heading={<span>Welcome!  {user?.fullName}</span>}
+        heading={<span>Welcome! {user?.fullName}</span>}
         description={(
           <>
-            Welcome to your <strong>GDUE Dashboard</strong>. Here, you can complete your <strong>Profile</strong> and add  your <strong>business details</strong> to be featured in our Diasporan Business Directory.
+            Welcome to your <strong>GDUE Dashboard</strong>. Here, you can complete your <strong>Profile</strong> and add your <strong>business details</strong> to be featured in our Diasporan Business Directory.
             <br /><br />
             Connect with the community, enhance your visibility, and grow your network. Start by entering your business information and join a vibrant network of Ghanaian entrepreneurs.
           </>
@@ -36,9 +28,7 @@ const DashboardPage: React.FC = () => {
         backgroundImage="/images/cargo2.jpg"
         hideVideo={false}
       />
-      <Protection>
-        <MembersPage />
-      </Protection>
+      <MembersPage />
     </div>
   );
 };

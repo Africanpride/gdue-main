@@ -76,7 +76,7 @@ export default function MembersPage() {
           loadingState={loadingState}
         >
           {(item) => (
-            <TableRow key={item?.firstName}>
+            <TableRow key={item?.membershipNumber}>
               {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
             </TableRow>
           )}

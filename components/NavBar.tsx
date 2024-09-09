@@ -108,7 +108,7 @@ const NavBar = (props: Props) => {
             className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6`}
           >
             <Link href={'/join'}>
-              <Button className='uppercase rounded-none' size={isTabletOrMobile ? 'sm' : 'md'} color="secondary" variant="solid"
+              <Button className='uppercase rounded-none' size={'sm'} color="secondary" variant="solid"
                 endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
                 <span className='text-lg'>Join GDUE</span>
               </Button>
