@@ -3,7 +3,8 @@
 import DashboardIntro from '@/components/DashboardIntro';
 import Jumbotron from '@/components/Jumbotron';
 import MembersPage from '@/components/MembersTable';
-import {  useUser } from '@clerk/nextjs';
+import { Protection } from '@/components/Protection';
+import { useUser } from '@clerk/nextjs';
 import React from 'react';
 
 const DashboardPage: React.FC = () => {
@@ -35,7 +36,9 @@ const DashboardPage: React.FC = () => {
         backgroundImage="/images/cargo2.jpg"
         hideVideo={false}
       />
-      <MembersPage />
+      <Protection>
+        <MembersPage />
+      </Protection>
     </div>
   );
 };
