@@ -6,11 +6,9 @@ import { useUser } from '@clerk/nextjs';
 
 const DashboardPage: React.FC = () => {
   const { isSignedIn, user, isLoaded } = useUser();
-  const isAdmin = user?.publicMetadata?.role === 'admin';
 
   if (!isLoaded) return <div>Loading...</div>;
   if (!isSignedIn) return <div>Not signed in</div>;
-  if (!isAdmin) return <div>Reserved for Administrators only</div>;
 
   return (
     <div className="md:space-y-16 space-y-8">

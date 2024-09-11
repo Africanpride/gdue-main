@@ -4,6 +4,8 @@ import useSWR from "swr";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, getKeyValue } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import Loading from "@/components/Loading";
+import { useUser } from '@clerk/nextjs';
+
 
 // Define the fetcher function for useSWR
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -19,6 +21,10 @@ interface Member {
 }
 
 export default function MembersPage() {
+  const { isSignedIn, user, isLoaded } = useUser();
+  const isAdmin = user?.publicMetadata?.role === 'admin';
+
+
   const [page, setPage] = useState(1);
   // Use SWR to fetch data
   const { data, error, isLoading } = useSWR('/api/getMembers', fetcher, {
@@ -35,6 +41,8 @@ export default function MembersPage() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Failed to load data</div>;
+  if (!isAdmin) return <div>...</div>;
+
 
   // Data is ready
   const members: Member[] = data?.members || []; // Use data.members here

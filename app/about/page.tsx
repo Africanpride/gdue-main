@@ -74,7 +74,7 @@ export default function AboutPage() {
         <div>
           <div className="w-full md:flex md:space-x-5 p-6">
             <div
-              className={` w-full md:w-6/12 text-2xl md:text-4xl p-6 md:pt-3 md:text-right`}
+              className={` w-full md:w-6/12 text-2xl md:text-4xl md:p-4 md:pt-3 md:text-right`}
             >
               A Vision for a brighter future for all{" "}
               <span className={`${playfair_display.className} text-yellow-600`}>
