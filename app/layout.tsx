@@ -9,7 +9,6 @@ import CookieConsent from "@/ui/CookieConsent";
 import { siteConfig } from "@/config/site";
 import { ibm_plex_sans_condense } from "@/config/fonts";
 import Footer from "@/components/Footer";
-import PrelineScript from "@/components/PrelineScript";
 import NavBar from "@/components/NavBar";
 import {
   ClerkProvider,
