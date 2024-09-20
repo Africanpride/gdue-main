@@ -1688,7 +1688,7 @@ export const executiveMembers = [
     country: "Ghana",
   },
   {
-    name: "Beatrice Oppong Yeboah",
+    name: "Mrs. Beatrice Oppong Yeboah",
     title: "Executive Member",
     image: "../images/executives/beatrice.jpg",
     country: "Ghana",
@@ -1703,6 +1703,12 @@ export const executiveMembers = [
     name: "Mr. Ibrahim Ynash",
     title: "Executive Member",
     image: "../images/executives/ibrahim.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Malaika Sani Gibril",
+    title: "Executive Member",
+    image: "../images/executives/malaika.jpg",
     country: "Ghana",
   },
   {
@@ -1730,16 +1736,23 @@ export const executiveMembers = [
     country: "Ghana",
   },
   {
-    name: "Mr. Nana Asare Baffour",
+    name: "Mr. Nana Asare Baffour II",
     title: "Executive Member",
     image: "../images/executives/baffour.jpg",
     country: "Ghana",
   },
   {
-    name: "Alhaji Yusuf Issah",
+    name: "AlHaji Akoll Yusuf",
     title: "Executive Member",
-    image: "../images/executives/issah.jpg",
+    image: "../images/executives/yusuf.jpg",
     country: "Ghana",
   },
+  {
+    name: "Issah Abdallah Adams",
+    title: "Executive Member",
+    image: "../images/executives/adams.jpg",
+    country: "Ghana",
+  },
+
 
 ];
