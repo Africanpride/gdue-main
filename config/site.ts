@@ -1,3 +1,5 @@
+import { count } from "console";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -595,7 +597,7 @@ export const allCountries = [
     label: "Mauritania",
     value: "mauritania",
     description: "A country in Northwest Africa",
-    flag: "https://flagcdn.com/mr.svg",
+    flag: "https://flagcdn.com/Mr.svg",
   },
   {
     label: "Mauritius",
@@ -1664,4 +1666,80 @@ export const europeanCountries = [
     description: "An independent city-state enclaved within Rome, Italy",
     flag: "https://flagcdn.com/va.svg",
   },
+];
+
+export const executiveMembers = [
+  {
+    name: "Mr. Ibrahim Isshak(Jalal)",
+    title: "Executive Member",
+    image: "../images/executives/jalal.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Ebenezer Bonney",
+    title: "Executive Member",
+    image: "../images/executives/bonney.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Joshua Oppong",
+    title: "Executive Member",
+    image: "../images/executives/joshua.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Beatrice Oppong Yeboah",
+    title: "Executive Member",
+    image: "../images/executives/beatrice.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Mustapha Anane",
+    title: "Executive Member",
+    image: "../images/executives/anane.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Ibrahim Ynash",
+    title: "Executive Member",
+    image: "../images/executives/ibrahim.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Edward Boateng Aduako",
+    title: "Executive Member",
+    image: "../images/executives/edward.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Mohammed Salisu",
+    title: "Executive Member",
+    image: "../images/executives/salisu.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Malik Donkor",
+    title: "Executive Member",
+    image: "../images/executives/malik.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Samuel Bugu",
+    title: "Executive Member",
+    image: "../images/executives/samuel.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Nana Asare Baffour",
+    title: "Executive Member",
+    image: "../images/executives/baffour.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Alhaji Yusuf Issah",
+    title: "Executive Member",
+    image: "../images/executives/issah.jpg",
+    country: "Ghana",
+  },
+
 ];

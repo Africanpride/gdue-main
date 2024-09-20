@@ -73,8 +73,8 @@ export default function Home() {
             <Divider title={'Diasporan Business Directory'} />
             <BusinessCategories />
 
-            <Divider title={'Our Sponsors'} />
-            <Sponsors />
+            {/* <Divider title={'Our Sponsors'} />
+            <Sponsors /> */}
 
 
             {/* <Faqs /> */}

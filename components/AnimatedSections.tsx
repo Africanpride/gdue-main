@@ -8,7 +8,7 @@ export default function AnimatedSections
         children,
         className,
     }: {
-        children: React.ReactNode;
+        children?: React.ReactNode;
         className?: string;
     }) {
 

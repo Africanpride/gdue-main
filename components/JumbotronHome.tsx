@@ -70,7 +70,7 @@ const JumbotronHome = ({ heading = "Share Your Business?",
       {/* Features */}
       <div className="mx-auto py-3">
         <div
-          className={`min-h-[90dvh] rounded-2xl h-auto md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
+          className={`min-h-[90dvh] rounded-2xl h-[80dvh] md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundPosition: "top center",

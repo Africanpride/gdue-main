@@ -3,7 +3,25 @@ import Link from "next/link";
 import React from "react";
 import AnimatedSections from "./AnimatedSections";
 
-type Props = {};
+type Props = {
+    className?: string;
+    children?: React.ReactNode;
+    title?: string;
+    description?: string;
+    image?: string;
+    date?: string;
+    author?: string;
+    url?: string;
+    slug?: string;
+    hero?: string;
+    featured?: boolean;
+    tags?: string[];
+    category?: string;
+    categories?: string[];
+    categorySlug?: string;
+    categoryTitle?: string;
+    readingTime?: string;
+};
 
 const Newsletter = (props: Props) => {
   return (
@@ -48,19 +66,11 @@ const Newsletter = (props: Props) => {
                   <li>
                     <address className="text-sm not-italic text-neutral-100">
                       <strong className="text-white text-lg">&#x2014; Spain</strong><br />
-                      Calle Río sella, 43 Bajo izquierda, 33010
-                      <br />Oviedo Spain, +34 624490895
+                      Calle Río sella, 43 Bajo izquierda,<br /> 33010
+                      Oviedo, Spain,<br />+34 624490895
                     </address>
                   </li>
-                  {/* <li>
-                      <address className="text-sm not-italic text-neutral-300">
-                        <strong className="text-white">Ankara</strong>
-                        <br />
-                        24 Lego Allé
-                        <br />
-                        7190, Billund, Turkey
-                      </address>
-                    </li> */}
+
                 </ul>
               </div>
 

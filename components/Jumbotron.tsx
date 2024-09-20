@@ -76,7 +76,7 @@ const Jumbotron = ({
     <AnimatedSections>
       <div className="mx-auto  py-3 pb-5">
         <div
-          className={`min-h-[80dvh] rounded-2xl h-auto md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
+          className={`min-h-[80dvh] rounded-2xl h-[80dvh] md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
         >
           <div className="absolute inset-0 z-0" style={{ filter: "grayscale(100%)" }}>
             <Image

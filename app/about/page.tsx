@@ -18,6 +18,8 @@ import { useEffect, useRef } from "react";
 import AnimatedSections from "@/components/AnimatedSections";
 import AnimatedDivTag from "@/components/AnimatedDivTag";
 import AboutFaqs from "@/components/AboutFaqs";
+import { Avatar, AvatarGroup } from "@nextui-org/react";
+import Executives from "@/components/Executives";
 
 export default function AboutPage() {
   const { observe } = useAnimationContext();
@@ -66,6 +68,7 @@ export default function AboutPage() {
           </div>
         </div>
       </AnimatedSections>
+
 
       <section
         className=" bg-neutral-100 dark:bg-neutral-950 h-auto min-h-dvh -mx-12 p-4 md:p-8 
@@ -188,9 +191,9 @@ export default function AboutPage() {
             {/* Grid */}
             <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
               <div className="lg:col-span-3">
-                <h5 className={`${bebas.className} `}>
+                {/* <h5 className={`${bebas.className} `}>
                   <span className="text-lg uppercase text-warning tracking-wide pb-4 py-3 flex items-center  after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-neutral-600">Networking The Diasporan Community</span>
-                </h5>
+                </h5> */}
                 <h1 className="block text-2xl font-bold text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl dark:text-white">
                   <span className={`${bebas.className} leading-8`}>
 
@@ -277,6 +280,7 @@ export default function AboutPage() {
       <AnimatedSections className="md:p-8 md:min-h-[80vh] flex flex-col justify-center">
         <AboutFaqs />
       </AnimatedSections>
+      <Executives />
       <Newsletter />
     </div>
   );
