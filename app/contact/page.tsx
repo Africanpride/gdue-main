@@ -118,7 +118,7 @@ export default function ContactPage() {
 
 
 
-  const description = (<>There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)
+  const description = (<>We are dedicated to making a significant impact on the lives of the most vulnerable in Africa.</>)
 
 
 

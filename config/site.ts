@@ -1676,6 +1676,24 @@ export const executiveMembers = [
     country: "Ghana",
   },
   {
+    name: "Mr. Malik Donkor",
+    title: "Executive Member",
+    image: "../images/executives/malik.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Malaika Sani Gibril",
+    title: "Executive Member",
+    image: "../images/executives/malaika.jpg",
+    country: "Ghana",
+  },
+  {
+    name: "Mr. Mustapha Anane",
+    title: "Executive Member",
+    image: "../images/executives/anane.jpg",
+    country: "Ghana",
+  },
+  {
     name: "Mr. Ebenezer Bonney",
     title: "Executive Member",
     image: "../images/executives/bonney.jpg",
@@ -1693,24 +1711,14 @@ export const executiveMembers = [
     image: "../images/executives/beatrice.jpg",
     country: "Ghana",
   },
-  {
-    name: "Mr. Mustapha Anane",
-    title: "Executive Member",
-    image: "../images/executives/anane.jpg",
-    country: "Ghana",
-  },
+
   {
     name: "Mr. Ibrahim Ynash",
     title: "Executive Member",
     image: "../images/executives/ibrahim.jpg",
     country: "Ghana",
   },
-  {
-    name: "Malaika Sani Gibril",
-    title: "Executive Member",
-    image: "../images/executives/malaika.jpg",
-    country: "Ghana",
-  },
+
   {
     name: "Mr. Edward Boateng Aduako",
     title: "Executive Member",
@@ -1723,12 +1731,7 @@ export const executiveMembers = [
     image: "../images/executives/salisu.jpg",
     country: "Ghana",
   },
-  {
-    name: "Mr. Malik Donkor",
-    title: "Executive Member",
-    image: "../images/executives/malik.jpg",
-    country: "Ghana",
-  },
+
   {
     name: "Mr. Samuel Bugu",
     title: "Executive Member",

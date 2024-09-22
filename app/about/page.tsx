@@ -35,7 +35,7 @@ export default function AboutPage() {
     <div className="md:space-y-16 space-y-8">
       <Jumbotron
         heading="The Ghanaian Diaspora Union   in Europe (GDUE)"
-        description={(<>   There&apos;s something special about being around people who understand you. GDUE  creates opportunities for Ghanaians to connect and build friendships.</>)}
+        description={(<>   We are dedicated to making a significant impact on the lives of the most vulnerable in Africa..</>)}
         linkText="Watch our story"
         linkHref="#"
         backgroundImage="/images/berlin.jpg"
@@ -51,7 +51,7 @@ export default function AboutPage() {
             <h3
               className={` text-2xl md:text-5xl capitalize font-extrabold`}
             >
-              Home in Europe &mdash; The Ghana <br />
+              Home in Europe &mdash; The Ghanaian <br />
               <span className={`${playfair_display.className} text-yellow-600`}>
                 Diaspora
               </span>{" "}
