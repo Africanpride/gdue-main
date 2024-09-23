@@ -19,7 +19,7 @@ export default function Home() {
                 </>)}
                 linkText="Watch our story"
                 linkHref="#"
-                backgroundImage="/images/african8.png"
+                backgroundImage="/images/gdue_home.jpg"
                 hideVideo={false}
             />
             <div className="max-w-5xl mx-auto">

@@ -31,7 +31,7 @@ const JumbotronHome = ({ heading = "Share Your Business?",
   ),
   linkText = "Watch our story",
   linkHref = "#",
-  backgroundImage = "/images/african3.jpg",
+  backgroundImage = "/images/gdue_home.jpg",
   hideVideo = false
 }: Props) => {
   const descriptionRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ const JumbotronHome = ({ heading = "Share Your Business?",
           className={`min-h-[90dvh] rounded-2xl h-[80dvh] md:min-h-[85vh] flex flex-col justify-center items-start bg-bottom bg-cover bg-no-repeat relative md:rounded-6xl overflow-hidden`}
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundPosition: "top center",
+            backgroundPosition: "center center",
             backgroundSize: "fit-content"
           }}
         >
@@ -85,7 +85,7 @@ const JumbotronHome = ({ heading = "Share Your Business?",
             {/* Card */}
             <div className="px-5 py-4 inline-block bg-white rounded-4xl md:p-7 dark:bg-neutral-900">
               <div>
-                <div ref={headerRef} className={`${bebas.className} tracking-wide text-md font-bold text-gray-800 sm:text-lg dark:text-neutral-200`}>
+                <div ref={headerRef} className={`${bebas.className} tracking-wide text-sm font-bold text-gray-800 sm:text-lg dark:text-neutral-200`}>
                   <div className="flex items-center gap-x-2">
                     <span>{heading}</span> 
                   <span><Image className="w-7 h-4 mb-1" src={'/images/gh2.png'} alt="background" width={1000} height={500} /></span>
