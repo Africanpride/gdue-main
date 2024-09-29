@@ -1756,6 +1756,12 @@ export const executiveMembers = [
     image: "../images/executives/adams.jpg",
     country: "Ghana",
   },
+  {
+    name: "Sandra Amponsah",
+    title: "Executive Member",
+    image: "../images/executives/sandra.jpg",
+    country: "Ghana",
+  },
 
 
 ];

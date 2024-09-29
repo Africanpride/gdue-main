@@ -322,7 +322,7 @@ const communityMenuItems = [
 const engagementMenuItems = [
   { label: "News & Updates", href: "/" }, // Replace with actual links
   { label: "Blog", href: "/" },
-  { label: "Gallery", href: "/" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Discussion Forum", href: "/" },
   { label: "Social Media", href: "/" },
 ];

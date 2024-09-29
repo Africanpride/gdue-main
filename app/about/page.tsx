@@ -9,16 +9,12 @@ import { Button } from '@nextui-org/button';
 
 import Link from "next/link";
 import { LucideArrowUpRight } from "lucide-react";
-import Faqs from "@/components/Faqs";
 import Newsletter from "@/components/Newsletter";
-import Divider from "@/ui/Divider";
 import Jumbotron from "@/components/Jumbotron";
 import { useAnimationContext } from "@/components/AnimationContext";
 import { useEffect, useRef } from "react";
 import AnimatedSections from "@/components/AnimatedSections";
-import AnimatedDivTag from "@/components/AnimatedDivTag";
 import AboutFaqs from "@/components/AboutFaqs";
-import { Avatar, AvatarGroup } from "@nextui-org/react";
 import Executives from "@/components/Executives";
 
 export default function AboutPage() {
