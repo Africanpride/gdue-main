@@ -10,7 +10,7 @@ const PhotoGallery: React.FC = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch('/api/getImagesLength');
+                const response = await fetch('/api/getImagesLength/');
                 const data: any = await response.json();
                 setImageFiles(data.imageFilesFiltered);
             } catch (error) {

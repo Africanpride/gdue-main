@@ -1,3 +1,4 @@
+// /app/api/getImagesLength/route.ts
 import { readdirSync } from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
