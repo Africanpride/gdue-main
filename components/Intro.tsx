@@ -29,8 +29,8 @@ const Intro = () => {
             </div>
             <div className='py-6'>
                 <Link href={'/about'}>
-                    <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
-                        endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
+                <Button className='uppercase rounded-none' size={'md'} color="warning" variant="solid"
+                endContent={<LucideArrowUpRight className='bg-primary  text-white' />}>
                         <span className='text-sm'>Read More About GDUE</span>
                     </Button>
                 </Link>

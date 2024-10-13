@@ -49,7 +49,7 @@ export default function MembersPage() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">Members List</h1>
+      <h1 className="text-2xl font-semibold mb-4">GDUE Members List</h1>
 
       <Table
         aria-label="GDUE Membership List"

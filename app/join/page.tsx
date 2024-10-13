@@ -159,6 +159,7 @@ const JoinPage = () => {
           // Log the membershipNumber
           // console.log('Membership Number:', membershipNumber);
           // reset();
+          // window.location.reload();
           return 'Membership Request Submitted!';
 
         },
@@ -192,6 +193,10 @@ const JoinPage = () => {
     try {
       // Await the promise to ensure that errors are caught
       await myPromise;
+      // wait a while and reload the page
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
       // window.location.reload();
     } catch (error) {
       // Additional error handling (if needed)
@@ -375,17 +380,17 @@ const JoinPage = () => {
 
 
                 </div>
-               <div className="py-3">
-               <div className='grid md:grid-cols-2 gap-2'>
-                  <Button type="reset" color="danger" variant="solid">
-                    Cancel
-                  </Button>
-                  {isVerified && (<Button color="primary" type="submit">
-                    Submit
-                  </Button>)}
+                <div className="py-3">
+                  <div className='grid md:grid-cols-2 gap-2'>
+                    <Button type="reset" color="danger" variant="solid">
+                      Cancel
+                    </Button>
+                    {isVerified && (<Button color="primary" type="submit">
+                      Submit
+                    </Button>)}
 
+                  </div>
                 </div>
-               </div>
               </div>
             </form>
 

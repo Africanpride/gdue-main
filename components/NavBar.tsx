@@ -108,8 +108,8 @@ const NavBar = (props: Props) => {
             className={`${bebas.className} flex items-center gap-x-2 font-medium text-gray-500 hover:text-yellow-600 py-2 md:py-0 md:my-6 md:ps-6`}
           >
             <Link href={'/join'}>
-              <Button className='uppercase rounded-none' size={'sm'} color="secondary" variant="solid"
-                endContent={<LucideArrowUpRight className='bg-warning  text-white' />}>
+              <Button className='uppercase rounded-none' size={'sm'} color="warning" variant="solid"
+                endContent={<LucideArrowUpRight className='bg-primary  text-white' />}>
                 <span className='text-lg'>Join GDUE</span>
               </Button>
             </Link>
@@ -140,8 +140,7 @@ const NavBar = (props: Props) => {
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="flex flex-col items-start justify-center h-auto pt-[20%]
-">
+        <div className="flex flex-col items-start justify-center h-auto pt-[20%]">
 
           <motion.ul
             initial="hidden"
@@ -169,7 +168,6 @@ const NavBar = (props: Props) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-
               >
                 <Link
                   onClick={() => setIsMenuOpen(isMenuOpen => !isMenuOpen)}

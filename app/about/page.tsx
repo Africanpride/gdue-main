@@ -219,8 +219,8 @@ export default function AboutPage() {
                     />
                   </div> */}
                   <Link href={'/services'}>
-                    <Button className='uppercase rounded-none' size='lg' color="secondary" variant="solid"
-                      endContent={<LucideArrowUpRight className='bg-green-500  text-white' />}>
+                  <Button className='uppercase rounded-none' size={'md'} color="warning" variant="solid"
+                endContent={<LucideArrowUpRight className='bg-primary  text-white' />}>
                       <span className='text-sm'>View Services</span>
                     </Button>
                   </Link>

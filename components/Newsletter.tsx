@@ -1,7 +1,8 @@
-import { Library } from "lucide-react";
+import { Library, LucideArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import AnimatedSections from "./AnimatedSections";
+import { Button } from "@nextui-org/button";
 
 type Props = {
     className?: string;
@@ -29,7 +30,7 @@ const Newsletter = (props: Props) => {
       <AnimatedSections className="w-full text-[16px] ">
         <div className="lg:max-w-none  mt-22 mx-auto sm:mt-30">
           <div
-            className="-mx-6 md:rounded-6xl bg-secondary px-6 py-12 sm:mx-0 sm:py-24 md:px-12"
+            className="-mx-6 md:rounded-6xl bg-blue-900 px-6 py-12 sm:mx-0 sm:py-24 md:px-12"
             style={{ opacity: "1", transform: "none" }}
           >
             <div className="mx-auto max-w-4xl divide-y divide-neutral-300/25 space-y-8  ">
@@ -42,15 +43,21 @@ const Newsletter = (props: Props) => {
                 Unite with fellow Ghanaians in Europe to build lasting friendships, share cultural experiences, and advance your career. Empower yourself with the GDUE network today!
                 </p>
                 <div className="mt-6 flex">
-                  <Link
-                    className="inline-flex items-center rounded-full px-4 py-1.5 space-x-3 text-sm font-semibold transition bg-yellow-500 text-black hover:bg-yellow-400"
+                <Link href={'/join'}>
+                <Button className='uppercase rounded-full' size={'md'} color="warning" variant="solid"
+                endContent={<LucideArrowUpRight className='bg-primary rounded-full  text-white' />}>
+                        <span className='text-sm'>Click Here to Join GDUE</span>
+                    </Button>
+                </Link>
+                  {/* <Link
+                    className="inline-flex items-center rounded-full px-4 py-1.5 space-x-3 text-sm font-semibold transition bg-warning text-black hover:bg-warning/70"
                     href="/join"
                   >
                     <span className="relative top-px">Click Here to Join GDUE</span>
                     <span>
                       <Library className="text-current h-5 w-5" />
                     </span>
-                  </Link>
+                  </Link> */}
                 </div>
 
               </div>
