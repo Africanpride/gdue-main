@@ -33,7 +33,7 @@ const Newsletter = (props: Props) => {
             className="-mx-6 md:rounded-6xl bg-blue-900 px-6 py-12 sm:mx-0 sm:py-24 md:px-12"
             style={{ opacity: "1", transform: "none" }}
           >
-            <div className="mx-auto max-w-4xl divide-y divide-neutral-300/25 space-y-8  ">
+            <div className="mx-auto max-w-5xl divide-y divide-neutral-300/25 space-y-8  ">
 
               <div className="max-w-2xl space-y-5 ">
                 <h2 className="font-display text-3xl  text-white [text-wrap:balance] sm:text-4xl">

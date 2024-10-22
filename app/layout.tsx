@@ -96,7 +96,7 @@ export default function RootLayout({
 
             <div className="relative flex flex-col h-screen px-4">
 
-              <main className="container mx-auto ">{children}</main>
+              <main>{children}</main>
 
 
 
