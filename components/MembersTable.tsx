@@ -29,13 +29,14 @@ export default function MembersPage() {
   // Use SWR to fetch data
   const { data, error, isLoading } = useSWR('/api/getMembers', fetcher, {
     keepPreviousData: true,
-    refreshInterval: 5 * 60 * 1000, // Re-fetch every 5 minutes
+    // refreshInterval: 5 * 60 * 1000, // Re-fetch every 5 minutes
   });
+  const rowsPerPage = 10;
 
-  const rowsPerPage = 2;
   const pages = useMemo(() => {
     return data?.count ? Math.ceil(data.count / rowsPerPage) : 0;
   }, [data?.count, rowsPerPage]);
+
 
   const loadingState = isLoading || data?.members.length === 0 ? "loading" : "idle";
 
@@ -52,6 +53,7 @@ export default function MembersPage() {
       <h1 className="text-2xl font-semibold mb-4">GDUE Members List</h1>
 
       <Table
+      isStriped
         aria-label="GDUE Membership List"
         bottomContent={
           pages > 0 ? (

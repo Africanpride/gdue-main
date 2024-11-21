@@ -6,7 +6,7 @@ import NewGdueMember from "@/prisma/mondoDB/newGdueMemberSchema";
 // Cache variable to store user data
 let cachedMembers: any[] | null = null;
 let lastFetchTime: number | null = null;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache duration
+const CACHE_DURATION = 1 * 60 * 1000; // 5 minutes cache duration
 
 export async function GET(req: NextRequest) {
   const now = Date.now();
